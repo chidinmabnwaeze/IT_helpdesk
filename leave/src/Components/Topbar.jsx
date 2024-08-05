@@ -1,6 +1,9 @@
 import React from "react";
+import bell from "../assets/icons/notification-02.png"
+import darkmode from "../assets/icons/material-symbols-light_dark-mode-outline.png"
+import avatar from "../assets/icons/Ellipse 15.png"
 
-export default function Topbar() {
+export default function Topbar(){
   return (
     <div>
       <div className="title">
@@ -11,14 +14,14 @@ export default function Topbar() {
         <input type="text" placeholder="Search" />
 
         <div className="mode">
-          <img className="night" src="" alt="" />
+          <img className="night" src={darkmode} alt="" />
         </div>
         <div className="notify">
-          <img className="bell" src="" alt="" />
+          <img className="bell" src={bell} alt="" />
         </div>
         <div className="user">
             <p>Micheal Offiong</p>
-            <img src="" alt="" />
+            <img src={avatar} alt="" />
         </div>
       </div>
     </div>

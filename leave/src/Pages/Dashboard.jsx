@@ -1,9 +1,10 @@
-import React from "react"
+import React from "react";
+import Topbar from "../Components/Topbar";
 
-export default function Dashboard(){
-    return (
-        <div className="dashboard">
-
-        </div>
-    )
+export default function Dashboard() {
+  return (
+    <div className="dashboard">
+      <Topbar />
+    </div>
+  );
 }
