@@ -1,13 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
 import './App.css'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
 
 
   return (
     <>
+    <BrowserRouter>
+    <Routes>
+     <Route index element ={<Dashboard/>}/>
+     <Route path ="/dashboard" element = {<Dashboard/>}/>
+    </Routes>
+    </BrowserRouter>
       <h1 className='text-4xl text-red-500'>leave request IPI</h1>
     </>
   )
