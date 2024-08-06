@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/Logo/ipi Solutions New 1.png";
+import Logo from "../assets/images/ministry of petroleum resources 1.png";
 import Dash from "../assets/icons/dashboard-square-02.svg";
 import Timesheet from "../assets/icons/vuesax/linear/calendar.svg";
 import Tasks from "../assets/icons/task-daily-02.svg";

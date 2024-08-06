@@ -5,12 +5,12 @@ import avatar from "../assets/icons/Ellipse 15.png"
 
 export default function Topbar(){
   return (
-    <div>
+    <div className="flex ">
       <div className="title">
         <h1>IT SUPPORT</h1>
       </div>
 
-      <div className="notifications">
+      <div className="flex">
         <input type="text" placeholder="Search" />
 
         <div className="mode">
@@ -19,7 +19,7 @@ export default function Topbar(){
         <div className="notify">
           <img className="bell" src={bell} alt="" />
         </div>
-        <div className="user">
+        <div className="flex p-10">
             <p>Micheal Offiong</p>
             <img src={avatar} alt="" />
         </div>
