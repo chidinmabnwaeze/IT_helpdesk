@@ -14,7 +14,7 @@ function App() {
      <Route path ="/dashboard" element = {<Dashboard/>}/>
     </Routes>
     </BrowserRouter>
-      <h1 className='text-4xl text-red-500'>leave request IPI</h1>
+     
     </>
   )
 }
