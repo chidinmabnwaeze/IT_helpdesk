@@ -6,8 +6,8 @@ import avatar from "../assets/icons/Ellipse 15.png"
 export default function Topbar(){
   return (
     <div className="flex z-10 p-5 justify-between items-center bg-red-600">
-      <div className="title">
-        <h1 className="mr-20 ">IT SUPPORT</h1>
+      <div className="title mr-250">
+        <h1 className="font-bold">IT SUPPORT</h1>
       </div>
 
       <div className="flex items-center bg-blue-500 ">
