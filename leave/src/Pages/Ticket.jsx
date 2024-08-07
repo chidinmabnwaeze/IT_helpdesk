@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Ticket() {
-    
+export default function Ticket(){
+
   return (
-    <section className="ticket bg-white">
+    <div className="ticket bg-white">
       <div className="top-sect">
         <div>
         <h2>My Tickets</h2>
@@ -20,6 +20,6 @@ export default function Ticket() {
         <div className="date"></div>
         </section>
       </div>
-    </section>
+    </div>
   );
 }
