@@ -4,16 +4,20 @@
 
 *{
   box-sizing: border-box;
+  
   /* font-family: ; */
+}
+body{
+  background-color: rgba(247, 247, 247, 1);
 }
 
 .sidebar {
-  background-color: rgb(244, 248, 255);
+  background-color: white;
   display: flex;
   flex-direction: column;
   width: 200px;
   height: 100%;
-  z-index: 100;
+
   position: fixed;
   left: 0;
   top: 0;
@@ -21,6 +25,7 @@
 
 .logo {
   margin-bottom: 20px;
+  margin: 0 auto;
 }
 .menu ul {
   margin-top: 40px;
@@ -83,9 +88,11 @@ transform:translate(2);
 
 .title{
   margin-left:210px ;
-  color: white;
+ 
 }
 input{
   background-color: rgba(244, 244, 244, 1);
 }
-
+input::placeholder{
+  padding-left: 10px;
+}

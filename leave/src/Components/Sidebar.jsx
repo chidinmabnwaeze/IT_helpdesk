@@ -2,8 +2,8 @@ import React from "react";
 import Logo from "../assets/images/ministry of petroleum resources 1.png";
 import Dash from "../assets/icons/dashboard-square-02.svg";
 import Tickets from "../assets/icons/ion_ticket-outline.svg";
-// import Tasks from "../assets/icons/";
-// import Payroll from "../assets/icons/invoice-03.svg";
+import Feedbacks from "../assets/icons/fluent_person-feedback-20-regular.svg";
+import Followup from "../assets/icons/icon-park-outline_follow-up-date-sort.svg";
 // import Reports from "../assets/icons/waterfall-up-01.svg";
 // import leaveIcon from "../assets/icons/leave-user.png";
 import { useLocation } from "react-router-dom";
@@ -25,7 +25,7 @@ const location =useLocation()
 
       {/* These are the side menu bars */}
       <div className="menu">
-        <h2>MAIN MENU</h2>
+        <h2 className="text-center mt-6">MAIN MENU</h2>
         <ul className="menu-items">
           <li className={`menu-list ${location.pathname==='/dashboard' ? 'active' : ''}`} >
             <a id="menu-icon" className="menu-list" href="../Pages/Dashboard.jsx">
@@ -41,20 +41,20 @@ const location =useLocation()
               <p>Timesheet</p>
             </a>
           </li>
-{/* 
-         <li className={`menu-list ${location.pathname==='/leave' ? 'active' : ''}`} >
-            <a id="menu-icon" className="menu-list" href="../leave">
-              <img className="menu-icon" src={leaveIcon} alt="" />
-              <p>Leave</p>
-            </a>
-          </li> */}
 
-         {/* <li className={`menu-list ${location.pathname==='/tasks' ? 'active' : ''}`} >
-            <a id="menu-icon" className="menu-list" href="#">
-              <img className="menu-icon" src={Tasks} alt="" />
-              <p>Tasks</p>
+         <li className={`menu-list ${location.pathname==='/feedbacks' ? 'active' : ''}`} >
+            <a id="menu-icon" className="menu-list" href="../Pages/F">
+              <img className="menu-icon" src={Feedbacks} alt="" />
+              <p>Feedbacks</p>
             </a>
-          </li> */}
+          </li>
+
+         <li className={`menu-list ${location.pathname==='/followup' ? 'active' : ''}`} >
+            <a id="menu-icon" className="menu-list" href="#">
+              <img className="menu-icon" src={Followup} alt="" />
+              <p>Follow up</p>
+            </a>
+          </li>
 
          {/* <li className={`menu-list ${location.pathname==='/payroll' ? 'active' : ''}`} >
             <a id="menu-icon" className="menu-list" href="../payroll">
