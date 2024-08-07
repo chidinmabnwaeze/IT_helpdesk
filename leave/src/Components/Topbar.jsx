@@ -5,7 +5,7 @@ import avatar from "../assets/icons/Ellipse 15.png"
 
 export default function Topbar(){
   return (
-    <div className="flex ">
+    <div className="flex justify-between">
       <div className="title">
         <h1>IT SUPPORT</h1>
       </div>

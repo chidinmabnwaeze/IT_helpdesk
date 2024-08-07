@@ -1,8 +1,8 @@
 import React from "react";
 import Logo from "../assets/images/ministry of petroleum resources 1.png";
 import Dash from "../assets/icons/dashboard-square-02.svg";
-import Timesheet from "../assets/icons/vuesax/linear/calendar.svg";
-import Tasks from "../assets/icons/task-daily-02.svg";
+import Tickets from "../assets/icons/ion_ticket-outline.svg";
+import Tasks from "../assets/icons/";
 import Payroll from "../assets/icons/invoice-03.svg";
 import Reports from "../assets/icons/waterfall-up-01.svg";
 import leaveIcon from "../assets/icons/leave-user.png";
@@ -26,16 +26,16 @@ const location =useLocation()
       {/* These are the side menu bars */}
       <div className="menu">
         <ul className="menu-items">
-          <li className={`menu-list ${location.pathname==='/clocking' ? 'active' : ''}`} >
-            <a id="menu-icon" className="menu-list" href="../clocking">
+          <li className={`menu-list ${location.pathname==='/dashboard' ? 'active' : ''}`} >
+            <a id="menu-icon" className="menu-list" href="../Pages/Dashboard.jsx">
               <div className="stroke"> </div>
               <img className="menu-icon" src={Dash} alt="" />
               <p>Dashboard</p>
             </a>
           </li>
 
-         <li className={`menu-list ${location.pathname==='/timesheet' ? 'active' : ''}`} >
-            <a id="menu-icon" className="menu-list" href="../timesheet">
+         <li className={`menu-list ${location.pathname==='/tickets' ? 'active' : ''}`} >
+            <a id="menu-icon" className="menu-list" href="../Pages/">
               <img className="menu-icon" src={Timesheet} alt="" />
               <p>Timesheet</p>
             </a>
