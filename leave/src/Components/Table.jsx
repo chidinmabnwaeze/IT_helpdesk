@@ -21,7 +21,9 @@ export default function Table() {
         <th>Priority</th>
       </tr>
 
-      {}
+      {table.map((issues, index)=>{
+
+      })}
       <tr>
         <td>
           <div className="checkbox">
