@@ -1,6 +1,7 @@
 import React from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
+import Table from "../Components/Table";
 
 export default function Ticket() {
   return (
@@ -26,7 +27,9 @@ export default function Ticket() {
           <div className="ticket-count font-medium">365 Tickets</div>
           <hr />
         </div>
+        <Table/>
       </section>
+
     </div>
   );
 }

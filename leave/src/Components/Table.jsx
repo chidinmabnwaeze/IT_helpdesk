@@ -6,6 +6,13 @@ export default function Table() {
         button: "Accept"
     }
     ])
+    const [table ,setTable] = useState([
+        {
+            name: "Mary John" ,
+            email: "maryjohn@gmail.com",
+            issue: "Mylaptop is not functioning..."
+        }
+    ])
   return (
     <table className="Table">
       <tr>
