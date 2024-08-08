@@ -18,6 +18,15 @@ export default function Table(){
             <p className="bg-grey-200">maryjohn@gmail.com</p>
         </div>
     </td>
+    <td>
+        <p>Mylaptop is not functioning...</p>
+    </td>
+    <td>
+        <div className="priority">
+            <div className="rounded bg-red-500"></div>
+            <p className="bg-red-500">High</p>
+        </div>
+    </td>
 </tr>
         </table>
     )
