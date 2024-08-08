@@ -10,7 +10,8 @@ export default function Table() {
         {
             name: "Mary John" ,
             email: "maryjohn@gmail.com",
-            issue: "Mylaptop is not functioning..."
+            issue: "My laptop is not functioning...",
+            status : "High"
         }
     ])
   return (
@@ -21,30 +22,30 @@ export default function Table() {
         <th>Priority</th>
       </tr>
 
-      {table.map((issues, index)=>{
-
-      })}
-      <tr>
+      {table.map((issues, index)=>(
+      <tr >
         <td>
           <div className="checkbox">
             <input type="checkbox" id="complaint" />
           </div>
           <div className="name">
-            <p>Mary John</p>
-            <p className="bg-grey-200">maryjohn@gmail.com</p>
+            <p>{issues.name}</p>
+            <p className="bg-grey-200">{issues.email}</p>
           </div>
         </td>
         <td>
-          <p>Mylaptop is not functioning...</p>
+          <p>{issues.issue}</p>
         </td>
         <td>
           <div className="priority">
             <div className="rounded bg-red-500"></div>
-            <p className="bg-red-500">High</p>
+            <p className="bg-red-500">{issues.status}</p>
           </div>
         </td>
         <button>Accept</button>
       </tr>
+        
+      ))}
     </table>
   );
 }
