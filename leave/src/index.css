@@ -96,7 +96,7 @@ input{
 input::placeholder{
   padding-left: 10px;
 }
-.ticket-body{
+.ticket-body, .dash-body{
   margin-left: 250px;
 }
 .tab-list{

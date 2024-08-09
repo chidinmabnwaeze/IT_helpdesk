@@ -14,7 +14,7 @@ export default function Ticket() {
           <div>
             <h2>My Tickets</h2>
           </div>
-          <section>
+          <section className="flex justify-between items-center">
             <div className="tabs flex mt-3 ">
               <ul className="tab flex">
                 <li className="tab-list">All Issues</li>
@@ -23,7 +23,7 @@ export default function Ticket() {
                 <li className="tab-list">Closed Issues</li>
               </ul>
             </div>
-            <div className="date"></div>
+            <div className="date">1-26th August 2024</div>
           </section>
           <div className="ticket-count font-medium">365 Tickets</div>
           <hr />
