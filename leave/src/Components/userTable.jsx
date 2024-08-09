@@ -15,7 +15,7 @@ const Tables = () => {
       id: 23476,
       email: "example@gmail.com",
       issue: "My laptop stopped working",
-      status: "Clocked in",
+      status: "High",
       date: "2024-06-09",
     },
 
@@ -24,7 +24,7 @@ const Tables = () => {
       id: 23476,
       email: "example@gmail.com",
       issue: "My Internet got disconnected",
-      status: "Clocked in",
+      status: "High",
       date: "2024-06-09",
     },
     {
@@ -32,7 +32,7 @@ const Tables = () => {
       id: 23476,
       email: "example@gmail.com",
       issue: "My laptop stopped working",
-      status: "Clocked in",
+      status: "High",
       date: "2024-06-09",
     },
     {
@@ -40,7 +40,7 @@ const Tables = () => {
       id: 23476,
       email: "example@gmail.com",
       issue: "I can't find a document",
-      status: "Clocked in",
+      status: "High",
       date: "2024-06-09",
     },
     {
@@ -48,7 +48,7 @@ const Tables = () => {
       id: 23476,
       email: "example@gmail.com",
       issue: "My laptop stopped working",
-      status: "Clocked in",
+      status: "High",
       date: "2024-06-09",
     },
   ];
@@ -83,11 +83,10 @@ const Tables = () => {
                 </span>
               </div>
             </td>
-            <td><button>Accept</button></td>
-            <td><button>Assign</button></td>
+            <td><button className="accept py-1.5 px-5  rounded-md" >Accept</button></td>
+            <td ><button className="assign py-1.5 px-5  rounded-md">Assign</button></td>
           </tr>
         ))}
-        <button>Accept</button>
       </table>
     </div>
   );

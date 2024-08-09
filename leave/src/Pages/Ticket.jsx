@@ -9,7 +9,7 @@ export default function Ticket() {
     <div className="ticket">
       <Topbar />
       <Sidebar />
-      <section className="ticket-body m-25 ">
+      <section className="ticket-body m-8 p-4 bg-white">
         <div className="top-sect">
           <div>
             <h2>My Tickets</h2>

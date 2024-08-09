@@ -7,6 +7,11 @@ export default function Dashboard() {
     <div className="dashboard">
       <Topbar />
       <Sidebar/>
+      <section className="dash-body m-8 p-4 bg-white">
+        <section className="ticket-stats">
+
+        </section>
+      </section>
     </div>
   );
 }

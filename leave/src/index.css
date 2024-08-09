@@ -147,18 +147,17 @@ th {
   align-items: center;
 }
 .clockedstatus {
-  background-color: rgba(211, 255, 167, 0.33);
+  /* background-color: rgba(255, 205, 205, 0.33); */
 }
 .stat {
-  color: rgba(0, 205, 21, 1);
+  color: #CD000C;
   display: flex;
   align-items: center;
   border-radius: 4px;
-  background-color: rgba(184, 248, 121, 0.33);
-  width: 110px;
+  background-color:rgba(255, 205, 205, 0.33)
 }
 .circle {
-  background-color: rgba(0, 205, 21, 1);
+  background-color: #CD000C;
   border-radius: 4px;
   width: 9px;
   height: 9px;
@@ -194,5 +193,12 @@ th {
     width: 9px;
     height: 9px;
     margin-right: 6px;
-   
   } 
+  .accept{
+    background-color: #004e98;
+    color: white;
+  }
+  .assign{
+    border: 1px solid #004e98;
+    color: #004e98;
+  }
