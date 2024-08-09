@@ -12,7 +12,19 @@ export default function Table() {
             email: "maryjohn@gmail.com",
             issue: "My laptop is not functioning...",
             status : "High"
-        }
+        },
+        {
+            name: "Mary John" ,
+            email: "maryjohn@gmail.com",
+            issue: "My laptop is not functioning...",
+            status : "High"
+        },
+        {
+            name: "Mary John" ,
+            email: "maryjohn@gmail.com",
+            issue: "My laptop is not functioning...",
+            status : "High"
+        },
     ])
   return (
     <table className="Table">
@@ -23,19 +35,22 @@ export default function Table() {
       </tr>
 
       {table.map((issues, index)=>(
-      <tr >
-        <td>
+      <tr className="flex justify-between p-5 items-center">
+
+        <td className="flex -5">
           <div className="checkbox">
             <input type="checkbox" id="complaint" />
           </div>
-          <div className="name">
-            <p>{issues.name}</p>
-            <p className="bg-grey-200">{issues.email}</p>
+          <div className="name" id="complaint">
+            <p id="complaint">{issues.name}</p>
+            <p className="bg-grey-200 font-10">{issues.email}</p>
           </div>
         </td>
+
         <td>
           <p>{issues.issue}</p>
         </td>
+
         <td>
           <div className="priority">
             <div className="rounded bg-red-500"></div>
