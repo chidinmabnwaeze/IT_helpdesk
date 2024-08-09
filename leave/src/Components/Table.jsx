@@ -35,20 +35,20 @@ export default function Table() {
       </tr>
 
       {table.map((issues, index)=>(
-      <tr className="flex justify-between p-5 items-center">
+      <tr className="flex items-center border-b">
 
-        <td className="flex -5">
+        <td className="flex p-5">
           <div className="checkbox">
-            <input type="checkbox" id="complaint" />
+            <input type="checkbox" id="complaint" className="p-3"/>
           </div>
-          <div className="name" id="complaint">
+          <div className="name pl-3" id="complaint">
             <p id="complaint">{issues.name}</p>
             <p className="bg-grey-200 font-10">{issues.email}</p>
           </div>
         </td>
 
         <td>
-          <p>{issues.issue}</p>
+          <p className="p-5">{issues.issue}</p>
         </td>
 
         <td>
