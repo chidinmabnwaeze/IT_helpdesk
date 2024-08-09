@@ -1,7 +1,8 @@
 import React from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
-import Table from "../Components/Table";
+// import Table from "../Components/Table";
+import UserTable from '../Components/userTable';
 
 export default function Ticket() {
   return (
@@ -27,7 +28,8 @@ export default function Ticket() {
           <div className="ticket-count font-medium">365 Tickets</div>
           <hr />
         </div>
-        <Table/>
+        {/* <Table/> */}
+        <UserTable/>
       </section>
 
     </div>

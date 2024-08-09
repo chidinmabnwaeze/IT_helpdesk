@@ -102,3 +102,97 @@ input::placeholder{
 .tab-list{
   margin: 20px 20px 20px 0;
 }
+
+/* table styles */
+.staffTable {
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-collapse: collapse;
+}
+.table-head {
+  height: 40px;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center;  */
+  margin: 0;
+  padding: 0;
+  color: black;
+  /* border: none; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+th {
+    border: none;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+}
+.rows td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(234, 234, 234, 1);
+  color: rgba(130, 130, 130, 1);
+}
+.userpic {
+  width: 35px;
+  border-radius: 20px;
+  align-content: left;
+}
+.staff-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.clockedstatus {
+  background-color: rgba(211, 255, 167, 0.33);
+}
+.stat {
+  color: rgba(0, 205, 21, 1);
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  background-color: rgba(184, 248, 121, 0.33);
+  width: 110px;
+}
+.circle {
+  background-color: rgba(0, 205, 21, 1);
+  border-radius: 4px;
+  width: 9px;
+  height: 9px;
+  margin-right: 6px;
+}
+.stat2 {
+    color: rgba(205, 0, 74, 1);
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    background-color: rgba(255, 167, 167, 0.15);
+    /* width: 110px; */
+  }
+  .circle-not {
+    background-color: rgb(243, 162, 130);
+    border-radius: 4px;
+    width: 9px;
+    height: 9px;
+    margin-right: 6px;
+  } 
+
+  .stat3 {
+    color:  rgba(152, 148, 148, 1);
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    background-color: rgba(152, 148, 148, 0.15);
+    width: 110px;
+  }
+  .circle-leave {
+    background-color:  rgba(152, 148, 148, 1);
+    border-radius: 4px;
+    width: 9px;
+    height: 9px;
+    margin-right: 6px;
+   
+  } 
