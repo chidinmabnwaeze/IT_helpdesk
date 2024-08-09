@@ -12,7 +12,7 @@ export default function Topbar(){
 
       <div className="flex items-center">
         <div className="searchbar">
-        <input type="text" placeholder="Search" className="rounded p-1"/>
+        <input type="text" placeholder="Search here..." className="rounded p-1"/>
         </div>
         <div className="mode pl-5 bg-grey-200">
           <img className="night" src={darkmode} alt="" />
