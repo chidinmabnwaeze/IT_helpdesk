@@ -2,41 +2,57 @@ import React, { useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 
-export default function Dashboard(){
-    const [ticketCount, setTicketCount] = useState([
-        {
-            count: "365",
-            subject: "Total Tickets"
-        },
-        {
-            count: "65",
-            subject: "Open Tickets"
-        },
-        {
-            count: "36",
-            subject: "Unresolved Tickets"
-        },
-        {
-            count: "53",
-            subject: "Resolved Tickets"
-        },
-    ])
+export default function Dashboard() {
+  const [ticketCount, setTicketCount] = useState([
+    {
+      count: "365",
+      subject: "Total Tickets",
+    },
+    {
+      count: "65",
+      subject: "Open Tickets",
+    },
+    {
+      count: "36",
+      subject: "Unresolved Tickets",
+    },
+    {
+      count: "53",
+      subject: "Resolved Tickets",
+    },
+  ]);
+  const tags = [
+    {
+      name: "Hardware",
+      count: 40,
+    },
+  ];
   return (
     <div className="dashboard">
       <Topbar />
-      <Sidebar/>
+      <Sidebar />
       <section className="dash-body ">
         <section className="ticket-stats m-8 p-4 bg-white flex">
-            {ticketCount.map((count, index)=>(
-        <div className="total m-5 p-8 border" key={index}>
-           <p className="font-medium text-3xl">{count.count}</p> 
-           <p>{count.subject}</p>
-        </div>
-
-            ))}
+          {ticketCount.map((count, index) => (
+            <div className="total m-5 p-8 border" key={index}>
+              <p className="font-medium text-3xl">{count.count}</p>
+              <p>{count.subject}</p>
+            </div>
+          ))}
+        </section>
+        <section className="tag">
+          <h3>Ticket by tags</h3>
+          {tags.map((tag, index) => (
+            <div className="div">
+              <div className="di">
+                <p>{tag.name}</p>
+                <p>{tag.count}</p>
+              </div>
+              progressbar
+            </div>
+          ))}
         </section>
       </section>
     </div>
   );
 }
-
