@@ -36,7 +36,7 @@ export default function Dashboard() {
       count: 40,
     },
   ];
-  const agents = [
+  const feedback = [
     {
       name: "Mary John",
     time: "9:57 am",
@@ -110,7 +110,7 @@ export default function Dashboard() {
             </div>
           ))}
         </section>
-        <section className="live-agents">
+        {/* <section className="live-agents">
         <div className="heading m-2">
             <h3>Client Feedback</h3>
           </div>
@@ -130,7 +130,7 @@ export default function Dashboard() {
               </div>
             </div>
           ))}
-        </section>
+        </section> */}
       </section>
     </div>
   );
