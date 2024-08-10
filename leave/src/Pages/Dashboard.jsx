@@ -129,7 +129,7 @@ export default function Dashboard() {
         </section>
         <section className="live-agents">
         <div className="heading m-2">
-            <h3>Client Feedback</h3>
+            <h3>Live Agents</h3>
           </div>
 
           {agents.map((agent, index) => (
