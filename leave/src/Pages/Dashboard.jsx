@@ -53,6 +53,23 @@ export default function Dashboard() {
       message: "Thanks for coming to my aid"
     },
   ];
+  const agents = [
+    {
+      name: "Mary John",
+    time: "9:57 am",
+      message: "Thanks for coming to my aid"
+    },
+    {
+      name: "Mary John",
+    time: "9:57 am",
+      message: "Thanks for coming to my aid"
+    },
+    {
+      name: "Mary John",
+    time: "9:57 am",
+      message: "Thanks for coming to my aid"
+    },
+  ];
   return (
     <div className="dashboard">
       <Topbar />
@@ -110,7 +127,7 @@ export default function Dashboard() {
             </div>
           ))}
         </section>
-        {/* <section className="live-agents">
+        <section className="live-agents">
         <div className="heading m-2">
             <h3>Client Feedback</h3>
           </div>
@@ -130,7 +147,7 @@ export default function Dashboard() {
               </div>
             </div>
           ))}
-        </section> */}
+        </section>
       </section>
     </div>
   );
