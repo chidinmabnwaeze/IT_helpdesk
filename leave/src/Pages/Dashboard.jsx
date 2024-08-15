@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
-import thumb from "../assets/icons/thumbs.svg"
+import thumb from "../assets/icons/thumbs.svg";
 
 export default function Dashboard() {
   const [ticketCount, setTicketCount] = useState([
@@ -39,35 +39,35 @@ export default function Dashboard() {
   const feedback = [
     {
       name: "Mary John",
-    time: "9:57 am",
-      message: "Thanks for coming to my aid"
+      time: "9:57 am",
+      message: "Thanks for coming to my aid",
     },
     {
       name: "Mary John",
-    time: "9:57 am",
-      message: "Thanks for coming to my aid"
+      time: "9:57 am",
+      message: "Thanks for coming to my aid",
     },
     {
       name: "Mary John",
-    time: "9:57 am",
-      message: "Thanks for coming to my aid"
+      time: "9:57 am",
+      message: "Thanks for coming to my aid",
     },
   ];
   const agents = [
     {
       name: "Mary John",
-    time: "9:57 am",
-      message: "Thanks for coming to my aid"
+      time: "9:57 am",
+      message: "Thanks for coming to my aid",
     },
     {
       name: "Mary John",
-    time: "9:57 am",
-      message: "Thanks for coming to my aid"
+      time: "9:57 am",
+      message: "Thanks for coming to my aid",
     },
     {
       name: "Mary John",
-    time: "9:57 am",
-      message: "Thanks for coming to my aid"
+      time: "9:57 am",
+      message: "Thanks for coming to my aid",
     },
   ];
   return (
@@ -76,81 +76,83 @@ export default function Dashboard() {
       <Sidebar />
       <section className="dash-body">
         <div className="section1 flex w-full">
-        <section className="ticket-stats gap-4 p-5 my-5 w-3/5 bg-white grid grid-cols-2">
-          {ticketCount.map((count, index) => (
-            <div className="total p-8 border" key={index}>
-              <p className="font-medium text-3xl">{count.count}</p>
-              <p>{count.subject}</p>
-            </div>
-          ))}
-        </section>
-        <section className="tag p-4 w-2/5 m-5 bg-white">
-          <div className="heading m-2">
-            <h3>Ticket by tags</h3>
-          </div>
-
-          {tags.map((tag, index) => (
-            <div className="div" key={index}>
-              <div className="top flex justify-between p-2">
-                <span className="flex">
-                  <p>{tag.name}</p>
-                </span>
-                <span>
-                  <p>{tag.count}</p>
-                </span>
+          <section className="ticket-stats gap-4 p-5 my-5 w-3/5 bg-white grid grid-cols-2">
+            {ticketCount.map((count, index) => (
+              <div className="total p-8 border" key={index}>
+                <p className="font-medium text-3xl">{count.count}</p>
+                <p>{count.subject}</p>
               </div>
-              progressbar
+            ))}
+          </section>
+          <section className="tag p-4 w-2/5 m-5 bg-white">
+            <div className="heading m-2">
+              <h3>Ticket by tags</h3>
             </div>
-          ))}
-        </section>
-        </div>
-        
-        <section className="graph bg-white"></section>
-        <section className="feedbacks bg-white">
-          <div className="heading m-2">
-            <h3>Feedback</h3>
-          </div>
 
-          {feedback.map((feed, index) => (
-            <div className="div" key={index}>
+            {tags.map((tag, index) => (
+              <div className="div" key={index}>
+                <div className="top flex justify-between p-2">
+                  <span className="flex">
+                    <p>{tag.name}</p>
+                  </span>
+                  <span>
+                    <p>{tag.count}</p>
+                  </span>
+                </div>
+                progressbar
+              </div>
+            ))}
+          </section>
+        </div>
+
+        <div className="section2">
+          <section className="graph bg-white"></section>
+          <section className="feedbacks bg-white">
+            <div className="heading m-2">
+              <h3>Feedback</h3>
+            </div>
+
+            {feedback.map((feed, index) => (
+              <div className="div" key={index}>
                 <div className="thumbs">
-                    <img src={thumb} alt="" />
+                  <img src={thumb} alt="" />
                 </div>
                 <div className="client">
-                <div className="message">{feed.message}</div>
-              <div className="top flex justify-between p-2">
-                <span className="flex">
-                  <p>{feed.name}</p>
-                </span>
-                <span>
-                  <p>{feed.time}</p>
-                </span>
+                  <div className="message">{feed.message}</div>
+                  <div className="top flex justify-between p-2">
+                    <span className="flex">
+                      <p>{feed.name}</p>
+                    </span>
+                    <span>
+                      <p>{feed.time}</p>
+                    </span>
+                  </div>
+                </div>
               </div>
-              </div>
-            </div>
-          ))}
-        </section>
-        <section className="live-agents">
-        <div className="heading m-2">
-            <h3>Live Agents</h3>
-          </div>
+            ))}
+          </section>
 
-          {agents.map((agent, index) => (
-            <div className="div" key={index}>
-                <div className= "client">
-                <div className= "message">{agent.message}</div>
-              <div className ="top flex justify-between p-2">
-                <span className="flex">
-                  <p>{agent.name}</p>
-                </span>
-                <span>
-                  <p>{agent.time}</p>
-                </span>
-              </div>
-              </div>
+          <section className="live-agents bg-white">
+            <div className="heading m-2">
+              <h3>Live Agents</h3>
             </div>
-          ))}
-        </section>
+
+            {agents.map((agent, index) => (
+              <div className="div" key={index}>
+                <div className="client">
+                  <div className="top flex justify-between p-2">
+                    <span className="flex">
+                      <p>{agent.name}</p>
+                    </span>
+                    <span>
+                      <p>{agent.time}</p>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </section>
+        </div>
       </section>
     </div>
   );
