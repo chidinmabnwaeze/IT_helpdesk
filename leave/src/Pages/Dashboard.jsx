@@ -74,16 +74,17 @@ export default function Dashboard() {
     <div className="dashboard">
       <Topbar />
       <Sidebar />
-      <section className="dash-body flex">
-        <section className="ticket-stats m-8 p-4 bg-white flex">
+      <section className="dash-body">
+        <div className="section1 flex w-full">
+        <section className="ticket-stats gap-4 p-5 my-5 w-3/5 bg-white grid grid-cols-2">
           {ticketCount.map((count, index) => (
-            <div className="total m-5 p-8 border" key={index}>
+            <div className="total p-8 border" key={index}>
               <p className="font-medium text-3xl">{count.count}</p>
               <p>{count.subject}</p>
             </div>
           ))}
         </section>
-        <section className="tag m-8 p-4 bg-white w-80">
+        <section className="tag p-4 w-2/5 m-5 bg-white">
           <div className="heading m-2">
             <h3>Ticket by tags</h3>
           </div>
@@ -102,10 +103,12 @@ export default function Dashboard() {
             </div>
           ))}
         </section>
+        </div>
+        
         <section className="graph bg-white"></section>
         <section className="feedbacks bg-white">
           <div className="heading m-2">
-            <h3>Client Feedback</h3>
+            <h3>Feedback</h3>
           </div>
 
           {feedback.map((feed, index) => (
