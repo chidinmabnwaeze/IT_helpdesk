@@ -49,13 +49,13 @@ body{
 }
 .menu ul :hover{
   background-color: #ebebeb;
-  color: #004e98;
+  color:  #32844B;
  
 }
 .menu ul .active {
   background-color: #ebebeb;
-  color: #004e98;
-  border-left: 3px solid #004e98;
+  color:  #32844B;
+  border-left: 3px solid  #32844B;
 }
 
 /* .menu ul :active{
@@ -76,7 +76,7 @@ transform:translate(2);
   width: 2.5px;
   height: 25px;
   border-radius: 5px;
-  background-color: #004e98;
+  background-color:  #32844B;
   float: left;
   position: absolute;
   left: 0;
@@ -195,10 +195,16 @@ th {
     margin-right: 6px;
   } 
   .accept{
-    background-color: #004e98;
+    background-color: #32844B;
     color: white;
   }
   .assign{
-    border: 1px solid #004e98;
-    color: #004e98;
+    border: 1px solid  #32844B;
+    color:  #32844B;
+  }
+  .greyline{
+    background-color: #d9d9d9;
+  }
+  .greenline{
+    background-color: #32844B;
   }

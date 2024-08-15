@@ -55,19 +55,16 @@ export default function Dashboard() {
   ];
   const agents = [
     {
-      name: "Mary John",
-      time: "9:57 am",
-      message: "Thanks for coming to my aid",
+      name: "James",
+      chatCount: "40 live chats",
     },
     {
       name: "Mary John",
-      time: "9:57 am",
-      message: "Thanks for coming to my aid",
+      chatCount: "40 live chats",
     },
     {
       name: "Mary John",
-      time: "9:57 am",
-      message: "Thanks for coming to my aid",
+      chatCount: "40 live chats",
     },
   ];
   return (
@@ -99,13 +96,16 @@ export default function Dashboard() {
                     <p>{tag.count}</p>
                   </span>
                 </div>
-                progressbar
+                
+                <div className="greyline w-full h-1">
+                  <div className="greenline w-3/6 h-1">&nbsp;</div>
+                </div>
               </div>
             ))}
           </section>
         </div>
 
-        <div className="section2">
+        <div className="section2 grid grid-cols-3 gap-4">
           <section className="graph bg-white"></section>
           <section className="feedbacks bg-white">
             <div className="heading m-2">
@@ -113,7 +113,7 @@ export default function Dashboard() {
             </div>
 
             {feedback.map((feed, index) => (
-              <div className="div" key={index}>
+              <div className="div flex mx-2" key={index}>
                 <div className="thumbs">
                   <img src={thumb} alt="" />
                 </div>
@@ -145,7 +145,7 @@ export default function Dashboard() {
                       <p>{agent.name}</p>
                     </span>
                     <span>
-                      <p>{agent.time}</p>
+                      <p>{agent.chatCount}</p>
                     </span>
                   </div>
                 </div>
