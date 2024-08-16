@@ -83,7 +83,7 @@ export default function Dashboard() {
           </section>
           <section className="tag p-4 w-2/5 m-5 bg-white">
             <div className="heading m-2">
-              <h3>Ticket by tags</h3>
+              <h3 className="font-semibold">Ticket by tags</h3>
             </div>
 
             {tags.map((tag, index) => (
@@ -109,7 +109,7 @@ export default function Dashboard() {
           <section className="graph bg-white"></section>
           <section className="feedbacks bg-white">
             <div className="heading m-2">
-              <h3>Feedback</h3>
+              <h3 className="font-semibold">Feedback</h3>
             </div>
 
             {feedback.map((feed, index) => (
@@ -134,7 +134,7 @@ export default function Dashboard() {
 
           <section className="live-agents bg-white">
             <div className="heading m-2">
-              <h3>Live Agents</h3>
+              <h3 className="font-semibold">Live Agents</h3>
             </div>
 
             {agents.map((agent, index) => (
