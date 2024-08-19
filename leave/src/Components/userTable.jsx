@@ -83,7 +83,7 @@ const Tables = () => {
                 </span>
               </div>
             </td>
-            <td><button className="accept py-1.5 px-5  rounded-md" >Accept</button></td>
+            <td><button className="accept py-1.5 px-5  rounded-md">Accept</button></td>
             <td ><button className="assign py-1.5 px-5  rounded-md">Assign</button></td>
           </tr>
         ))}
