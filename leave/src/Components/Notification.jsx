@@ -2,7 +2,12 @@ import React from 'react'
 
 const Notification = () => {
   return (
-    <div>Notification</div>
+    <div>
+        <div>
+            <p>New notification</p>
+            <img src="" alt="" />
+        </div>
+    </div>
   )
 }
 
