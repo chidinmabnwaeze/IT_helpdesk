@@ -2,7 +2,8 @@ import React from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 // import Table from "../Components/Table";
-import UserTable from '../Components/userTable';
+import UserTable from "../Components/userTable";
+import NextPage from "../Components/nextPage";
 
 export default function Ticket() {
   return (
@@ -29,9 +30,9 @@ export default function Ticket() {
           <hr />
         </div>
         {/* <Table/> */}
-        <UserTable/>
+        <UserTable />
       </section>
-
+      <NextPage />
     </div>
   );
 }
