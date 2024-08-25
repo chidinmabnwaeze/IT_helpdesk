@@ -66,11 +66,19 @@ export default function Dashboard() {
       chatCount: "40 live chats",
     },
     {
-      name: "Mary John",
+      name: "James",
       chatCount: "40 live chats",
     },
     {
-      name: "Mary John",
+      name: "James",
+      chatCount: "40 live chats",
+    },
+    {
+      name: "James",
+      chatCount: "40 live chats",
+    },
+    {
+      name: "James",
       chatCount: "40 live chats",
     },
   ];
