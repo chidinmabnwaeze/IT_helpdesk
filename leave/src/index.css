@@ -212,6 +212,9 @@ th {
     border:1px solid #434343;
     
   }
+  .box1{
+    background-color: #6C60FF;
+  }
 
   /* dark mode theme */
   :root{
