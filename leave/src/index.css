@@ -96,7 +96,7 @@ input{
 input::placeholder{
   padding-left: 10px;
 }
-.ticket-body, .dash-body, .feed-body, .comp-body{
+.ticket-body, .dash-body, .feed-body, .comp-body, .back{
   margin-left: 17%;
  
 }

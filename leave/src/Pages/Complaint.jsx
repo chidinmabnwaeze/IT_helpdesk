@@ -1,7 +1,8 @@
 import React from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
-import back from "../assets/icons/back-arrow.svg"
+import back from "../assets/icons/back-arrow.svg";
+import { Link } from "react-router-dom";
 
 const Complaint = () => {
   return (
@@ -9,10 +10,12 @@ const Complaint = () => {
       <Topbar />
       <Sidebar />
 
-      <div className="back">
-        <img src={back} alt="" id="back" />
-        <label htmlFor="back"></label>
-      </div>
+      <Link to='/tickets'>
+        <div className="back flex m-3">
+          <img src={back} alt="" id="back" />
+          <label htmlFor="back">Back</label>
+        </div>
+      </Link>
 
       <div className="comp-body m-8 p-4 bg-white">
         <div className="clientName m-4 flex justify-between items-center">
@@ -46,7 +49,9 @@ const Complaint = () => {
 
         <div className="flex justify-end m-4">
           <button className="accept py-1.5 px-5 mr-6 rounded-md">Solved</button>
-          <button className="assign py-1.5 px-5 ml-6 rounded-md">Close case</button>
+          <button className="assign py-1.5 px-5 ml-6 rounded-md">
+            Close case
+          </button>
         </div>
       </div>
     </div>

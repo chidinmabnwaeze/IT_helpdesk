@@ -54,6 +54,11 @@ export default function Dashboard() {
       time: "9:57 am",
       message: "Thanks for coming to my aid",
     },
+    {
+      name: "Mary John",
+      time: "9:57 am",
+      message: "Thanks for coming to my aid",
+    },
   ];
   const agents = [
     {
