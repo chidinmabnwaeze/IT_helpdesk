@@ -9,7 +9,7 @@ const Complaint = () => {
       <Sidebar />
 
       <div className="comp-body m-8 p-4 bg-white">
-        <div className="clientName flex justify-between items-center">
+        <div className="clientName m-4 flex justify-between items-center">
           <div>
             <p>Mary John</p>
             <p className="text-gray-400">maryjohn@gmail.com</p>
@@ -19,11 +19,11 @@ const Complaint = () => {
           </div>
         </div>
         <hr />
-        <div className="textarea">
+        <div className="textarea m-4">
           <div>
             <p>Complain</p>
           </div>
-          <div name="complain" id="complain">
+          <div className="complain border p-6 h-80" id="complain">
             My printer stooped working , I can’t print out documents, lorem
             ipsum dolor sit amet consectetur. Sagittis sed dui nisl viverra
             ultricies blandit magna sapien interdum. Convallis tincidunt sed
@@ -38,8 +38,10 @@ const Complaint = () => {
           </div>
         </div>
 
-        <button className="accept py-1.5 px-5  rounded-md">Solved</button>
-        <button className="assign py-1.5 px-5  rounded-md">Close case</button>
+        <div>
+          <button className="accept py-1.5 px-5  rounded-md">Solved</button>
+          <button className="assign py-1.5 px-5  rounded-md">Close case</button>
+        </div>
       </div>
     </div>
   );
