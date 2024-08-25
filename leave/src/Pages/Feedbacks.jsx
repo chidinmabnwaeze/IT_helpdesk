@@ -40,7 +40,7 @@ const Feedbacks = () => {
        < Topbar/>
         <Sidebar/>
 
-        <section className="feed-body bg-white">
+        <section className="feed-body m-8 p-4 bg-white">
             <div className="heading m-2">
               <h3 className="font-semibold">Feedback</h3>
             </div>
