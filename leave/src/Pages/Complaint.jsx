@@ -8,16 +8,16 @@ const Complaint = () => {
       <Topbar />
       <Sidebar />
 
-      <div className="flex justify-between items-center">
+      <div className="comp-body flex justify-between items-center">
         <div>
           <p>Mary John</p>
           <p>maryjohn@gmail.com</p>
         </div>
         <div>
-          <p>{tabb.status}</p>
+          {/* <p>{tabb.status}</p> */}
         </div>
       </div>
-      <hr />
+      {/* <hr />
       <div className="textarea">
         <div>
           <p>Complain</p>
@@ -37,8 +37,8 @@ const Complaint = () => {
         </textarea>
       </div>
 
-      <button className="accept py-1.5 px-5  rounded-md">Accept</button>
-    <button className="assign py-1.5 px-5  rounded-md">Assign</button>
+      <button className="accept py-1.5 px-5  rounded-md">Solved</button>
+    <button className="assign py-1.5 px-5  rounded-md">Close case</button> */}
     </div>
   );
 };

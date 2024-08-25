@@ -14,11 +14,11 @@ export default function Topbar(){
         <div className="searchbar">
         <input type="text" placeholder="Search here..." className="rounded p-1"/>
         </div>
-        <div className="mode pl-5 bg-grey-200">
-          <img className="night" src={darkmode} alt="" />
+        <div className="mode pl-5  rounded-lg" >
+          <img className="night bg-gray-100 rounded-full p-0.5"  src={darkmode} alt="" />
         </div>
         <div className="notify pl-5">
-          <img className="bell" src={bell} alt="" />
+          <img className="bell  bg-gray-100 rounded-full p-1" src={bell} alt="" />
         </div>
         <div className="flex items-center pl-5">
             <p>Micheal Offiong</p>

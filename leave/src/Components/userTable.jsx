@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+// import Complaint from "../Pages/Complaint";
 
 const Tables = () => {
   const tab = [
@@ -52,6 +55,12 @@ const Tables = () => {
       date: "2024-06-09",
     },
   ];
+
+  //   const navigate = useNavigate()
+
+  // const openAcceptButton = () =>{
+  //   navigate("/complaint")
+  // }
   return (
     <div>
       <table className="staffTable">
@@ -63,9 +72,9 @@ const Tables = () => {
 
         {tab.map((tabb, index) => (
           <tr className="rows" key={index}>
-            <td className="staff-name ">
+            <td className="staff-name " id="check">
               <div className="">
-                <input type="checkbox" className="mr-3" />
+                <input type="checkbox" className="mr-3" id="check" />
               </div>
               <span className="tt">
                 <p className="text-black ">{tabb.name}</p>
@@ -83,8 +92,16 @@ const Tables = () => {
                 </span>
               </div>
             </td>
-            <td><button className="accept py-1.5 px-5  rounded-md">Accept</button></td>
-            <td ><button className="assign py-1.5 px-5  rounded-md">Assign</button></td>
+            <td>
+              <Link to="/complaint">
+                <button className="accept py-1.5 px-5  rounded-md">
+                  Accept
+                </button>
+              </Link>
+            </td>
+            <td>
+              <button className="assign py-1.5 px-5  rounded-md">Assign</button>
+            </td>
           </tr>
         ))}
       </table>

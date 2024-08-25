@@ -14,16 +14,16 @@ const Sidebar = () => {
 
 const location =useLocation()
 
+// const logout = ()={
+//   alert('Are you sure you want to log out?')
+
+// }
 
   return (
     <nav className="sidebar">
       <div className="logo">
         <img src={Logo} alt="" />
       </div>
-
-      {/* <button id="clock" className="clock">
-        Clock in
-      </button> */}
 
       {/* These are the side menu bars */}
       <div className="menu">
@@ -61,10 +61,12 @@ const location =useLocation()
 
         </ul>
         </div>
+
         <div className="menu2">
           
           <ul>
-            <li className="text-center"><h2 className="text-center mt-6 my-2">OTHERS</h2></li>
+           <h2 className="text-center m-8 ml-0 mb-0 ">OTHERS</h2>
+
          <li className={`menu-list ${location.pathname==='/settings' ? 'active' : ''}`} >
             <a id="menu-icon" className="menu-list" href="../settings">
               <img className="menu-icon" src={Settings} alt="" />

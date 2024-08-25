@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 import thumb from "../assets/icons/thumbs.svg";
+// import NextPage from "../Components/nextPage";
+import LineCharts from "../Components/Linecharts";
 
 export default function Dashboard() {
   const [ticketCount, setTicketCount] = useState([
@@ -68,7 +70,7 @@ export default function Dashboard() {
     },
   ];
   return (
-    <div className="dashboard">
+    <div className="dashboard" data-theme="dark">
       <Topbar />
       <Sidebar />
       <section className="dash-body">
@@ -105,25 +107,28 @@ export default function Dashboard() {
           </section>
         </div>
 
-        <div className="section2 grid grid-cols-3 gap-4">
-          <section className="graph bg-white"></section>
-          <section className="feedbacks bg-white">
+        <div className="section2 flex w-full ">
+          <section className="graph bg-white w-3/5 ">
+            <LineCharts/>
+          </section>
+
+          <section className="feedbacks bg-white w-1/5 mx-5">
             <div className="heading m-2">
               <h3 className="font-semibold">Feedback</h3>
             </div>
 
             {feedback.map((feed, index) => (
-              <div className="div flex mx-2" key={index}>
+              <div className="div flex mx-2 border-b" key={index}>
                 <div className="thumbs">
                   <img src={thumb} alt="" />
                 </div>
                 <div className="client">
                   <div className="message">{feed.message}</div>
                   <div className="top flex justify-between p-2">
-                    <span className="flex">
+                    <span className="flex text-sm text-gray-400">
                       <p>{feed.name}</p>
                     </span>
-                    <span>
+                    <span className="text-sm text-gray-400">
                       <p>{feed.time}</p>
                     </span>
                   </div>
@@ -132,7 +137,7 @@ export default function Dashboard() {
             ))}
           </section>
 
-          <section className="live-agents bg-white">
+          <section className="live-agents w-1/5 bg-white mr-5">
             <div className="heading m-2">
               <h3 className="font-semibold">Live Agents</h3>
             </div>

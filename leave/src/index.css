@@ -15,7 +15,7 @@ body{
   background-color: white;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 15%;
   height: 100%;
 
   position: fixed;
@@ -96,8 +96,9 @@ input{
 input::placeholder{
   padding-left: 10px;
 }
-.ticket-body, .dash-body{
-  margin-left: 250px;
+.ticket-body, .dash-body, .feed-body, .comp-body{
+  margin-left: 17%;
+ 
 }
 .tab-list{
   margin: 20px 20px 20px 0;
@@ -178,7 +179,6 @@ th {
     height: 9px;
     margin-right: 6px;
   } 
-
   .stat3 {
     color:  rgba(152, 148, 148, 1);
     display: flex;
@@ -208,3 +208,26 @@ th {
   .greenline{
     background-color: #32844B;
   }
+  .page-no{
+    border:1px solid #434343;
+    
+  }
+
+  /* dark mode theme */
+  :root{
+    --background-color: #f6f6f6;
+    --foreground-color: #003cff;
+    --primary-text-color: #0a0a0a;
+    --secondary-text-color:#ffffff;
+    --toggle-bg: #32844B;
+    --togge-fg:#0bf751;
+  }
+  
+[data-theme="dark"]{
+    --background-color: #0a0a0a;
+    --foreground-color: #567aff;
+    --primary-text-color: #f6f6f6;
+    --secondary-text-color:#0a0a0a;
+    --toggle-bg: #283452;
+    --togge-fg:#00a6ff;
+}
