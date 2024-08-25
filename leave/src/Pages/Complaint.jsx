@@ -1,12 +1,18 @@
 import React from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
+import back from "../assets/icons/back-arrow.svg"
 
 const Complaint = () => {
   return (
     <div>
       <Topbar />
       <Sidebar />
+
+      <div className="back">
+        <img src={back} alt="" id="back" />
+        <label htmlFor="back"></label>
+      </div>
 
       <div className="comp-body m-8 p-4 bg-white">
         <div className="clientName m-4 flex justify-between items-center">
@@ -38,9 +44,9 @@ const Complaint = () => {
           </div>
         </div>
 
-        <div>
-          <button className="accept py-1.5 px-5  rounded-md">Solved</button>
-          <button className="assign py-1.5 px-5  rounded-md">Close case</button>
+        <div className="flex justify-end m-4">
+          <button className="accept py-1.5 px-5 mr-6 rounded-md">Solved</button>
+          <button className="assign py-1.5 px-5 ml-6 rounded-md">Close case</button>
         </div>
       </div>
     </div>
