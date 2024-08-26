@@ -8,7 +8,7 @@
   /* font-family: ; */
 }
 body{
-  background-color: rgba(247, 247, 247, 1);
+  background-color: var(--background-color);
 }
 
 .sidebar {
@@ -216,9 +216,35 @@ th {
     background-color: #6C60FF;
   }
 
+  /* popup styles */
+  .popup{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.18);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .popup-inner{
+    border: 1px solid #c2c2c2;
+    border-radius: 6px;
+    background-color: white;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vh;
+    padding:10px 42px 40px;
+  }
+
   /* dark mode theme */
   :root{
-    --background-color: #f6f6f6;
+    --background-color: #f7f7f7;
     --foreground-color: #003cff;
     --primary-text-color: #0a0a0a;
     --secondary-text-color:#ffffff;

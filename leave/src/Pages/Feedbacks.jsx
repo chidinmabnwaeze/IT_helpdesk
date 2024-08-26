@@ -2,7 +2,7 @@ import React from 'react'
 import Topbar from '../Components/Topbar'
 import Sidebar from '../Components/Sidebar'
 import thumb from '../assets/icons/thumbs.svg'
-
+import NextPage from '../Components/nextPage'
 
 const Feedbacks = () => {
     // new addition
@@ -70,6 +70,9 @@ const Feedbacks = () => {
               </div>
             ))}
           </section>
+          <div className='mt-40'>
+          <NextPage/>
+          </div>
     </div>
   )
 }

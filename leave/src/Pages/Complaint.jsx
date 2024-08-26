@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 import back from "../assets/icons/back-arrow.svg";
 import { Link } from "react-router-dom";
+import Popup from "../Components/Popup";
 
 const Complaint = () => {
+  const [buttonPopup, setButtonPopup] = useState(false)
   return (
     <div>
       <Topbar />
@@ -18,6 +20,7 @@ const Complaint = () => {
       </Link>
 
       <div className="comp-body m-8 p-4 bg-white">
+        <Popup trigger={buttonPopup} setTrigger={()=>setButtonPopup(false)}/>
         <div className="clientName m-4 flex justify-between items-center">
           <div>
             <p>Mary John</p>
@@ -30,7 +33,7 @@ const Complaint = () => {
         <hr />
         <div className="textarea m-4">
           <div>
-            <p>Complain</p>
+            <p className="font-semibold">Issue</p>
           </div>
           <div className="complain border p-6 h-80" id="complain">
             My printer stooped working , I can’t print out documents, lorem
@@ -48,7 +51,7 @@ const Complaint = () => {
         </div>
 
         <div className="flex justify-end m-4">
-          <button className="accept py-1.5 px-5 mr-6 rounded-md">Solved</button>
+          <button className="accept py-1.5 px-5 mr-6 rounded-md" onClick={()=>setButtonPopup(true)}>Solved</button>
           <button className="assign py-1.5 px-5 ml-6 rounded-md">
             Close case
           </button>
