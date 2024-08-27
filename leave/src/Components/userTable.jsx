@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import down from "../assets/icons/arrow-square-down.svg"
+import down from "../assets/icons/arrow-square-down.svg";
 // import { useNavigate } from "react-router-dom";
 // import Complaint from "../Pages/Complaint";
+import DropdownMenu from "./DropdownMenu";
 
 const Tables = () => {
   const tab = [
@@ -101,8 +102,13 @@ const Tables = () => {
               </Link>
             </td>
             <td>
-              <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">Assign <img className="down h-4 ml-3 " src={down} alt="" /></button>
+              <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">
+                Assign <img className="down h-4 ml-3 " src={down} alt="" />
+              </button>
             </td>
+            <DropdownMenu
+            buttonText="Dropdownbbdd" 
+            content={<p>Hello </p>} />
           </tr>
         ))}
       </table>
