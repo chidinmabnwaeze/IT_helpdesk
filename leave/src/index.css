@@ -202,6 +202,9 @@ th {
     border: 1px solid  #32844B;
     color:  #32844B;
   }
+  .down{
+    border-color:  #32844B;
+  }
   .greyline{
     background-color: #d9d9d9;
   }

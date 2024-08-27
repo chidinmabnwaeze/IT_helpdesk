@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import down from "../assets/icons/arrow-square-down.svg"
 // import { useNavigate } from "react-router-dom";
 // import Complaint from "../Pages/Complaint";
 
@@ -94,13 +95,13 @@ const Tables = () => {
             </td>
             <td>
               <Link to="/complaint">
-                <button className="accept py-1.5 px-5  rounded-md">
+                <button className="accept py-1.5 px-7  rounded-md">
                   Accept
                 </button>
               </Link>
             </td>
             <td>
-              <button className="assign py-1.5 px-5  rounded-md">Assign</button>
+              <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">Assign <img className="down h-5 ml-3 " src={down} alt="" /></button>
             </td>
           </tr>
         ))}
