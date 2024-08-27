@@ -101,7 +101,7 @@ const Tables = () => {
               </Link>
             </td>
             <td>
-              <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">Assign <img className="down h-5 ml-3 " src={down} alt="" /></button>
+              <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">Assign <img className="down h-4 ml-3 " src={down} alt="" /></button>
             </td>
           </tr>
         ))}
