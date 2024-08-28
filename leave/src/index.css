@@ -260,6 +260,9 @@ th {
   font-size: 14px;
   transition: 0.5ms;
 }
+.content-open{
+  display: flex;
+}
 
 /* dark mode theme */
 :root {
@@ -278,4 +281,18 @@ th {
   --secondary-text-color: #0a0a0a;
   --toggle-bg: #283452;
   --togge-fg: #00a6ff;
+}
+
+
+/* mobile responsive styles */
+@media screen and (max-width:900px){
+  .sidebar{
+
+  }
+  .menu-list p{
+    display: none;
+  }
+  .rightTopSection{
+    display: none;
+  }
 }

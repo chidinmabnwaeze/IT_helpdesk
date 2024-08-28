@@ -13,7 +13,7 @@ const [isDark , setIsDark] = useState(false)
         <h1 className="font-bold">IT SUPPORT</h1>
       </div>
 
-      <div className="flex items-center">
+      <div className="rightTopSection flex items-center">
         <div className="searchbar">
         <input type="text" placeholder="Search here..." className="rounded p-1"/>
         </div>

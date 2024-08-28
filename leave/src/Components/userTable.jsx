@@ -106,9 +106,9 @@ const Tables = () => {
                 Assign <img className="down h-4 ml-3 " src={down} alt="" />
               </button>
             </td>
-            <DropdownMenu
+            <DropdownMenu 
             buttonText="Dropdownbbdd" 
-            content={<p>Hello </p>} />
+            content={<DropdownMenu/>} />
           </tr>
         ))}
       </table>
