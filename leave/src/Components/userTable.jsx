@@ -115,18 +115,18 @@ const Tables = () => {
               {/* <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">
                 Assign <img className="down h-4 ml-3 " src={down} alt="" />
               </button> */}
-            <DropdownMenu
-              buttonText="Assign To"
-              content={
-                <>
-                  {items.map((item) => (
-                    <DropdownContent key={item}>
-                     
-                      {`Mr ${item}`}</DropdownContent>
-                  ))}
-                </>
-              }
-            />
+              <DropdownMenu
+                buttonText="Assign To"
+                content={
+                  <>
+                    {items.map((item) => (
+                      <DropdownContent key={item}>
+                        {`Mr ${item}`}
+                      </DropdownContent>
+                    ))}
+                  </>
+                }
+              />
             </td>
           </tr>
         ))}
