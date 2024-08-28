@@ -263,6 +263,9 @@ th {
 .content-open{
   display: flex;
 }
+.dropdown-contents:hover{
+background-color: #eaeaea;
+}
 
 /* dark mode theme */
 :root {
