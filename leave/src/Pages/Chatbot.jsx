@@ -1,11 +1,12 @@
 import React from 'react'
+import aiBot from '../assets/icons/bx_bot.svg'
 
 const Chatbot = () => {
   return (
-    <div className='chatbot'>
+    <div className='chatbot w-3/5 flex flex-col justify-between bg-white border m-auto '>
        <div className='header'>
-        <div className="left">
-            <img src="" alt="" />
+        <div className="left flex m-2">
+            <img src={aiBot} alt="" />
             <div>
                 <h1>IT SUPPORT</h1>
                 <p>Chatbot</p>
