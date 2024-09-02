@@ -30,12 +30,12 @@ export default function Dashboard() {
       count: 40,
     },
     {
-      name: "Hardware",
-      count: 40,
+      name: "Software",
+      count: 35,
     },
     {
-      name: "Hardware",
-      count: 40,
+      name: "Network",
+      count: 58,
     },
   ];
   const feedback = [
@@ -74,7 +74,7 @@ export default function Dashboard() {
       chatCount: "40 live chats",
     },
     {
-      name: "James",
+      name: "Amina",
       chatCount: "40 live chats",
     },
     {

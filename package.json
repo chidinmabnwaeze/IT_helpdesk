@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "react-router-dom": "^6.26.0",
-    "rechart": "^0.0.1"
-  }
-}

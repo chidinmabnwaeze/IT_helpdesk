@@ -275,6 +275,10 @@ th {
 .dropdown-contents:hover{
 background-color: #eaeaea;
 }
+.closedButton{
+  color: white;
+  background-color: #32844b;
+}
 
 /* dark mode theme */
 :root {

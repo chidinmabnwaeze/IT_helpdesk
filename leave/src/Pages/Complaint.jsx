@@ -7,6 +7,11 @@ import Popup from "../Components/Popup";
 
 const Complaint = () => {
   const [buttonPopup, setButtonPopup] = useState(false)
+  const [buttonText, setbuttonText] =useState("Close case")
+const handleClick =()=>{
+  setbuttonText(buttonText === 'Close case' ? 'Case Closed !': 'Close case')
+}
+
   return (
     <div>
       <Topbar />
@@ -52,8 +57,8 @@ const Complaint = () => {
 
         <div className="flex justify-end m-4">
           <button className="accept py-1.5 px-5 mr-6 rounded-md" onClick={()=>setButtonPopup(true)}>Solved</button>
-          <button className="assign py-1.5 px-5 ml-6 rounded-md">
-            Close case
+          <button className={`assign py-1.5 px-5 ml-6 rounded-md ${buttonText ==='Case Closed !' ? "closedButton" : null}`} onClick={handleClick}>
+           {buttonText}
           </button>
         </div>
       </div>
