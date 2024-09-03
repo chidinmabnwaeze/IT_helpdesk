@@ -56,7 +56,7 @@ const handleClick =()=>{
         </div>
 
         <div className="flex justify-end m-4">
-          <button className="accept py-1.5 px-5 mr-6 rounded-md" onClick={()=>setButtonPopup(true)}>Solved</button>
+          <button className="accept py-1.5 px-5 mr-6 rounded-md" onClick={()=>setButtonPopup(true)}>Pending</button>
           <button className={`assign py-1.5 px-5 ml-6 rounded-md ${buttonText ==='Case Closed !' ? "closedButton" : null}`} onClick={handleClick}>
            {buttonText}
           </button>

@@ -10,7 +10,7 @@ function App() {
     <>
      <BrowserRouter>
      <Routes>
-      <Route index ='/form' element ={<CompliantForm/>}></Route>
+      <Route index element ={<CompliantForm/>}/>
       <Route path ='/form' element ={<CompliantForm/>}></Route>
      </Routes>
      </BrowserRouter> 
