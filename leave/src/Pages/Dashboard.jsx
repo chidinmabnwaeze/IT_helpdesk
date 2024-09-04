@@ -87,6 +87,9 @@ export default function Dashboard() {
       <Topbar />
       <Sidebar />
       <section className="dash-body">
+        <div className="m-3 flex items-center">
+          <h1 className="font-semibold text-2xl text-green-700">Welcome Back, Admin</h1>
+        </div>
         <div className="section1 flex w-full">
           <section className="ticket-stats gap-4 p-5 my-5 w-3/5 bg-white grid grid-cols-2">
             {ticketCount.map((count, index) => (

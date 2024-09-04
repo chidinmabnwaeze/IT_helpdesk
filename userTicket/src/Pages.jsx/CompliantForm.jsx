@@ -8,14 +8,30 @@ const CompliantForm = () => {
     setInputValue(event.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  
+  const [formData, setFormData] = useState({
+      firstname: "",
+      lastname: "",
+      email: "",
+      priority: "",
+      issue: "",
+    });
+    
+    const handleChangeMultiple = (event) => {
+        const { name, value } = event.target.value;
+        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    };
 
-//   const [select, setSelect] = useState(null);
-//   const handleSelect = () => {
-//     setSelect();
-//   };
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      alert(
+        `First Name: ${formData.firstname}, Last Name:${formData.lastname}, email:${formData.email}, priority:${formData.priority}, issue:${formData.issue}`
+      );
+    };
+    //   const [select, setSelect] = useState(null);
+    //   const handleSelect = () => {
+  //     setSelect();
+  //   };
 
   return (
     <div>
@@ -53,6 +69,8 @@ const CompliantForm = () => {
                   type="text"
                   placeholder="Input your last name"
                   className="p-4 w-full ml-4 border"
+                  value={formData.lastname}
+                  onChange={handleChangeMultiple}
                 />
               </div>
             </div>
@@ -65,6 +83,8 @@ const CompliantForm = () => {
                 type="text"
                 placeholder="Input your email address"
                 className="p-4 w-3/5 border"
+                value={formData.email}
+                onChange={handleChangeMultiple}
               />
             </div>
             <div className="prority">
@@ -87,6 +107,8 @@ const CompliantForm = () => {
                 id="issue"
                 placeholder="State your issue here"
                 className="border w-full p-6 h-60"
+                value={formData}
+                onChange={handleChangeMultiple}
               ></textarea>
             </div>
             <input
