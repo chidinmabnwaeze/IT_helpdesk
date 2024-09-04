@@ -30,25 +30,25 @@ const location =useLocation()
         <div className="menu1">
         <h2 className="text-center mt-6">MAIN MENU</h2>
         <ul className="menu-items">
-          <li className={`menu-list ${location.pathname==='/dashboard' ? 'active' : ''}`} >
+          {/* <li className={`menu-list ${location.pathname==='/dashboard' ? 'active' : ''}`} >
             <a id="menu-icon" className="menu-list" href="../dashboard">
-              {/* <div className="stroke"> </div> */}
+              {/* <div className="stroke"> </div> 
               <img className="menu-icon" src={Dash} alt="" />
               <p>Dashboard</p>
             </a>
-          </li>
+          </li> */}
 
-         <li className={`menu-list ${location.pathname==='/tickets' ? 'active' : ''}`} >
-            <a id="menu-icon" className="menu-list" href="../tickets">
+         <li className={`menu-list ${location.pathname==='/form' ? 'active' : ''}`} >
+            <a id="menu-icon" className="menu-list" href="../form">
               <img className="menu-icon" src={Tickets} alt="" />
-              <p>My Tickets</p>
+              <p>Create Ticket</p>
             </a>
           </li>
 
          <li className={`menu-list ${location.pathname==='/feedbacks' ? 'active' : ''}`} >
             <a id="menu-icon" className="menu-list" href="../feedbacks">
               <img className="menu-icon" src={Feedbacks} alt="" />
-              <p>Feedbacks</p>
+              <p>My Tickets</p>
             </a>
           </li>
 

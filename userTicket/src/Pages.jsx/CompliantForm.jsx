@@ -1,35 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 
 const CompliantForm = () => {
-  const formfield = [
-    {
-      label: "First Name",
-      placeholder: "Input your first name",
-    },
-    {
-      label: "Last Name",
-      placeholder: "Input your last name",
-    },
-  ];
+  const [Inputvalue, setInputValue] = useState("");
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+//   const [select, setSelect] = useState(null);
+//   const handleSelect = () => {
+//     setSelect();
+//   };
+
   return (
     <div>
       <Topbar />
       <Sidebar />
-      <form action="submit">
-        {formfield.map((field, index) => {
-          <div key={index}>
-            <div>
-              <label htmlFor="firstname">{field.label}</label>
-            </div>
-            <input type="text" placeholder="Input your first name" />
-          </div>;
-        })}
-      </form>
 
-      <div className="form-body m-5 bg-white">
-        <form action="submit" className="m-5 mx-auto p-3">
+      <div className="form-body m-5 p-4 bg-white">
+        <form
+          action="submit"
+          className="m-5 mx-auto p-5"
+          onSubmit={handleSubmit}
+        >
           <div>
             <div className="name-container flex w-full">
               <div className="w-full">
@@ -41,6 +39,9 @@ const CompliantForm = () => {
                   type="text"
                   placeholder="Input your first name"
                   className="p-4 w-full mr-4 border"
+                  required
+                  value={Inputvalue}
+                  onChange={handleChange}
                 />
               </div>
               <div className="w-full">
@@ -71,8 +72,10 @@ const CompliantForm = () => {
                 <label htmlFor="issue">Priority</label>
               </div>
               <input type="text" select name="" />
-              <select name="High" id="high">
-                High
+              <select name="Priority Level" id="high">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
               </select>
             </div>
             <div className="issue w-3/5">
