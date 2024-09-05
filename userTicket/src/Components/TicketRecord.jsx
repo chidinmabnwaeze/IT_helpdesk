@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from 'react-router-dom'
+import View from "../Pages.jsx/ViewTickets";
 
 const TicketRecord = () => {
   const records = [
@@ -16,39 +18,48 @@ const TicketRecord = () => {
       },
   ];
   return (
-    <div className="Records">
-      <div className="recordTabs flex m-6">
-        <div>
+    <div className="records ">
+      <div className="recordTabs flex m-6 bg-white">
+        <div className="m-4">
+          <p>All</p>
+        </div>
+        <div className="m-4">
           <p>Pending</p>
         </div>
-        <div>
-          <p>Solved</p>
-        </div>
-        <div>
+        <div className="m-4">
           <p>Closed</p>
         </div>
       </div>
       <div className="list">
           {records.map((record, index) => (
-        <div className="ticket1" key={index}>
-          <div>
+        <div className="ticket1 border flex justify-between items-center m-4 p-6  bg-white" key={index}>
+         <div className="flex ">
+          <div className="mr-3">
             <input type="checkbox" />
           </div>
               <div>
-                <p>{record.title}</p>
+                <h2 className="text-green-700 font-semibold">{record.title}</h2>
                 <p>{record.message}</p>
               </div>
+              </div>
+
+              <div>
               <div>
                 <p>
-                  Date of Request: <span>{record.requestDate}</span>
+                  Date of Issue: <span className="m-3">{record.requestDate}</span>
                 </p>
               </div>
               <div>
                 <p>
-                  Date of approval: <span>{record.solvedDate}</span>
+                  Resolved Date: <span className="m-2">{record.solvedDate}</span>
                 </p>
               </div>
-        
+              </div>
+              <Link to ="/viewticket">
+              <button className="accept py-1.5 px-7 rounded-md">
+                  View
+                </button>
+                </Link>
         </div>
           ))}
       </div>

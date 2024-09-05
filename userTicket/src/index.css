@@ -111,7 +111,8 @@ input::placeholder {
 .feed-body,
 .comp-body,
 .back ,
-.form-body{
+.form-body,
+.records{
   margin-left: 17%;
 }
 .tab-list {
@@ -265,6 +266,6 @@ th {
   }
   .topbar{
     display: none;
-    
+
   }
 }
