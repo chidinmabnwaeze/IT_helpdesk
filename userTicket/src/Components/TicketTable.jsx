@@ -1,10 +1,12 @@
-import React ,{useState, useEffect} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import down from "../assets/icons/arrow-square-down.svg";
+import Topbar from "./Topbar";
+import Sidebar from "./Sidebar";
+// import down from "../assets/icons/arrow-square-down.svg";
 // import { useNavigate } from "react-router-dom";
 // import Complaint from "../Pages/Complaint";
-import DropdownMenu from "./DropdownMenu";
-import DropdownContent from "./DropdownContent";
+// import DropdownMenu from "./DropdownMenu";
+// import DropdownContent from "./DropdownContent";
 
 const Tables = () => {
   const tab = [
@@ -13,7 +15,7 @@ const Tables = () => {
       id: 23476,
       email: "example@gmail.com",
       issue: "My laptop stopped working",
-      status: "High",
+      status: "Solved",
       date: "2024-06-09",
     },
     {
@@ -21,7 +23,7 @@ const Tables = () => {
       id: 23476,
       email: "example@gmail.com",
       issue: "My laptop stopped working",
-      status: "High",
+      status: "Pending",
       date: "2024-06-09",
     },
 
@@ -73,28 +75,10 @@ const Tables = () => {
   // const openAcceptButton = () =>{
   //   navigate("/complaint")
   // }
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const url = "https://jsonplaceholder.org/users";
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-
-        const json = await response.json();
-        console.log(json);
-        setUsers(json);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-    getData();
-  }, []);
   return (
     <div>
+      <Topbar/>
+      <Sidebar/>
       <table className="staffTable">
         <tr className="table-head">
           <th>Complaint</th>
@@ -102,25 +86,25 @@ const Tables = () => {
           <th>Priority </th>
         </tr>
 
-        {users.map((tabb, index) => (
+        {tab.map((tabb, index) => (
           <tr className="rows" key={index}>
             <td className="staff-name " id="check">
               <div className="">
                 <input type="checkbox" className="mr-3" id="check" />
               </div>
               <span className="tt">
-                <p className="text-black ">{tabb.firstname} {tabb.lastname}</p>
+                <p className="text-black ">{tabb.name}</p>
                 <p>{tabb.email}</p>
               </span>
             </td>
 
-            <td>{tabb.phone}</td>
+            <td>{tabb.issue}</td>
             <td className="staff-status">
               <div className="clockedStatus">
                 <span className="stat">
                   <div className="circle"></div>
 
-                  {/* {tabb.status} */}
+                  {tabb.status}
                 </span>
               </div>
             </td>
@@ -131,10 +115,10 @@ const Tables = () => {
                 </button>
               </Link>
             </td>
-            <td>
-              {/* <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">
+           {/* <td>
+               <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">
                 Assign <img className="down h-4 ml-3 " src={down} alt="" />
-              </button> */}
+              </button> 
               <DropdownMenu
                 buttonText="Assign To"
                 content={
@@ -147,7 +131,7 @@ const Tables = () => {
                   </>
                 }
               />
-            </td>
+            </td> */}
           </tr>
         ))}
       </table>

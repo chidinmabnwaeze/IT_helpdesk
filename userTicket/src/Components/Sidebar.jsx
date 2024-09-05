@@ -45,8 +45,8 @@ const location =useLocation()
             </a>
           </li>
 
-         <li className={`menu-list ${location.pathname==='/feedbacks' ? 'active' : ''}`} >
-            <a id="menu-icon" className="menu-list" href="../feedbacks">
+         <li className={`menu-list ${location.pathname==='/mytickets' ? 'active' : ''}`} >
+            <a id="menu-icon" className="menu-list" href="../mytickets">
               <img className="menu-icon" src={Feedbacks} alt="" />
               <p>My Tickets</p>
             </a>
@@ -74,12 +74,12 @@ const location =useLocation()
             </a>
           </li>
 
-         <li className={`menu-list ${location.pathname==='/logout' ? 'active' : ''}`} >
+         {/* <li className={`menu-list ${location.pathname==='/logout' ? 'active' : ''}`} >
             <a id="menu-icon" className="menu-list" href="#">
               <img className="menu-icon" src={Logout} alt="" />
               <p>Logout</p>
             </a>
-          </li>
+          </li> */}
           </ul>
           </div>
       </div>

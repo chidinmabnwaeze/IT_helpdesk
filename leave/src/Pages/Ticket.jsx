@@ -7,6 +7,7 @@ import NextPage from "../Components/nextPage";
 
 
 export default function Ticket() {
+  
   return (
     <div className="ticket">
       <Topbar />

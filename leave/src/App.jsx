@@ -6,6 +6,7 @@ import Tickets from './Pages/Ticket'
 import Complaint from './Pages/Complaint'
 import Feedbacks from './Pages/Feedbacks'
 import Chatbot from './Pages/Chatbot'
+import Api from './Pages/Api'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
      <Route path='/complaint' element ={<Complaint/>}/>
      <Route path='/feedbacks' element ={<Feedbacks/>}/>
      <Route path='/chatbot' element ={<Chatbot/>}/>
+     <Route path='/api' element ={<Api/>}/>
     </Routes>
     </BrowserRouter>
      

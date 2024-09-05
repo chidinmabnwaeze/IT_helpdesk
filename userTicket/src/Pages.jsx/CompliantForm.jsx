@@ -18,7 +18,7 @@ const CompliantForm = () => {
     });
     
     const handleChangeMultiple = (event) => {
-        const { name, value } = event.target.value;
+        const { name, value } = event.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     };
 
@@ -28,10 +28,48 @@ const CompliantForm = () => {
         `First Name: ${formData.firstname}, Last Name:${formData.lastname}, email:${formData.email}, priority:${formData.priority}, issue:${formData.issue}`
       );
     };
-    //   const [select, setSelect] = useState(null);
-    //   const handleSelect = () => {
-  //     setSelect();
-  //   };
+
+      const [select, setSelect] = useState(null);
+      const handleSelect = (event) => {
+      setSelect(event.target.value);
+    };
+
+
+ 
+//     const [formData, setFormData] = useState({name: "",email: "",phone: "", message: ""});
+  
+//     const handleChange = (event) => {
+//       const { name, value } = event.target;
+//       setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+//     };
+  
+//     const handleSubmit = (event) => {
+//       event.preventDefault();
+//       alert(`Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`
+//       );
+//   };
+  
+//     return (
+//       <form onSubmit={handleSubmit}>
+//         <label htmlFor="name">Name:</label>
+//         <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}/>
+  
+//         <label htmlFor="email">Email:</label>
+//         <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/>
+
+//         <label htmlFor="email">phone:</label>
+//         <input type="email" id="email" name="email" value={formData.phone} onChange={handleChange}/>
+  
+//         <label htmlFor="message">Message:</label>
+//         <textarea id="message" name="message" value={formData.message} onChange={handleChange}/>
+  
+//         <button type="submit">Submit</button>
+//       </form>
+//     );
+//   }
+  
+
+
 
   return (
     <div>
@@ -51,13 +89,13 @@ const CompliantForm = () => {
                   <label htmlFor="firstname">First Name</label>
                 </div>
                 <input
-                  id="firstname"
+                 name="firstname"
                   type="text"
                   placeholder="Input your first name"
                   className="p-4 w-full mr-4 border"
                   required
-                  value={Inputvalue}
-                  onChange={handleChange}
+                  value={formData.firstname}
+                  onChange={handleChangeMultiple}
                 />
               </div>
               <div className="w-full">
@@ -65,7 +103,7 @@ const CompliantForm = () => {
                   <label htmlFor="lastname">Last Name</label>
                 </div>
                 <input
-                  id="lastname"
+                  name="lastname"
                   type="text"
                   placeholder="Input your last name"
                   className="p-4 w-full ml-4 border"
@@ -79,7 +117,7 @@ const CompliantForm = () => {
                 <label htmlFor="email">Email Address</label>
               </div>
               <input
-                id="email"
+                name="email"
                 type="text"
                 placeholder="Input your email address"
                 className="p-4 w-3/5 border"
@@ -91,23 +129,24 @@ const CompliantForm = () => {
               <div className="m-2 priority">
                 <label htmlFor="issue">Priority</label>
               </div>
-              <input type="text" select name="" />
-              <select name="Priority Level" id="high">
+             
+              <select value={select} id="high" onChange={handleSelect} className="border-2 p-2">
+                <option value="">Select</option>
                 <option value="high">High</option>
                 <option value="medium">Medium</option>
                 <option value="low">Low</option>
               </select>
             </div>
+
             <div className="issue w-3/5">
               <div className="m-2 compliant-area">
                 <label htmlFor="issue">Complaint</label>
               </div>
               <textarea
-                name="compliantSection"
-                id="issue"
+                name="issue"
                 placeholder="State your issue here"
                 className="border w-full p-6 h-60"
-                value={formData}
+                value={formData.issue}
                 onChange={handleChangeMultiple}
               ></textarea>
             </div>

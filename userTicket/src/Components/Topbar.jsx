@@ -8,7 +8,7 @@ export default function Topbar({handleChange, isChecked}){
 const [isDark , setIsDark] = useState(false)
 
   return (
-    <div className="flex z-10 p-5 justify-between items-center bg-white" data-theme={isDark ? "dark" : "light"}>
+    <div className="topbar flex z-10 p-5 justify-between items-center bg-white" data-theme={isDark ? "dark" : "light"}>
       <div className="title mr-250">
         <h1 className="font-bold">SUPPORT</h1>
       </div>
@@ -30,7 +30,10 @@ const [isDark , setIsDark] = useState(false)
         </div>
         <div className="flex items-center pl-5">
             <p>Micheal Offiong</p>
-            <img src={avatar} alt="" />
+            <img src={avatar} alt="" className="ml-3"/>
+        </div>
+        <div className="login-box pl-5">
+          <button className="log-button text-white p-2 rounded">Login as Admin</button>
         </div>
       </div>
     </div>

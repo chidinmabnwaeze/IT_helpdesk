@@ -1,7 +1,7 @@
 import './App.css'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import Topbar from '../../leave/src/Components/Topbar'
 import CompliantForm from './Pages.jsx/CompliantForm'
+import MyTickets from './Pages.jsx/MyTickets'
 
 function App() {
 
@@ -12,6 +12,7 @@ function App() {
      <Routes>
       <Route index element ={<CompliantForm/>}/>
       <Route path ='/form' element ={<CompliantForm/>}></Route>
+      <Route path='/mytickets' element={<MyTickets/>}/>
      </Routes>
      </BrowserRouter> 
     </>

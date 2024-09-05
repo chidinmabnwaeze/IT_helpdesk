@@ -59,6 +59,13 @@ const location =useLocation()
             </a>
           </li>
 
+          <li className={`menu-list ${location.pathname==='/api' ? 'active' : ''}`} >
+            <a id="menu-icon" className="menu-list" href="../api">
+              <img className="menu-icon" src={Followup} alt="" />
+              <p>Api</p>
+            </a>
+          </li>
+
         </ul>
         </div>
 
