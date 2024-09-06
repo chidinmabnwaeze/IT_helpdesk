@@ -17,26 +17,11 @@ const TicketRecord = () => {
       solvedDate: "30/8/24",
     },
   ];
-const [activeTab, setActiveTab] = useState("all")
-const changeTab = (tab)=>{
-    setActiveTab("all")
-}
+
   return (
     <div className="records ">
 
-      <div className="recordTabs flex m-6 bg-white">
-        <div className={`${activeTab === 'all' ? 'activeTab' :"m-4"}`} onClick={()=>{setActiveTab(tab)}}>
-          <p>All</p>
-        </div>
-        <div className="m-4">
-          <p>Pending</p>
-        </div>
-        <div className="m-4">
-          <p>Closed</p>
-        </div>
-      </div>
-
-<div className={`${activeTab === "all" && ''}"content"`}>
+<div className="content">
       <div className="list">
         {records.map((record, index) => (
           <div

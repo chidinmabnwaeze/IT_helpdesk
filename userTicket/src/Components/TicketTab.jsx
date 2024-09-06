@@ -21,9 +21,10 @@ const changeTab = (tab)=>{
       >
         Pend
       </span>
-      <div className="m-4">
-        <p>Pending</p>
-      </div>
+      <span className={`${activeTab === "closed" ? "activeTab" : "m-4"}`}
+      onClick={()=>changeTab("closed")}>
+        Pending
+      </span>
       <div className="m-4">
         <p>Closed</p>
       </div>
