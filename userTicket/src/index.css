@@ -237,6 +237,13 @@ th {
 .box1 {
   background-color: #6c60ff;
 }
+.activeTab{
+  margin: 1rem;
+  border-bottom: 3px solid #32844b;
+  border-radius: 3px;
+  color: #32844b;
+  padding: 0 2rem;
+}
 
 /* dark mode theme */
 :root {
