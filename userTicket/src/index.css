@@ -112,7 +112,7 @@ input::placeholder {
 .comp-body,
 .back ,
 .form-body,
-.records{
+.tabs{
   margin-left: 17%;
 }
 .tab-list {
@@ -243,6 +243,7 @@ th {
   border-radius: 3px;
   color: #32844b;
   padding: 0 2rem;
+  font-weight: 500;
 }
 
 /* dark mode theme */
