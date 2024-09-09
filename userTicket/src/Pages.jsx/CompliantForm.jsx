@@ -90,6 +90,7 @@ const CompliantForm = () => {
                   <label htmlFor="firstname">First Name</label>
                 </div>
                 <input
+                id="firstname"
                  name="firstname"
                   type="text"
                   placeholder="Input your first name"
@@ -104,6 +105,7 @@ const CompliantForm = () => {
                   <label htmlFor="lastname">Last Name</label>
                 </div>
                 <input
+                id="lastname"
                   name="lastname"
                   type="text"
                   placeholder="Input your last name"
@@ -119,6 +121,7 @@ const CompliantForm = () => {
                 <label htmlFor="email">Email Address</label>
               </div>
               <input
+              id="email"
                 name="email"
                 type="text"
                 placeholder="Input your email address"
@@ -128,9 +131,9 @@ const CompliantForm = () => {
                 onChange={handleChangeMultiple}
               />
             </div>
-            <div className="email w-full">
+            <div className="staffId w-full">
               <div className="m-2">
-                <label htmlFor="email">Staff ID</label>
+                <label htmlFor="staffId">Staff ID</label>
               </div>
               <input
                 name="staffId"
@@ -167,7 +170,20 @@ const CompliantForm = () => {
                 onChange={handleChangeMultiple}
               ></textarea>
             </div>
-          
+            <div className="attachment w-full">
+              <div className="m-2">
+                <label htmlFor="email">Attachment</label>
+              </div>
+              <input
+                name="email"
+                type="text"
+                placeholder="Input your email address"
+                className="p-4 w-3/5 border"
+                required
+                value={formData.email}
+                onChange={handleChangeMultiple}
+              />
+            </div>
             <input
               type="submit"
               className="submit border p-2 w-32 text-white rounded"
