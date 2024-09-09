@@ -1,4 +1,4 @@
-import React ,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import down from "../assets/icons/arrow-square-down.svg";
 // import { useNavigate } from "react-router-dom";
@@ -59,13 +59,15 @@ const Tables = () => {
     },
   ];
 
-  const items = [
-    "Abubakar Sadiq",
-    "Damian Abel",
-    "Abubakar Sadiq",
-    "Joshua Duke",
-    "Abubakar Sadiq",
-    "Abubakar Sadiq",
+  const names = [
+    {
+      user1: "Abubakar Sadiq",
+      user2: "Damian Abel",
+      user3: "Abubakar Sadiq",
+      user4: "Joshua Duke",
+      user5: "Abubakar Sadiq",
+      user6: "Sadiq Yusuf",
+    },
   ];
 
   //   const navigate = useNavigate()
@@ -102,14 +104,16 @@ const Tables = () => {
           <th>Priority </th>
         </tr>
 
-        {users.map((tabb, index) => (
+        {tab.map((tabb, index) => (
           <tr className="rows" key={index}>
             <td className="staff-name " id="check">
               <div className="">
                 <input type="checkbox" className="mr-3" id="check" />
               </div>
               <span className="tt">
-                <p className="text-black ">{tabb.firstname} {tabb.lastname}</p>
+                <p className="text-black ">
+                  {tabb.name} {/*{tabb.lastname}*/}
+                </p>
                 <p>{tabb.email}</p>
               </span>
             </td>
@@ -120,7 +124,7 @@ const Tables = () => {
                 <span className="stat">
                   <div className="circle"></div>
 
-                  {/* {tabb.status} */}
+                  {tabb.status}
                 </span>
               </div>
             </td>
@@ -131,10 +135,11 @@ const Tables = () => {
                 </button>
               </Link>
             </td>
+             {/*
             <td>
-              {/* <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">
+              <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">
                 Assign <img className="down h-4 ml-3 " src={down} alt="" />
-              </button> */}
+              </button> 
               <DropdownMenu
                 buttonText="Assign To"
                 content={
@@ -147,6 +152,33 @@ const Tables = () => {
                   </>
                 }
               />
+            </td>
+            */}
+            <td>
+              {/* <button
+                name="assign"
+                type="text"
+                className="assign flex justify-center items-center py-1.5 p-6  rounded-md"
+              >
+                Assign
+              </button> */}
+              {names.map((name, index) => (
+                <div className="dropdowns   p-2 w-40 " key={index}>
+                  {/* <label htmlFor="assign">Assign</label> */}
+                  <select name="assignTo" id="" className="select flex rounded-lg p-2" >
+                    <option value=" ">Assign To </option>
+                    <option value=" "> </option>
+                    <option value="user1">{name.user1}</option>
+                    <option value="user1">{name.user2}</option>
+                    <option value="user1">{name.user3}</option>
+                    <option value="user1">{name.user4}</option>
+                    <option value="user1">{name.user5}</option>
+                    <option value="user1">{name.user1}</option>
+                    <option value="user1">{name.user2}</option>
+                   
+                  </select>
+                </div>
+              ))}
             </td>
           </tr>
         ))}

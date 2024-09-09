@@ -280,6 +280,13 @@ background-color: #eaeaea;
   color: white;
   background-color: #32844b;
 }
+.select{
+  border: 1px solid #32844b;
+color: #32844b;
+cursor: pointer;
+}
+
+
 
 /* dark mode theme */
 :root {

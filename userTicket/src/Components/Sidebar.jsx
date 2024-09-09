@@ -52,12 +52,12 @@ const location =useLocation()
             </a>
           </li>
 
-         <li className={`menu-list ${location.pathname==='/followup' ? 'active' : ''}`} >
+         {/* <li className={`menu-list ${location.pathname==='/followup' ? 'active' : ''}`} >
             <a id="menu-icon" className="menu-list" href="#">
               <img className="menu-icon" src={Followup} alt="" />
               <p>Follow up</p>
             </a>
-          </li>
+          </li> */}
 
         </ul>
         </div>
