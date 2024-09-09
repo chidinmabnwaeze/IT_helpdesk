@@ -130,7 +130,7 @@ const Tables = () => {
             </td>
             <td>
               <Link to="/complaint">
-                <button className="accept py-1.5 px-7  rounded-md">
+                <button className="accept py-1.5 px-7 rounded-md">
                   Accept
                 </button>
               </Link>
@@ -155,13 +155,6 @@ const Tables = () => {
             </td>
             */}
             <td>
-              {/* <button
-                name="assign"
-                type="text"
-                className="assign flex justify-center items-center py-1.5 p-6  rounded-md"
-              >
-                Assign
-              </button> */}
               {names.map((name, index) => (
                 <div className="dropdowns   p-2 w-40 " key={index}>
                   {/* <label htmlFor="assign">Assign</label> */}

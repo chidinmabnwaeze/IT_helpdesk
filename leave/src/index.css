@@ -285,7 +285,14 @@ background-color: #eaeaea;
 color: #32844b;
 cursor: pointer;
 }
-
+.activeTab{
+  margin: 1rem;
+  border-bottom: 3px solid #32844b;
+  border-radius: 3px;
+  color: #32844b;
+  padding: 0 2rem;
+  font-weight: 500;
+}
 
 
 /* dark mode theme */

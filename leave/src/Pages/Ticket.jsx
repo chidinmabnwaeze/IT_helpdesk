@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 // import Table from "../Components/Table";
@@ -7,7 +7,11 @@ import NextPage from "../Components/nextPage";
 
 
 export default function Ticket() {
-  
+  const [activeTab, setActiveTab] = useState("All Issues")
+const handleChangeTab = (tab)=>{
+  setActiveTab(tab)
+}
+
   return (
     <div className="ticket">
       <Topbar />
@@ -20,10 +24,10 @@ export default function Ticket() {
           <section className="flex justify-between items-center">
             <div className="tabs flex mt-3 ">
               <ul className="tab flex">
-                <li className="tab-list">All Issues</li>
-                <li className="tab-list">New Issues</li>
-                <li className="tab-list">Opened Issues</li>
-                <li className="tab-list">Closed Issues</li>
+                <li className={`${activeTab === "All Issues" ? "activeTab" :"tab-list"}`} onClick={() =>handleChangeTab("All Issues")}>All Issues</li>
+                <li className={`${activeTab === "New Issues" ? "activeTab" :"tab-list"}`} onClick={()=>handleChangeTab("New Issues")}>New Issues</li>
+                <li className={`${activeTab === "Pending Issues" ? "activeTab" :"tab-list"}`} onClick={()=>handleChangeTab("Pending Issues")}>Pending Issues</li>
+                <li className={`${activeTab === "Closed Issues" ? "activeTab" :"tab-list"}`} onClick={()=>handleChangeTab("Closed Issues")}>Closed Issues</li>
               </ul>
             </div>
             <div className="date">1-26th August 2024</div>
