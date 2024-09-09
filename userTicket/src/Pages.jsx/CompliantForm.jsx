@@ -25,7 +25,8 @@ const CompliantForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(
-      `First Name: ${formData.firstname}, Last Name:${formData.lastname}, email:${formData.email}, priority:${formData.priority}, issue:${formData.issue}`
+      // `First Name: ${formData.firstname}, Last Name:${formData.lastname}, email:${formData.email}, priority:${formData.priority}, issue:${formData.issue} , attached:${attachment}`
+   "Form submitted succesfully !"
     );
   };
 
@@ -34,6 +35,10 @@ const CompliantForm = () => {
     setSelect(event.target.value);
   };
 
+  const [attachment, setAttachment] = useState("")
+const handleAttachment = (e) =>{
+setAttachment(e.target.file)
+}
   //     const [formData, setFormData] = useState({name: "",email: "",phone: "", message: ""});
 
   //     const handleChange = (event) => {
@@ -171,21 +176,20 @@ const CompliantForm = () => {
             </div>
             <div className="attachment w-full">
               <div className="m-2">
-                <label htmlFor="email">Attachment</label>
+                <label htmlFor="attachment">Attachment</label>
               </div>
               <input
-                name="email"
-                type="text"
-                placeholder="Input your email address"
-                className="p-4 w-3/5 border"
-                required
-                value={formData.email}
-                onChange={handleChangeMultiple}
+                name="attachment"
+                type="file"
+                placeholder="Add an attachment"
+                className="p-4 w-3/5"
+                file={attachment}
+                onChange={handleAttachment}
               />
             </div>
             <input
               type="submit"
-              className="submit border p-2 w-32 text-white rounded"
+              className="submit border p-2 w-32 mt-4 text-white rounded hover:bg-white border-green-700"
             />
           </div>
         </form>
