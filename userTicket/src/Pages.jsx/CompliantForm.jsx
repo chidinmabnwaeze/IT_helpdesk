@@ -8,69 +8,63 @@ const CompliantForm = () => {
   //   setInputValue(event.target.value);
   // };
 
-  
   const [formData, setFormData] = useState({
-      firstname: "",
-      lastname: "",
-      email: "",
-      staffId: "",
-      priority: "",
-      issue: "",
-    });
-    
-    const handleChangeMultiple = (event) => {
-        const { name, value } = event.target;
-        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-    };
+    firstname: "",
+    lastname: "",
+    email: "",
+    staffId: "",
+    priority: "",
+    issue: "",
+  });
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      alert(
-        `First Name: ${formData.firstname}, Last Name:${formData.lastname}, email:${formData.email}, priority:${formData.priority}, issue:${formData.issue}`
-      );
-    };
+  const handleChangeMultiple = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
 
-      const [select, setSelect] = useState(null);
-      const handleSelect = (event) => {
-      setSelect(event.target.value);
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(
+      `First Name: ${formData.firstname}, Last Name:${formData.lastname}, email:${formData.email}, priority:${formData.priority}, issue:${formData.issue}`
+    );
+  };
 
+  const [select, setSelect] = useState(null);
+  const handleSelect = (event) => {
+    setSelect(event.target.value);
+  };
 
- 
-//     const [formData, setFormData] = useState({name: "",email: "",phone: "", message: ""});
-  
-//     const handleChange = (event) => {
-//       const { name, value } = event.target;
-//       setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-//     };
-  
-//     const handleSubmit = (event) => {
-//       event.preventDefault();
-//       alert(`Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`
-//       );
-//   };
-  
-//     return (
-//       <form onSubmit={handleSubmit}>
-//         <label htmlFor="name">Name:</label>
-//         <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}/>
-  
-//         <label htmlFor="email">Email:</label>
-//         <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/>
+  //     const [formData, setFormData] = useState({name: "",email: "",phone: "", message: ""});
 
-//         <label htmlFor="email">phone:</label>
-//         <input type="email" id="email" name="email" value={formData.phone} onChange={handleChange}/>
-  
-//         <label htmlFor="message">Message:</label>
-//         <textarea id="message" name="message" value={formData.message} onChange={handleChange}/>
-  
-//         <button type="submit">Submit</button>
-//       </form>
-//     );
-//   }
-  
+  //     const handleChange = (event) => {
+  //       const { name, value } = event.target;
+  //       setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  //     };
 
+  //     const handleSubmit = (event) => {
+  //       event.preventDefault();
+  //       alert(`Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`
+  //       );
+  //   };
 
+  //     return (
+  //       <form onSubmit={handleSubmit}>
+  //         <label htmlFor="name">Name:</label>
+  //         <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}/>
+
+  //         <label htmlFor="email">Email:</label>
+  //         <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/>
+
+  //         <label htmlFor="email">phone:</label>
+  //         <input type="email" id="email" name="email" value={formData.phone} onChange={handleChange}/>
+
+  //         <label htmlFor="message">Message:</label>
+  //         <textarea id="message" name="message" value={formData.message} onChange={handleChange}/>
+
+  //         <button type="submit">Submit</button>
+  //       </form>
+  //     );
+  //   }
 
   return (
     <div>
@@ -90,8 +84,8 @@ const CompliantForm = () => {
                   <label htmlFor="firstname">First Name</label>
                 </div>
                 <input
-                id="firstname"
-                 name="firstname"
+                  id="firstname"
+                  name="firstname"
                   type="text"
                   placeholder="Input your first name"
                   className="p-4 w-full mr-4 border"
@@ -105,7 +99,7 @@ const CompliantForm = () => {
                   <label htmlFor="lastname">Last Name</label>
                 </div>
                 <input
-                id="lastname"
+                  id="lastname"
                   name="lastname"
                   type="text"
                   placeholder="Input your last name"
@@ -121,7 +115,7 @@ const CompliantForm = () => {
                 <label htmlFor="email">Email Address</label>
               </div>
               <input
-              id="email"
+                id="email"
                 name="email"
                 type="text"
                 placeholder="Input your email address"
@@ -149,8 +143,13 @@ const CompliantForm = () => {
               <div className="m-2 priority">
                 <label htmlFor="issue">Priority</label>
               </div>
-             
-              <select value={select} id="high" onChange={handleSelect} className="border-2 p-2">
+
+              <select
+                value={select}
+                id="high"
+                onChange={handleSelect}
+                className="border-2 p-2"
+              >
                 <option value="">Select</option>
                 <option value="high">High</option>
                 <option value="medium">Medium</option>
