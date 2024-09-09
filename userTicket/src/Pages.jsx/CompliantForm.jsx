@@ -3,16 +3,17 @@ import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 
 const CompliantForm = () => {
-  const [Inputvalue, setInputValue] = useState("");
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  // const [Inputvalue, setInputValue] = useState("");
+  // const handleChange = (event) => {
+  //   setInputValue(event.target.value);
+  // };
 
   
   const [formData, setFormData] = useState({
       firstname: "",
       lastname: "",
       email: "",
+      staffId: "",
       priority: "",
       issue: "",
     });
@@ -107,6 +108,7 @@ const CompliantForm = () => {
                   type="text"
                   placeholder="Input your last name"
                   className="p-4 w-full ml-4 border"
+                  required
                   value={formData.lastname}
                   onChange={handleChangeMultiple}
                 />
@@ -121,7 +123,22 @@ const CompliantForm = () => {
                 type="text"
                 placeholder="Input your email address"
                 className="p-4 w-3/5 border"
+                required
                 value={formData.email}
+                onChange={handleChangeMultiple}
+              />
+            </div>
+            <div className="email w-full">
+              <div className="m-2">
+                <label htmlFor="email">Staff ID</label>
+              </div>
+              <input
+                name="staffId"
+                type="text"
+                placeholder="Input your staff id"
+                className="p-4 w-3/5 border"
+                required
+                value={formData.staffId}
                 onChange={handleChangeMultiple}
               />
             </div>
@@ -150,6 +167,7 @@ const CompliantForm = () => {
                 onChange={handleChangeMultiple}
               ></textarea>
             </div>
+          
             <input
               type="submit"
               className="submit border p-2 w-32 text-white rounded"
