@@ -18,7 +18,7 @@ export default function Ticket() {
       <section className="ticket-body m-8 p-4 bg-white">
         <div className="top-sect">
           <div>
-            <h2>My Tickets</h2>
+            <h2 className="font-semibold">My Tickets</h2>
           </div>
           <section className="flex justify-between items-center">
             <div className="tabs flex mt-3 ">

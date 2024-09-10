@@ -2,10 +2,12 @@ import React, {useState} from "react";
 import bell from "../assets/icons/notification-02.png"
 import darkmode from "../assets/icons/material-symbols-light_dark-mode-outline.png"
 import avatar from "../assets/icons/Ellipse 15.png"
+import Popup from "./Popup";
 
 
 export default function Topbar({handleChange, isChecked}){
 const [isDark , setIsDark] = useState(false)
+const [notification, setNotification] = useState(false)
 
   return (
     <div className="flex z-10 p-5 justify-between items-center bg-white" data-theme={isDark ? "dark" : "light"}>
@@ -13,6 +15,7 @@ const [isDark , setIsDark] = useState(false)
         <h1 className="font-bold">IT SUPPORT</h1>
       </div>
 
+        <Popup trigger={notification} setTrigger={()=>setNotification(false)}/>
       <div className="rightTopSection flex items-center">
         <div className="searchbar">
         <input type="text" placeholder="Search here..." className="rounded p-1"/>
@@ -25,7 +28,7 @@ const [isDark , setIsDark] = useState(false)
         >
           <img className="night bg-gray-100 rounded-full p-0.5"  src={darkmode} alt="" />
         </div>
-        <div className="notify pl-5">
+        <div className="notify pl-5"  onClick={()=>setNotification(true)}>
           <img className="bell  bg-gray-100 rounded-full p-1" src={bell} alt="" />
         </div>
         <div className="flex items-center pl-5">

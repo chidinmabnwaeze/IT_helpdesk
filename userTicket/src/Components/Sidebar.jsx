@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../../leave/src/assets/images/ministry of petroleum resources 1.png";
+import Logo from "../../../leave/src/assets/icons/logo green.svg";
 import Dash from "../../../leave/src/assets/icons/dashboard-square-02.svg";
 import Tickets from "../../../leave/src/assets/icons/ion_ticket-outline.svg";
 import Feedbacks from "../../../leave/src/assets/icons/fluent_person-feedback-20-regular.svg";
@@ -22,7 +22,7 @@ const location =useLocation()
   return (
     <nav className="sidebar shadow-lg">
       <div className="logo">
-        <img src={Logo} alt="" />
+        <img src={Logo} alt=""  className="mt-4"/>
       </div>
 
       {/* These are the side menu bars */}

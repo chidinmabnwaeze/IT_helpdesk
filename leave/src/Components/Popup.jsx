@@ -12,7 +12,7 @@ const Popup = (props) => {
          <button onClick={()=>props.setTrigger(false)} ><img src={close} alt="" /></button>
         </div>
         <div className="message m-8">
-          <p>You have been assigned to a live session with a waiting client</p>
+          <p>You have been assigned a new ticket </p>
           <div className="popupButtons flex justify-center mt-8">
             <Link to="/chatbot">
             <button className="accept py-1.5 px-5 mr-6 rounded-md">

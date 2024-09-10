@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/images/ministry of petroleum resources 1.png";
+import Logo from "../assets/icons/logo green.svg";
 import Dash from "../assets/icons/dashboard-square-02.svg";
 import Tickets from "../assets/icons/ion_ticket-outline.svg";
 import Feedbacks from "../assets/icons/fluent_person-feedback-20-regular.svg";
@@ -21,8 +21,8 @@ const location =useLocation()
 
   return (
     <nav className="sidebar shadow-lg">
-      <div className="logo">
-        <img src={Logo} alt="" />
+      <div className="logo ">
+        <img src={Logo} alt=""  className="mt-4"/>
       </div>
 
       {/* These are the side menu bars */}
@@ -52,7 +52,7 @@ const location =useLocation()
             </a>
           </li>
 
-         <li className={`menu-list ${location.pathname==='/followup' ? 'active' : ''}`} >
+         {/* <li className={`menu-list ${location.pathname==='/followup' ? 'active' : ''}`} >
             <a id="menu-icon" className="menu-list" href="#">
               <img className="menu-icon" src={Followup} alt="" />
               <p>Follow up</p>
@@ -64,7 +64,7 @@ const location =useLocation()
               <img className="menu-icon" src={Followup} alt="" />
               <p>Api</p>
             </a>
-          </li>
+          </li> */}
 
         </ul>
         </div>
