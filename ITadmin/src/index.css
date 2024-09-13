@@ -201,7 +201,7 @@ th {
   background-color: rgba(152, 148, 148, 0.15);
   width: 110px;
 }
-.circle-leave {
+.circle-low {
   background-color: rgba(152, 148, 148, 1);
   border-radius: 4px;
   width: 9px;

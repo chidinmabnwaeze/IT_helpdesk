@@ -8,11 +8,13 @@ import Feedbacks from './Pages/Feedbacks'
 import Chatbot from './Pages/Chatbot'
 import Api from './Pages/Api'
 
+
 function App() {
 
 
   return (
     <>
+    
     <BrowserRouter >
     {/* <nav>
             <ul>
@@ -28,7 +30,7 @@ function App() {
      <Route path='/complaint' element ={<Complaint/>}/>
      <Route path='/feedbacks' element ={<Feedbacks/>}/>
      <Route path='/chatbot' element ={<Chatbot/>}/>
-     <Route path='/api' element ={<Api/>}/>
+     
     </Routes>
     </BrowserRouter>
      

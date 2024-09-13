@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 
@@ -22,54 +22,48 @@ const CompliantForm = () => {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(
-      // `First Name: ${formData.firstname}, Last Name:${formData.lastname}, email:${formData.email}, priority:${formData.priority}, issue:${formData.issue} , attached:${attachment}`
-   "Form submitted succesfully !"
-    );
-  };
-
-  const [select, setSelect] = useState(null);
+  const [select, setSelect] = useState("");
   const handleSelect = (event) => {
     setSelect(event.target.value);
   };
 
-  const [attachment, setAttachment] = useState("")
-const handleAttachment = (e) =>{
-setAttachment(e.target.file)
-}
-  //     const [formData, setFormData] = useState({name: "",email: "",phone: "", message: ""});
+  const [attachment, setAttachment] = useState("");
+  const handleAttachment = (e) => {
+    setAttachment(e.target.file);
+  };
 
-  //     const handleChange = (event) => {
-  //       const { name, value } = event.target;
-  //       setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  //     };
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
 
-  //     const handleSubmit = (event) => {
-  //       event.preventDefault();
-  //       alert(`Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`
-  //       );
-  //   };
+  const createTicket = async () => {
+    const url = "http://142.4.9.152:3000/v1/support-tickets";
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          priority: formData.priority,
+          issue: formData.issue,
+        }),
+        headers: myHeaders,
+        credentials: 'include'
+      });
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      } else {
+        alert("Form submitted succesfully !");
+      }
 
-  //     return (
-  //       <form onSubmit={handleSubmit}>
-  //         <label htmlFor="name">Name:</label>
-  //         <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}/>
+      const json = await response.json();
+      console.log(json);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
-  //         <label htmlFor="email">Email:</label>
-  //         <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/>
-
-  //         <label htmlFor="email">phone:</label>
-  //         <input type="email" id="email" name="email" value={formData.phone} onChange={handleChange}/>
-
-  //         <label htmlFor="message">Message:</label>
-  //         <textarea id="message" name="message" value={formData.message} onChange={handleChange}/>
-
-  //         <button type="submit">Submit</button>
-  //       </form>
-  //     );
-  //   }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createTicket();
+  };
 
   return (
     <div>
