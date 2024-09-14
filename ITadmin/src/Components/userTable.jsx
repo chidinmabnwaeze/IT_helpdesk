@@ -7,7 +7,7 @@ import DropdownMenu from "./DropdownMenu";
 import DropdownContent from "./DropdownContent";
 import { FaLaptop, FaTruckLoading } from "react-icons/fa";
 
-const Tables = () => {
+const Tables = ({users , setUsers ,isLoading}) => {
   const tab = [
     {
       name: "Mary John",
@@ -95,41 +95,7 @@ const Tables = () => {
   //   .then(data => console.log(data))
   //   .catch(error => console.error('Error:', error));
 
-  const [users, setUsers] = useState(null);
-  console.log(users)
-  const [isLoading, setIsLoading] = useState(false);
-
-  const token = "38759263c87e471a9f6ab4a44e148dc4"
-
-  const getData = async () => {
-    try {
-      setIsLoading(true)
-      const url = "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10";
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Authorization': `${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
-        // .then(response => response.json())
-        // .then(data => console.log(data))
-        // .catch(error => console.error('Error:', error));;
-
-       
-      const userData = await response.json();
-      setUsers(userData.data)
-      setIsLoading(false)
-      console.log(userData);
-    } catch (error) {
-      setIsLoading(false)
-      console.error(error.message);
-    } 
-  };
-  useEffect(() => {
-   void getData();
-  }, []);
-
+  
   // useEffect(() => {
   //   const getData = async () => {
   //     const url = "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10";
@@ -159,6 +125,7 @@ const Tables = () => {
       {isLoading && <h1 className="font-bold text-center m-auto">Loading...</h1>}
         {!isLoading && (
           <div className="content">
+        <div className="ticket-count font-medium m-3">{`${users?.total} Tickets`}</div>
       <table className="staffTable">
         <tr className="table-head">
           <th>Complaint</th>
@@ -172,9 +139,10 @@ const Tables = () => {
                     <input type="checkbox" className="mr-3" id="check" />
                   </div>
                   <span className="tt">
-                    <p className="text-black ">
+                    <label htmlFor="check" className="text-black "
+                    >
                       {tabb.id} 
-                    </p>
+                    </label>
                     {/* <p>{tabb.lastName}</p> */}
                   </span>
                 </td>
@@ -183,7 +151,8 @@ const Tables = () => {
                 <td className="staff-status">
                   <div className="clockedStatus">
                     <span
-                      className={`${priority === "High" ? "stat" : "stat2"}`}
+                    // tell usman to change the key to character insentive whether uppercaseor not
+                      className={`${priority === "high" ? "stat" : "stat2"}`}
                     >
                       <div className="circle"></div>
 
@@ -191,6 +160,7 @@ const Tables = () => {
                     </span>
                   </div>
                 </td>
+                <td>{tabb.attachment}</td>
                 <td>
                   <Link to="/complaint">
                     <button className="accept py-1.5 px-7 rounded-md">
@@ -224,9 +194,9 @@ const Tables = () => {
                 </td> */}
                 
                 <td>
-                  <div role="button" tabIndex={0} className="dropdown-content">
+                  {/* <div role="button" tabIndex={0} className="dropdown-content">
                     Assign <img className="down h-4 ml-3 " src={down} alt="" />
-                  </div>
+                  </div> */}
                   <DropdownMenu
                     buttonText="Assign T"
                     content={
@@ -237,7 +207,8 @@ const Tables = () => {
                               .filter((user) => tabb.id != user.id)
                               .map((user, index) => (
                                 <option value={user.id} key={index}>
-                                  {user.priority} {user.issue}
+                                  {/* {user.priority} {user.issue} */}
+                                  {user.id}
                                 </option>
                               ))}
                           </DropdownContent>

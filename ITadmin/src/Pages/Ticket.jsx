@@ -5,11 +5,12 @@ import Sidebar from "../Components/Sidebar";
 import UserTable from "../Components/userTable";
 import NextPage from "../Components/nextPage";
 
-export default function Ticket() {
+export default function Ticket({users , setUsers ,isLoading}) {
   const [activeTab, setActiveTab] = useState("All Issues");
   const handleChangeTab = (tab) => {
     setActiveTab(tab);
   };
+const date = new Date();
 
   return (
     <div className="ticket">
@@ -49,15 +50,18 @@ export default function Ticket() {
                 </li>
               </ul>
             </div>
-            <div className="date">1-26th August 2024</div>
+            <div className="date">{date.getFullYear()}</div>
           </section>
-          <div className="ticket-count font-medium">365 Tickets</div>
+          {/* <div className="ticket-count font-medium">365 Tickets</div> */}
           <hr />
         </div>
         <div className="content">
           {activeTab === "All Issues" && (
             <div>
-              <UserTable />
+              <UserTable
+               users={users}
+               setUsers={setUsers}
+               isLoading={isLoading} />
             </div>
           )}
         </div>
