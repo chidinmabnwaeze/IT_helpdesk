@@ -1,11 +1,11 @@
 import React from "react";
-import Logo from "../../../leave/src/assets/icons/logo green.svg";
-import Dash from "../../../leave/src/assets/icons/dashboard-square-02.svg";
-import Tickets from "../../../leave/src/assets/icons/ion_ticket-outline.svg";
-import Feedbacks from "../../../leave/src/assets/icons/fluent_person-feedback-20-regular.svg";
-import Followup from "../../../leave/src/assets/icons/icon-park-outline_follow-up-date-sort.svg";
-import Settings from "../../../leave/src/assets/icons/settings-01.svg";
-import Logout from "../../../leave/src/assets/icons/logout.svg";
+import Logo from "../../../ITadmin/src/assets/icons/logo green.svg";
+import Dash from "../../../ITadmin/src/assets/icons/dashboard-square-02.svg";
+import Tickets from "../../../ITadmin/src/assets/icons/ion_ticket-outline.svg";
+import Feedbacks from "../../../ITadmin/src/assets/icons/fluent_person-feedback-20-regular.svg";
+import Followup from "../../../ITadmin/src/assets/icons/icon-park-outline_follow-up-date-sort.svg";
+import Settings from "../../../ITadmin/src/assets/icons/settings-01.svg";
+import Logout from "../../../ITadmin/src/assets/icons/logout.svg";
 // import Logout from "../assets/icons/waterfall-up-01.svg";
 // import leaveIcon from "../assets/icons/leave-user.png";
 import { useLocation } from "react-router-dom";

@@ -1,7 +1,7 @@
 import React from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
-import back from "../../../leave/src/assets/icons/back-arrow.svg"
+import back from "../../../ITadmin/src/assets/icons/back-arrow.svg"
 import { Link } from "react-router-dom";
 
 const View = () => {

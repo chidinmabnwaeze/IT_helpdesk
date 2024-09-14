@@ -179,15 +179,15 @@ th {
   margin-right: 6px;
 }
 .stat2 {
-  color: rgba(205, 0, 74, 1);
+  color: rgb(0, 205, 44);
   display: flex;
   align-items: center;
   border-radius: 4px;
-  background-color: rgba(255, 167, 167, 0.15);
+  background-color: rgba(199, 255, 167, 0.15);
   /* width: 110px; */
 }
-.circle-not {
-  background-color: rgb(243, 162, 130);
+.circle-med {
+  background-color: rgb(0, 205, 44);
   border-radius: 4px;
   width: 9px;
   height: 9px;

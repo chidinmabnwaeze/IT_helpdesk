@@ -152,7 +152,7 @@ const Tables = ({users , setUsers ,isLoading}) => {
                   <div className="clockedStatus">
                     <span
                     // tell usman to change the key to character insentive whether uppercaseor not
-                      className={`${priority === "high" ? "stat3" : "stat3"}`.toLowerCase()}
+                      className={`${(priority === "high") ? "stat" : (priority === "medium") ? "stat2" : "stat3"}`.toLowerCase()}
                     >
                       <div className="circle"></div>
 

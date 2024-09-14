@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import bell from "../../../leave/src/assets/icons/notification-02.png"
-import darkmode from "../../../leave/src/assets/icons/material-symbols-light_dark-mode-outline.png"
-import avatar from "../../../leave/src/assets/icons/Ellipse 15.png"
+import bell from "../../../ITadmin/src/assets/icons/notification-02.png"
+import darkmode from "../../../ITadmin/src/assets/icons/material-symbols-light_dark-mode-outline.png"
+import avatar from "../../../ITadmin/src/assets/icons/Ellipse 15.png"
 
 
 export default function Topbar({handleChange, isChecked}){
