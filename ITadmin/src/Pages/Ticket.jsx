@@ -5,7 +5,7 @@ import Sidebar from "../Components/Sidebar";
 import UserTable from "../Components/userTable";
 import NextPage from "../Components/nextPage";
 
-export default function Ticket({users , setUsers ,isLoading}) {
+export default function Ticket({users , setUsers ,isLoading, search}) {
   const [activeTab, setActiveTab] = useState("All Issues");
   const handleChangeTab = (tab) => {
     setActiveTab(tab);
@@ -14,7 +14,9 @@ const date = new Date();
 
   return (
     <div className="ticket">
-      <Topbar />
+      <Topbar 
+      search ={search}
+      />
       <Sidebar />
       <section className="ticket-body m-8 p-4 bg-white">
         <div className="top-sect">
@@ -52,16 +54,18 @@ const date = new Date();
             </div>
             <div className="date">{date.getFullYear()}</div>
           </section>
-          {/* <div className="ticket-count font-medium">365 Tickets</div> */}
           <hr />
         </div>
         <div className="content">
           {activeTab === "All Issues" && (
             <div>
               <UserTable
-               users={users}
-               setUsers={setUsers}
-               isLoading={isLoading} />
+              //  users={users?.data.filter(tabb =>((tabb.tabb).toLowercase()).includes(search.toLowercase()))}
+              users ={users}
+              setUsers={setUsers}
+               isLoading={isLoading} 
+               search ={search}/>
+
             </div>
           )}
         </div>

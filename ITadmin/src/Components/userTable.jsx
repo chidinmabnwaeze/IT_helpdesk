@@ -70,7 +70,7 @@ const Tables = ({users , setUsers ,isLoading}) => {
       user6: "Sadiq Yusuf",
     },
   ];
-  const [priority, setPriority] = useState("");
+  const [priority, setPriority] = useState("high"|| "medium"||"low");
   //   const handleStatus =(text)=>{
   //  if (text === "High"){
   // setStyle =
@@ -152,7 +152,7 @@ const Tables = ({users , setUsers ,isLoading}) => {
                   <div className="clockedStatus">
                     <span
                     // tell usman to change the key to character insentive whether uppercaseor not
-                      className={`${priority === "high" ? "stat" : "stat2"}`}
+                      className={`${priority === "high" ? "stat3" : "stat3"}`.toLowerCase()}
                     >
                       <div className="circle"></div>
 
@@ -162,7 +162,7 @@ const Tables = ({users , setUsers ,isLoading}) => {
                 </td>
                 <td>{tabb.attachment}</td>
                 <td>
-                  <Link to="/complaint">
+                  <Link to={`/complaint/${tabb.id} `}>
                     <button className="accept py-1.5 px-7 rounded-md">
                       Accept
                     </button>
@@ -198,7 +198,7 @@ const Tables = ({users , setUsers ,isLoading}) => {
                     Assign <img className="down h-4 ml-3 " src={down} alt="" />
                   </div> */}
                   <DropdownMenu
-                    buttonText="Assign T"
+                    buttonText="Assign To"
                     content={
                       <>
                         {users?.data.map((item) => (

@@ -62,6 +62,9 @@ const CompliantForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData) return;
+    console.log(formData)
+    setFormData("")
     createTicket();
   };
 

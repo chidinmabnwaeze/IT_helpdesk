@@ -8,13 +8,14 @@ import Feedbacks from "./Pages/Feedbacks";
 import Chatbot from "./Pages/Chatbot";
 import Api from "./Pages/Api";
 
-function App() {
+function App({search}) {
   // i moved the function to app to pass the functions as props down to userTable
   const [users, setUsers] = useState(null);
   console.log(users);
   const [isLoading, setIsLoading] = useState(false);
+ 
 
-  const token = "214d11c2267943daa441175989a87ef8";
+  const token = "0101e1ef00494b2c8603cc4e58e0c879";
 
   const getData = async () => {
     try {
@@ -62,12 +63,14 @@ function App() {
             element={
               <Tickets
                 users={users}
+              //  users = {users}
                 setUsers={setUsers}
                 isLoading={isLoading}
+                search={search}
               />
             }
           />
-          <Route path="/complaint" element={<Complaint />} />
+          <Route path="/complaint/:id" element={<Complaint />} />
           <Route path="/feedbacks" element={<Feedbacks />} />
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
