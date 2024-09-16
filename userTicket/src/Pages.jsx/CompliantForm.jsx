@@ -15,6 +15,7 @@ const CompliantForm = () => {
     staffId: "",
     priority: "",
     issue: "",
+    attachment: "",
   });
 
   const handleChangeMultiple = (event) => {
@@ -22,21 +23,36 @@ const CompliantForm = () => {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const [select, setSelect] = useState("");
+  // const [select, setSelect] = useState("");
   const handleSelect = (event) => {
-    setSelect(event.target.value);
+    const value = event.target.value;
+    setFormData((prevFormData) => ({ ...prevFormData, priority: value }));
   };
 
-  const [attachment, setAttachment] = useState("");
+  const [attachment, setAttachment] = useState(null);
   const handleAttachment = (e) => {
-    setAttachment(e.target.file);
+    setAttachment(e.target.files[0]);
   };
 
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
+  const token = "0ea394e35e0c464f87d947e806a0d8dc";
+
+  const myHeaders = new Headers({
+    Authorization: `${token}`, // Assuming Bearer token; adjust if needed
+    "Content-Type": "application/json",
+  });
 
   const createTicket = async () => {
     const url = "http://142.4.9.152:3000/v1/support-tickets";
+
+    //I created formData object to handle the data i want to send directly so i can send them directly instead of just json body
+    const formDataToSend = new FormData();
+    // formDataToSend.append("priority", formData.priority);
+    // formDataToSend.append("issue", formData.issue);
+
+    if (attachment) {
+      formDataToSend.append("attachment", attachment);
+    }
+
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -44,28 +60,46 @@ const CompliantForm = () => {
           priority: formData.priority,
           issue: formData.issue,
         }),
+        // body: formDataToSend,
         headers: myHeaders,
-        credentials: 'include'
+        credentials: "include",
       });
+
+      console.log("Response Status:", response.status);
+
       if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      } else {
-        alert("Form submitted succesfully !");
+      //   throw new Error(`Response status: ${response.status}`);
+      // } else {
+      //   alert("Form submitted successfully!");
+      const errorData = await response.json();  // Parse the response body
+      console.error("Server Response Error:", errorData);
+      throw new Error(`Error ${response.status}: ${errorData.message || 'Bad Request'}`);
       }
 
       const json = await response.json();
-      console.log(json);
+      console.log("Success Response:", json);
+      alert(`Ticket created successfully with ID: ${json.data.id}`);
     } catch (error) {
-      console.error(error.message);
+      console.error("Error occurred during ticket creation:", error.message);
+      alert(`Ticket creation failed: ${error.message}`);
     }
+      console.log(formData);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData) return;
-    console.log(formData)
-    setFormData("")
+    console.log(formData);
     createTicket();
+    setFormData({
+      firstname: "",
+      lastname: "",
+      email: "",
+      staffId: "",
+      priority: "",
+      issue: "",
+    });
+    setAttachment(null);
   };
 
   return (
@@ -112,7 +146,7 @@ const CompliantForm = () => {
                 />
               </div>
             </div>
-            <div className="email w-full">
+            {/* <div className="email w-full">
               <div className="m-2">
                 <label htmlFor="email">Email Address</label>
               </div>
@@ -126,7 +160,7 @@ const CompliantForm = () => {
                 value={formData.email}
                 onChange={handleChangeMultiple}
               />
-            </div>
+            </div> */}
             <div className="staffId w-full">
               <div className="m-2">
                 <label htmlFor="staffId">Staff ID</label>
@@ -147,7 +181,7 @@ const CompliantForm = () => {
               </div>
 
               <select
-                value={select}
+                value={formData.priority}
                 id="high"
                 onChange={handleSelect}
                 className="border-2 p-2"
@@ -171,6 +205,7 @@ const CompliantForm = () => {
                 onChange={handleChangeMultiple}
               ></textarea>
             </div>
+
             <div className="attachment w-full">
               <div className="m-2">
                 <label htmlFor="attachment">Attachment</label>

@@ -10,12 +10,14 @@ const TicketRecord = () => {
       message: "My laptop battery is bad",
       requestDate: "20/8/24",
       solvedDate: "30/8/24",
+      status: "Solved"
     },
     {
       title: "Hardware",
       message: "My laptop battery is bad",
       requestDate: "20/8/24",
       solvedDate: "30/8/24",
+      status: "Pending"
     },
   ];
 
@@ -54,6 +56,7 @@ const TicketRecord = () => {
                   </p>
                 </div>
               </div>
+              <p>Status: <span>{record.status}</span> </p>
               <Link to="/viewticket">
                 <button className="accept py-1.5 px-7 rounded-md">View</button>
               </Link>

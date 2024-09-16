@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import bell from "../../../ITadmin/src/assets/icons/notification-02.png"
 import darkmode from "../../../ITadmin/src/assets/icons/material-symbols-light_dark-mode-outline.png"
 import avatar from "../../../ITadmin/src/assets/icons/Ellipse 15.png"
@@ -6,6 +6,9 @@ import avatar from "../../../ITadmin/src/assets/icons/Ellipse 15.png"
 
 export default function Topbar({handleChange, isChecked}){
 const [isDark , setIsDark] = useState(false)
+
+
+
 
   return (
     <div className="topbar flex z-10 p-5 justify-between items-center bg-white" data-theme={isDark ? "dark" : "light"}>
@@ -29,7 +32,7 @@ const [isDark , setIsDark] = useState(false)
           <img className="bell  bg-gray-100 rounded-full p-1" src={bell} alt="" />
         </div>
         <div className="flex items-center pl-5">
-            <p>Micheal Offiong</p>
+            {/* <p>{users.firstName} {users.lastName}</p> */}
             <img src={avatar} alt="" className="ml-3"/>
         </div>
         <div className="login-box pl-5">

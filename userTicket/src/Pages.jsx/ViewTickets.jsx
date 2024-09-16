@@ -1,7 +1,7 @@
 import React from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
-import back from "../../../ITadmin/src/assets/icons/back-arrow.svg"
+import back from "../../../ITadmin/src/assets/icons/back-arrow.svg";
 import { Link } from "react-router-dom";
 
 const View = () => {
@@ -26,13 +26,19 @@ const View = () => {
           <div>
             <p>priority</p>
           </div>
+          <div>
+            <div>
+              <p>Ticket Status</p>
+            </div>
+            <p className="text-green-800">Pending</p>
+          </div>
         </div>
         <hr />
         <div className="textarea m-4">
           <div>
             <p className="font-semibold">Issue</p>
           </div>
-          <div className="complain border p-6 h-80" id="complain">
+          <div className="complain p-6 h-80" id="complain">
             My printer stooped working , I can’t print out documents, lorem
             ipsum dolor sit amet consectetur. Sagittis sed dui nisl viverra
             ultricies blandit magna sapien interdum. Convallis tincidunt sed
