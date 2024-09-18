@@ -34,7 +34,7 @@ const CompliantForm = () => {
     setAttachment(e.target.files[0]);
   };
 
-  const token = "0ea394e35e0c464f87d947e806a0d8dc";
+  const token = "cc5f445d8e6f42af8ef9107edee34d13";
 
   const myHeaders = new Headers({
     Authorization: `${token}`, // Assuming Bearer token; adjust if needed

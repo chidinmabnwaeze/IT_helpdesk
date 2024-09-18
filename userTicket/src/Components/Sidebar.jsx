@@ -91,7 +91,7 @@ const Sidebar = () => {
               <p>Logout</p>
             </a>
           </li> */}
-{/* 
+            {/* 
             <li
               className={`menu-list ${
                 location.pathname === "/logout" ? "active" : ""

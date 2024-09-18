@@ -7,7 +7,7 @@ import DropdownMenu from "./DropdownMenu";
 import DropdownContent from "./DropdownContent";
 import { FaLaptop, FaTruckLoading } from "react-icons/fa";
 
-const Tables = ({users , setUsers ,isLoading}) => {
+const Tables = () => {
   const tab = [
     {
       name: "Mary John",
@@ -70,7 +70,42 @@ const Tables = ({users , setUsers ,isLoading}) => {
       user6: "Sadiq Yusuf",
     },
   ];
-  const [priority, setPriority] = useState("high"|| "medium"||"low");
+  const [priority, setPriority] = useState("high" || "medium" || "low");
+
+  const [users, setUsers] = useState(null);
+  console.log(users);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const token = "ec4d730490984a38a6aed5aea31fad76";
+
+  const getData = async () => {
+    try {
+      setIsLoading(true);
+      const url = "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10";
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      // .then(response => response.json())
+      // .then(data => console.log(data))
+      // .catch(error => console.error('Error:', error));;
+
+      const userData = await response.json();
+      setUsers(userData.data);
+      setIsLoading(false);
+      console.log(userData);
+    } catch (error) {
+      setIsLoading(false);
+      console.error(error.message);
+    }
+  };
+  useEffect(() => {
+    void getData();
+  }, []);
+
   //   const handleStatus =(text)=>{
   //  if (text === "High"){
   // setStyle =
@@ -95,7 +130,6 @@ const Tables = ({users , setUsers ,isLoading}) => {
   //   .then(data => console.log(data))
   //   .catch(error => console.error('Error:', error));
 
-  
   // useEffect(() => {
   //   const getData = async () => {
   //     const url = "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10";
@@ -121,27 +155,27 @@ const Tables = ({users , setUsers ,isLoading}) => {
   // }, []);
   return (
     <div>
-
-      {isLoading && <h1 className="font-bold text-center m-auto">Loading...</h1>}
-        {!isLoading && (
-          <div className="content">
-        <div className="ticket-count font-medium m-3">{`${users?.total} Tickets`}</div>
-      <table className="staffTable">
-        <tr className="table-head">
-          <th>Complaint</th>
-          <th>Issues</th>
-          <th>Priority </th>
-        </tr>
+      {isLoading && (
+        <h1 className="font-bold text-center m-auto">Loading...</h1>
+      )}
+      {!isLoading && (
+        <div className="content">
+          <div className="ticket-count font-medium m-3">{`${users?.total} ${users?.total.length === 1 ? "Ticket" : "Tickets"}`}</div>
+          <table className="staffTable">
+            <tr className="table-head">
+              <th>Complaint</th>
+              <th>Issues</th>
+              <th>Priority </th>
+            </tr>
             {users?.data.map((tabb, index) => (
-              <tr className="rows" key={index}>
+              <tbody className="rows" key={index}>
                 <td className="staff-name " id="check">
                   <div className="">
                     <input type="checkbox" className="mr-3" id="check" />
                   </div>
                   <span className="tt">
-                    <label htmlFor="check" className="text-black "
-                    >
-                      {tabb.id} 
+                    <label htmlFor="check" className="text-black ">
+                      {tabb.id}
                     </label>
                     {/* <p>{tabb.lastName}</p> */}
                   </span>
@@ -151,8 +185,8 @@ const Tables = ({users , setUsers ,isLoading}) => {
                 <td className="staff-status">
                   <div className="clockedStatus">
                     <span
-                    // tell usman to change the key to character insentive whether uppercaseor not
-                      className={`${(priority === "high") ? "stat" : (priority === "medium") ? "stat2" : "stat3"}`.toLowerCase()}
+                      // tell usman to change the key to character insentive whether uppercaseor not
+                      className={`${(priority === "high" )? "stat": ( priority === "medium") ? "stat2" : "stat3"}`.toLowerCase()}
                     >
                       <div className="circle"></div>
 
@@ -192,12 +226,13 @@ const Tables = ({users , setUsers ,isLoading}) => {
                     }
                   />
                 </td> */}
-                
-                <td>
-                  {/* <div role="button" tabIndex={0} className="dropdown-content">
+
+                {/* <td>
+                  <div role="button" tabIndex={0} className="dropdown-content">
                     Assign <img className="down h-4 ml-3 " src={down} alt="" />
-                  </div> */}
-                  <DropdownMenu
+                  </div> 
+                  </td> */}
+                {/* <DropdownMenu
                     buttonText="Assign To"
                     content={
                       <>
@@ -207,7 +242,7 @@ const Tables = ({users , setUsers ,isLoading}) => {
                               .filter((user) => tabb.id != user.id)
                               .map((user, index) => (
                                 <option value={user.id} key={index}>
-                                  {/* {user.priority} {user.issue} */}
+                                  {/* {user.priority} {user.issue} 
                                   {user.id}
                                 </option>
                               ))}
@@ -216,28 +251,34 @@ const Tables = ({users , setUsers ,isLoading}) => {
                       </>
                     }
                   />
-                </td>
-{/* 
+                </td> */}
+
                 <td>
                   <select
                     name="assignTo"
                     id=""
-                    className="select flex rounded-lg p-2"
+                    className="select rounded-lg p-2"
+                    onChange={(e) => {
+                      users?.data.find((user) => user.id === e.target.value);
+                      //  console.log(u)
+                    }}
+                    defaultValue="default"
                   >
-                    {users
-                      .filter((user) => tabb.id != user.id)
+                    <option value="default">Assign To</option>
+                    {users?.data
+                      // .filter((user) => tabb.id != user.id)
                       .map((user, index) => (
                         <option value={user.id} key={index}>
-                          {user.firstname} {user.lastname}
+                          {user?.data?.firstName} {user.id}
                         </option>
                       ))}
                   </select>
-                </td> */}
-              </tr>
+                </td>
+              </tbody>
             ))}
-      </table>
-          </div>
-        )}
+          </table>
+        </div>
+      )}
     </div>
   );
 };

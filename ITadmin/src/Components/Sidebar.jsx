@@ -9,7 +9,7 @@ import Logout from "../assets/icons/logout.svg";
 // import Logout from "../assets/icons/waterfall-up-01.svg";
 // import leaveIcon from "../assets/icons/leave-user.png";
 import { useLocation } from "react-router-dom";
-import { useAuth } from "../../../userTicket/src/auth/AuthContext";
+// import { useAuth } from "../../../userTicket/src/auth/AuthContext";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -89,9 +89,9 @@ const Sidebar = () => {
             </li>
 
             <li
-              className={`menu-list ${location.pathname === "/logout" ? "active" : ""}`}
+              className={`menu-list ${location.pathname === "/form" ? "active" : ""}`}
             >
-              <a id="menu-icon" className="menu-list" href="#">
+              <a id="menu-icon" className="menu-list" href="../../../form">
                 <img className="menu-icon" src={Logout} alt="" />
                 <p>Logout</p>
               </a>

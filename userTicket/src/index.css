@@ -249,7 +249,14 @@ th {
 color:#32844b ;
 transition: 0.5s;
 }
+.wrapper{
 
+ 
+}
+.loginForm{
+  margin: 0 auto;
+  height: 100vh;
+}
 
 /* dark mode theme */
 :root {
