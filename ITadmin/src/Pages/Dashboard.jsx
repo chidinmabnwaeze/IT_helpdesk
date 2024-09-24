@@ -26,15 +26,15 @@ export default function Dashboard() {
   ]);
   const tags = [
     {
-      name: "Hardware",
+      name: "High",
       count: 40,
     },
     {
-      name: "Software",
+      name: "Medium",
       count: 35,
     },
     {
-      name: "Network",
+      name: "Low",
       count: 58,
     },
   ];
@@ -101,7 +101,7 @@ export default function Dashboard() {
           </section>
           <section className="tag p-4 w-2/5 m-5 bg-white">
             <div className="heading m-2">
-              <h3 className="font-semibold">Ticket by tags</h3>
+              <h3 className="font-semibold">Tickets by priority</h3>
             </div>
 
             {tags.map((tag, index) => (

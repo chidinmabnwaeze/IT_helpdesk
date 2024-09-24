@@ -5,10 +5,10 @@ import avatar from "../assets/icons/Ellipse 15.png";
 import Popup from "./Popup";
 import Search from "./Search";
 
-export default function Topbar({ handleChange, isChecked ,search, setSearch}) {
+export default function Topbar({ handleChange, isChecked ,searchedUsers }) {
   const [isDark, setIsDark] = useState(false);
   const [notification, setNotification] = useState(false);
- 
+ const [search, setSearch] = useState("")
 
   return (
     <div
@@ -25,6 +25,7 @@ export default function Topbar({ handleChange, isChecked ,search, setSearch}) {
          <Search
          search ={search}
          setSearch ={setSearch}
+         searchedUsers ={searchedUsers}
          />
         </div>
         <div

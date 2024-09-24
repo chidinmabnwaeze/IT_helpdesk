@@ -69,7 +69,7 @@ const [isDark , setIsDark] = useState(false)
             {/* <p>{users.firstName} {users.lastName}</p> */}
             <img src={avatar} alt="" className="ml-3"/>
         </div>
-        <Link to= "/login">
+        <Link to= "http://localhost:5178/login">
         <div className="login-box pl-5">
           <button className="log-button text-white p-2 rounded">Login as Admin</button>
         </div>

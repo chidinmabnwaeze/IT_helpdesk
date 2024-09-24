@@ -7,6 +7,7 @@ import Complaint from "./Pages/Complaint";
 import Feedbacks from "./Pages/Feedbacks";
 import Chatbot from "./Pages/Chatbot";
 import Api from "./Pages/Api";
+import Login from "./Components/Login";
 
 
 function App({ search }) {
@@ -48,13 +49,6 @@ function App({ search }) {
   return (
     <>
       <BrowserRouter>
-        {/* <nav>
-            <ul>
-              <li><Link to="/">Dashboard</Link></li>
-              <li><Link to="/employee">Employee</Link></li>
-              <li><Link to="/complaints">Complaints</Link></li>
-            </ul>
-          </nav> */}
         <Routes>
           <Route index element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -62,7 +56,7 @@ function App({ search }) {
             path="/tickets"
             element={
               <Tickets
-                // users={users}
+                // users={users.filter(user =>((user.user).toLowerCase()).includes(search.toLowerCase()))}
                 // //  users = {users}
                 // setUsers={setUsers}
                 // isLoading={isLoading}
@@ -71,6 +65,7 @@ function App({ search }) {
             }
           />
           <Route path="/complaint/:id" element={<Complaint />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/feedbacks" element={<Feedbacks />} />
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>

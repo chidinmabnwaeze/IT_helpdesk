@@ -9,6 +9,7 @@ const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    // confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -34,6 +35,10 @@ const Login = () => {
     } else if (formData.password.length < 8) {
       formValidateError.password = "Password must be at least 8 characters";
     }
+
+    // if (formData.confirmPassword !== formData.password) {
+    //   formValidateError.confirmPassword = "Passwords do not match";
+    // }
 
     if (Object.keys(formValidateError).length > 0) {
       setErrors(formValidateError);
@@ -72,7 +77,9 @@ const Login = () => {
 
       alert("Login Successful");
 
-      navigate("/form")
+      // Redirect to the dashboard on another port
+      navigate ("/dashboard")
+      // window.location.href = "http://localhost:5178/dashboard";
     } catch (error) {
       setErrors({ form: "Login failed. Please try again." });
       console.error("Login Error:", error);
@@ -113,6 +120,20 @@ const Login = () => {
             />
             {errors.password && <span>{errors.password}</span>}
           </div>
+          {/* <div className="password w-full">
+            <div className="m-2">
+              <label htmlFor="password">Confirm Password</label>
+            </div>
+            <input
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm your password"
+              className="p-4 w-full border"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+            />
+            {errors.confirmPassword && <span>{errors.confirmPassword}</span>}
+          </div> */}
           {errors.form && <div className="error-message">{errors.form}</div>}
           <input
             type="submit"

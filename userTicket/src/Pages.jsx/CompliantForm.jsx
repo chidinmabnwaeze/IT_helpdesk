@@ -11,7 +11,6 @@ const CompliantForm = () => {
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
-    email: "",
     staffId: "",
     priority: "",
     issue: "",
@@ -34,7 +33,7 @@ const CompliantForm = () => {
     setAttachment(e.target.files[0]);
   };
 
-  const token = "cc5f445d8e6f42af8ef9107edee34d13";
+  const token = "7a7bcd359fd747f6b1831c11cf476b58";
 
   const myHeaders = new Headers({
     Authorization: `${token}`, // Assuming Bearer token; adjust if needed
@@ -57,6 +56,8 @@ const CompliantForm = () => {
       const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify({
+          firstName: formData.firstname,
+          lastName: formData.lastname,
           priority: formData.priority,
           issue: formData.issue,
         }),

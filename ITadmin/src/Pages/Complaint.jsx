@@ -2,18 +2,22 @@ import React, { useEffect, useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 import back from "../assets/icons/back-arrow.svg";
-import { Link } from "react-router-dom";
+import { Link ,useLocation} from "react-router-dom";
 import Popup from "../Components/Popup";
+import { useAuth } from "../auth/AuthContext";
 
 const Complaint = () => {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [buttonText, setbuttonText] = useState("Close case");
-  const handleClick = () => {
-    setbuttonText(buttonText === "Close case" ? "Case Closed !" : "Close case");
-  };
   const [message, setMessage] = useState({});
+  const [pending, setPending] = useState("")
 
-  const token = "c2397498a302496f8e6f8a3721c7ef63";
+  // const token = "c93ac70d76804599b78dfcc3f0d46ba8";
+
+  const {auth} = useAuth();
+  const token = auth?.sessionID;
+
+  const location = useLocation();
   const ticketId = location.pathname.split("/").pop()
 
   const getMessage = async () => {
@@ -26,6 +30,7 @@ const Complaint = () => {
           Authorization: `${token}`,
           "Content-Type": "application/json",
         },
+        credentials: "include"
       });
 
 
@@ -39,6 +44,68 @@ const Complaint = () => {
   useEffect(() => {
      getMessage();
   }, []);
+
+  const handleClick = async () => {
+    try {
+      const url = `http://142.4.9.152:3000/v1/support-tickets/${ticketId}`;
+      const response = await fetch(url, {
+        method: "PATCH",
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          status: "closed" || "resolved", // Set ticket to pending
+        }),
+      });
+
+      const updatedTicket = await response.json();
+      if (updatedTicket && updatedTicket.data && updatedTicket.data.status) {
+        setPending(updatedTicket.data.status);
+        alert("Ticket updated succesfully. New status: Closed")
+        console.log("Ticket updated:", updatedTicket.data);
+      } else {
+        console.error("Invalid response format", updatedTicket);
+      }
+    } catch (error) {
+      console.error("Failed to update ticket status", error.message);
+    }
+    setbuttonText(buttonText === "Close case" ? "Case Closed !" : "Close case");
+
+  };
+
+   const handlePendingClick = async () => {
+    try {
+      const url = `http://142.4.9.152:3000/v1/support-tickets/${ticketId}`;
+      const response = await fetch(url, {
+        method: "PATCH",
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          status: "inProgress", // Set ticket to pending
+        }),
+      });
+
+      const updatedTicket = await response.json();
+      if (updatedTicket && updatedTicket.data && updatedTicket.data.status) {
+        setPending(updatedTicket.data.status);
+        alert("Ticket updated succesfully. New status: Pending")
+        console.log("Ticket updated:", updatedTicket.data);
+      } else {
+        console.error("Invalid response format", updatedTicket);
+      }
+    } catch (error) {
+      console.error("Failed to update ticket status", error.message);
+    }
+
+    //   setPending(updatedTicket.data.status);  // Assuming status is returned
+    //   console.log(updatedTicket);
+    // } catch (error) {
+    //   console.error(error.message);
+    // }
+  };
 
   return (
     <div>
@@ -57,7 +124,7 @@ const Complaint = () => {
           <div >
             <div className="clientName m-4 flex justify-between items-center">
               <div>
-                <p>{message.firstName}</p>
+                <p>{message.requester?.firstName} {message.requester?.lastName}</p>
                 <p className="text-gray-400">{message.id}</p>
               </div>
               <div><p>{message.priority}</p></div>
@@ -76,12 +143,12 @@ const Complaint = () => {
             <div className="flex justify-end m-4">
               <button
                 className="accept py-1.5 px-5 mr-6 rounded-md"
-                // onClick={() => setButtonPopup(true)}
+                onClick={handlePendingClick}
               >
                 Pending
               </button>
               <button
-                className={`assign py-1.5 px-5 ml-6 rounded-md ${buttonText === "Case Closed !" ? "closedButton" : null}`}
+                className={`assign py-1.5 px-5 ml-6 rounded-md ${buttonText === "Case Closed !" ? "clickedButton" : null}`}
                 onClick={handleClick}
               >
                 {buttonText}

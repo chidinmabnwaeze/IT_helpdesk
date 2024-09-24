@@ -213,6 +213,10 @@ th {
   background-color: #32844b;
   color: white;
 }
+.accept:hover{
+  background-color: white;
+  color: #32844b;
+}
 .assign {
   border: 1px solid #32844b;
   color: #32844b;

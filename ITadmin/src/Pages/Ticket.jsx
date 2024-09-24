@@ -5,18 +5,42 @@ import Sidebar from "../Components/Sidebar";
 import UserTable from "../Components/userTable";
 import NextPage from "../Components/nextPage";
 
-export default function Ticket({users , setUsers ,isLoading, search}) {
+export default function Ticket({
+  users,
+  setUsers,
+  isLoading,
+  search,
+ 
+}) {
   const [activeTab, setActiveTab] = useState("All Issues");
   const handleChangeTab = (tab) => {
     setActiveTab(tab);
   };
-const date = new Date();
+  const date = new Date();
+
+  const filteredUsers = users?.data?.filter((ticket) => {
+    if (activeTab === "All Issues") {
+      return true;
+    }
+    if (activeTab === "New Issues") {
+      return ticket.status === "new";
+    }
+    if (activeTab === "Pending Issues") {
+      return ticket.status === "pending";
+    }
+    if (activeTab === "Closed Issues") {
+      return ticket.status === "closed";
+    }
+    return false;
+  });
+
+  const searchedUsers = filteredUsers?.filter((ticket) => {
+    `${ticket.issue}`.toLowerCase().includes(search.toLowerCase());
+  });
 
   return (
     <div className="ticket">
-      <Topbar 
-      search ={search}
-      />
+      <Topbar search={search} />
       <Sidebar />
       <section className="ticket-body m-8 p-4 bg-white">
         <div className="top-sect">
@@ -57,20 +81,29 @@ const date = new Date();
           <hr />
         </div>
         <div className="content">
-          {activeTab === "All Issues" && (
-            <div>
-              <UserTable
-              //  users={users?.data.filter(tabb =>((tabb.tabb).toLowercase()).includes(search.toLowercase()))}
-              users ={users}
-              setUsers={setUsers}
-               isLoading={isLoading} 
-               search ={search}/>
-
-            </div>
+          {activeTab && (
+            <>
+              {searchedUsers?.length === 0 ? (
+                <div>
+                  {activeTab === "Pending Issues" && (
+                    <h1>No Pending Tickets</h1>
+                  )}
+                  {activeTab === "New Issues" && <h1>No new tickets.</h1>}
+                  {activeTab === "Closed Issues" && <h1>No closed tickets.</h1>}
+                  {activeTab === "All Issues" && <h1>No tickets available.</h1>}
+                </div>
+              ) : (
+                <UserTable
+                  searchedUsers={searchedUsers}
+                  users={users}
+                  setUsers={setUsers}
+                  isLoading={isLoading}
+                  search={search}
+                />
+              )}
+            </>
           )}
         </div>
-
-        {/* <UserTable /> */}
       </section>
       <NextPage />
     </div>

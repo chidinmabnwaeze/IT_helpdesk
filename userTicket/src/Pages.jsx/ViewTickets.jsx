@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 import back from "../../../ITadmin/src/assets/icons/back-arrow.svg";
-import { Link } from "react-router-dom";
+import { Link, json, useLocation } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 
 const View = () => {
+  const [viewUserTicket, setViewUserTicket] = useState(null);
+  const location = useLocation();
+  const viewTicketId = location.pathname.split("/").pop();
+  const { auth } = useAuth();
+  const token = auth?.sessionID;
+
+  const viewTicket = async () => {
+    const url = `http://142.4.9.152:3000/v1/support-tickets/${viewTicketId}`;
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+        },
+        credentials: "include"
+      });
+      const updatedTicket = await response.json();
+      setViewUserTicket(updatedTicket.data);
+      console.log(updatedTicket);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    viewTicket();
+  }, []);
+
   return (
     <div>
       <Topbar />
@@ -20,17 +50,17 @@ const View = () => {
       <div className="comp-body m-8 p-4 bg-white">
         <div className="clientName m-4 flex justify-between items-center">
           <div>
-            <p>Mary John</p>
+            <p>{viewUserTicket?.requester?.firstName}</p>
             <p className="text-gray-400">maryjohn@gmail.com</p>
           </div>
           <div>
-            <p>priority</p>
+            <p>{viewUserTicket.priority}</p>
           </div>
           <div>
             <div>
               <p>Ticket Status</p>
             </div>
-            <p className="text-green-800">Pending</p>
+            <p className="text-green-800">{viewUserTicket?.status}</p>
           </div>
         </div>
         <hr />
@@ -39,6 +69,7 @@ const View = () => {
             <p className="font-semibold">Issue</p>
           </div>
           <div className="complain p-6 h-80" id="complain">
+            {viewUserTicket?.issue}
             My printer stooped working , I can’t print out documents, lorem
             ipsum dolor sit amet consectetur. Sagittis sed dui nisl viverra
             ultricies blandit magna sapien interdum. Convallis tincidunt sed

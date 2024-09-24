@@ -165,6 +165,7 @@ th {
   /* background-color: rgba(255, 205, 205, 0.33); */
 }
 .stat {
+  text-align: center;
   color: #cd000c;
   display: flex;
   align-items: center;
@@ -179,6 +180,7 @@ th {
   margin-right: 6px;
 }
 .stat2 {
+  text-align: center;
   color: rgb(0, 205, 44);
   display: flex;
   align-items: center;
@@ -208,11 +210,20 @@ th {
   height: 9px;
   margin-right: 6px;
 }
-.accept {
+ .assign:hover {
   background-color: #32844b;
   color: white;
 }
-.assign {
+.accept{
+  background-color: #32844b;
+  color: white;
+}
+.accept:hover{
+  background-color: white;
+  color: #32844b;
+  border: 1px solid #32844b;
+}
+.assign{
   border: 1px solid #32844b;
   color: #32844b;
 }
@@ -278,7 +289,7 @@ th {
 .dropdown-contents:hover{
 background-color: #eaeaea;
 }
-.closedButton{
+.clickedButton{
   color: white;
   background-color: #32844b;
 }
