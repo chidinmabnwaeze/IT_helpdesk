@@ -99,28 +99,28 @@ const LgaBreakdown = () => {
   //     label?: string;
   //   }
 
-  //   const CustomTooltip: React.FC<CustomTooltipProps> = ({
-  //     active,
-  //     payload,
-  //     label,
-  //   }) => {
-  //     if (active && payload && payload.length) {
-  //       return (
-  //         <div className="custom-tooltip bg-white px-10 py-3 -ml-14 -mt-18 z-40 relative rounded-lg shadow-lg font-Urbanist cursor-pointer w-72">
-  //           <p className="label text-h11 font-medium">{${label}}</p>
-  //           <p className="text-h12 my-3">Revenue</p>
-  //           {payload.map((entry, index) => (
-  //             <div key={item-${index}} className="uv font-semibold text-h11 flex justify-between">
-  //               <p>{${entry.payload[${entry.dataKey}Lga`]}`}</p>
-  //               <span>{₦${entry.value}}</span>
-  //             </div>
-  //           ))}
-  //         </div>
-  //       );
-  //     }
+    const CustomTooltip = ({
+      active,
+      payload,
+      label,
+    }) => {
+      if (active && payload && payload.length) {
+        return (
+          <div className="custom-tooltip bg-white px-10 py-3 -ml-14 -mt-18 z-40 relative rounded-lg shadow-lg font-Urbanist cursor-pointer w-72">
+            <p className="label text-h11 font-medium">{label}</p>
+            <p className="text-h12 my-3">Revenue</p>
+            {payload.map((entry, index) => (
+              <div key={`item-${index}`} className="uv font-semibold text-h11 flex justify-between">
+                <p>{entry.payload[`${entry.dataKey}Lga`]}</p>
+                <span>{`₦${entry.value}`}</span>
+              </div>
+            ))}
+          </div>
+        );
+      }
 
-  //     return null;
-  //   };
+      return null;
+    };
 
   return (
     <ResponsiveContainer width="100%" height={400}>
@@ -143,7 +143,7 @@ const LgaBreakdown = () => {
           style={{ stroke: "gray", color: "black" }}
         />
         <YAxis axisLine={false} tickLine={false} />
-        <Tooltip cursor={false} />
+        <Tooltip content={<CustomTooltip/>} cursor={false} />
         <Line
           type="monotone"
           dataKey="pv"
