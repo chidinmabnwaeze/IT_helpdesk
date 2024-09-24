@@ -13,15 +13,15 @@ export default function Dashboard() {
     },
     {
       count: "65",
-      subject: "Open Tickets",
+      subject: "New Tickets",
     },
     {
       count: "36",
-      subject: "Unresolved Tickets",
+      subject: "Pending Tickets",
     },
     {
       count: "53",
-      subject: "Resolved Tickets",
+      subject: "Closed Tickets",
     },
   ]);
   const tags = [
@@ -115,8 +115,8 @@ export default function Dashboard() {
                   </span>
                 </div>
                 
-                <div className="greyline w-full h-1">
-                  <div className="greenline w-3/6 h-1">&nbsp;</div>
+                <div className= "greyline w-full h-1">
+                  <div className={`${tag.name === "High" ? "redline" : tag.name === "Medium" ? "yellowline" : "greenline"}`}>&nbsp;</div>
                 </div>
               </div>
             ))}

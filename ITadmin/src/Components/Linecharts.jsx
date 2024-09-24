@@ -128,11 +128,11 @@ const LgaBreakdown = () => {
       <div className="labels flex m-3 justify-end">
         <div className="mx-4 p-3 flex ">
             <img src={bluebox} alt="" className="object-contain"/>
-          <label className="p-1">Resolved</label>
+          <label className="p-1">Closed</label>
         </div>
         <div className="mx-4 p-3 flex">
         <img src={purplebox} alt="" className="object-contain"/>
-          <label className="p-1">Unresolved</label>
+          <label className="p-1">Pending</label>
         </div>
       </div>
       <LineChart data={data} margin={{ top: 10, right: 5, left: 5, bottom: 0 }}>

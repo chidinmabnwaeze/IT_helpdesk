@@ -181,11 +181,11 @@ th {
 }
 .stat2 {
   text-align: center;
-  color: rgb(0, 205, 44);
+  color: rgb(208, 223, 4);
   display: flex;
   align-items: center;
   border-radius: 4px;
-  background-color: rgba(199, 255, 167, 0.15);
+  background-color: rgba(238, 252, 117, 0.15);
   /* width: 110px; */
 }
 .circle-med {
@@ -196,15 +196,15 @@ th {
   margin-right: 6px;
 }
 .stat3 {
-  color: rgba(152, 148, 148, 1);
+  color: rgb(0, 205, 44);;
   display: flex;
   align-items: center;
   border-radius: 4px;
-  background-color: rgba(152, 148, 148, 0.15);
+  background-color: rgba(153, 255, 144, 0.15);
   width: 110px;
 }
 .circle-low {
-  background-color: rgba(152, 148, 148, 1);
+  background-color: rgb(0, 205, 44);;
   border-radius: 4px;
   width: 9px;
   height: 9px;
@@ -233,8 +233,20 @@ th {
 .greyline {
   background-color: #d9d9d9;
 }
+.redline{
+  background-color: #cd000c;
+  height: 0.25rem;
+  width: 60%;
+}
+.yellowline{
+  background-color: rgb(208, 223, 4);
+  height: 0.25rem;
+  width: 40%;
+}
 .greenline {
   background-color: #32844b;
+  height: 0.25rem;
+  width: 50%;
 }
 .page-no {
   border: 1px solid #434343;
