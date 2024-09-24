@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import DropdownMenu from "./DropdownMenu";
@@ -17,9 +17,9 @@ const Tables = () => {
   const [assigned, setAssigned] = useState({});
 
   const [display, setDisplay] = useState(false);
-  const [selectedUser, setSelectedUser] =useState(null)
-  const [activeRow, setActiveRow] = useState(null)
-  const [open, setOpen] =useState(false)
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [activeRow, setActiveRow] = useState(null);
+  const [open, setOpen] = useState(false);
   const dropdownRef = useRef();
 
   useEffect(() => {
@@ -28,11 +28,11 @@ const Tables = () => {
         setOpen(false);
       }
     };
-      document.addEventListener("click" ,toggle)
+    document.addEventListener("click", toggle);
 
-      return () =>{
-      document.removeEventListener("click", toggle)
-    }
+    return () => {
+      document.removeEventListener("click", toggle);
+    };
   }, [dropdownRef]);
 
   const handleDisplay = () => {
@@ -64,7 +64,6 @@ const Tables = () => {
     }
   };
 
-
   // const [handler, setHandler] = useState({});
 
   const location = useLocation();
@@ -81,7 +80,7 @@ const Tables = () => {
         alert("No handler selected! Please select a handler.");
         return;
       }
-console.log("selected User:", selectedUser)
+      console.log("selected User:", selectedUser);
       const url = `http://142.4.9.152:3000/v1/support-tickets/assign/${assignedTicketId}`;
       const response = await fetch(url, {
         method: "POST",
@@ -107,13 +106,13 @@ console.log("selected User:", selectedUser)
       const json = await response.json();
       console.log("Success Response:", json);
       // if (json && json.handler) {
-        setAssigned({
-          firstName: json.data.handler.firstName,
-          lastName: json.data.handler.lastName,
-        });
-        alert(
-          `Ticket assigned successfully to ${json.data.handler?.firstName} ${json.data.handler.lastName}`
-        );
+      setAssigned({
+        firstName: json.data.handler.firstName,
+        lastName: json.data.handler.lastName,
+      });
+      alert(
+        `Ticket assigned successfully to ${json.data.handler?.firstName} ${json.data.handler.lastName}`
+      );
       // } else {
       //   alert("Ticket assigned, but no handler information returned.");
       // }
@@ -266,28 +265,28 @@ console.log("selected User:", selectedUser)
                       className="select rounded-lg p-2"
                       onChange={(e) => {
                         const selected = users?.data.find(
-                          (user)=> user.id === e.target.value
-                        )
-                       setSelectedUser(selected)
-                      setActiveRow(index)
-                          // setDisplay(true);
-                        
+                          (user) => user.id === e.target.value
+                        );
+                        setSelectedUser(selected);
+                        setActiveRow(index);
+                        // setDisplay(true);
                       }}
                       defaultValue="default"
                     >
                       <option value="default">Assign To</option>
                       {users?.data.map((user, index) => (
                         <option value={user.id} key={index}>
-                          {user.handler?.firstName} {user.data?.handler?.lastName}
+                          {user.handler?.firstName}{" "}
+                          {user.data?.handler?.lastName}
                         </option>
                       ))}
                     </select>
                     {/* button to display options for selected users */}
                     {activeRow === index && selectedUser && (
-                      <button ref={dropdownRef}
+                      <button
+                        ref={dropdownRef}
                         className="assign py-1.5 px-7 mx-3 rounded-md"
                         onClick={(e) => getAssigned(selectedUser, tabb.id)}
-                        
                       >
                         Save
                       </button>
