@@ -137,7 +137,7 @@ const Login = () => {
           {errors.form && <div className="error-message">{errors.form}</div>}
           <input
             type="submit"
-            className="submit border p-2 w-32 mt-4 bg-green-700 text-white rounded hover:bg-white border-green-700"
+            className="submit border p-2 w-32 mt-4 bg-green-700 text-white rounded"
           />
         </form>
       </main>

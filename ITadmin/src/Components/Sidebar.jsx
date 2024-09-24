@@ -91,7 +91,7 @@ const Sidebar = () => {
             <li
               className={`menu-list ${location.pathname === "/form" ? "active" : ""}`}
             >
-              <a id="menu-icon" className="menu-list" href = "http://localhost:5173/form">
+              <a id="menu-icon" className="menu-list" href = "../login">
                 <img className="menu-icon" src={Logout} alt="" />
                 <p>Logout</p>
               </a>

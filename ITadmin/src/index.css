@@ -318,7 +318,11 @@ cursor: pointer;
   padding: 0 2rem;
   font-weight: 500;
 }
-
+.submit:hover{
+background-color: white;
+border: 1px solid #32844b;
+color: #32844b;
+}
 
 /* dark mode theme */
 :root {
