@@ -23,15 +23,15 @@ const Tables = () => {
   const dropdownRef = useRef();
 
   useEffect(() => {
-    const toggle = (event) => {
+    const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpen(false);
       }
     };
-    document.addEventListener("click", toggle);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener("click", toggle);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
 
@@ -75,12 +75,12 @@ const Tables = () => {
   });
 
   const getAssigned = async (selectedUser, ticketId) => {
+    if (!selectedUser.id) {
+      alert("No handler selected! Please select a handler.");
+      return;
+    }
+    console.log("selected User:", selectedUser);
     try {
-      if (!selectedUser.id) {
-        alert("No handler selected! Please select a handler.");
-        return;
-      }
-      console.log("selected User:", selectedUser);
       const url = `http://142.4.9.152:3000/v1/support-tickets/assign/${assignedTicketId}`;
       const response = await fetch(url, {
         method: "POST",
@@ -276,8 +276,8 @@ const Tables = () => {
                       <option value="default">Assign To</option>
                       {users?.data.map((user, index) => (
                         <option value={user.id} key={index}>
-                          {user.handler?.firstName}{" "}
-                          {user.data?.handler?.lastName}
+                          {user?.firstName}{" "}
+                          {user?.lastName}
                         </option>
                       ))}
                     </select>
@@ -285,8 +285,9 @@ const Tables = () => {
                     {activeRow === index && selectedUser && (
                       <button
                         ref={dropdownRef}
+                        disabled ={!selectedUser}
                         className="assign py-1.5 px-7 mx-3 rounded-md"
-                        onClick={(e) => getAssigned(selectedUser, tabb.id)}
+                        onClick={() => getAssigned(selectedUser, tabb.id)}
                       >
                         Save
                       </button>
