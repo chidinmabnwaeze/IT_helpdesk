@@ -84,7 +84,7 @@ const Complaint = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          status: "inProgress", // Set ticket to pending
+          status: "pending", // Set ticket to pending
         }),
       });
 

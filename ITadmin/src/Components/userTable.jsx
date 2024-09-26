@@ -64,6 +64,10 @@ const Tables = () => {
     }
   };
 
+  useEffect(() => {
+    getData(); //you removed void
+  }, []);
+
   // const [handler, setHandler] = useState({});
 
   const location = useLocation();
@@ -123,9 +127,9 @@ const Tables = () => {
     }
   };
 
-  useEffect(() => {
-    getData(); //you removed void
-  }, []);
+  // useEffect(()=>{
+  //   getAssigned();
+  // },[])
 
   return (
     <div>
@@ -276,8 +280,7 @@ const Tables = () => {
                       <option value="default">Assign To</option>
                       {users?.data.map((user, index) => (
                         <option value={user.id} key={index}>
-                          {user?.firstName}{" "}
-                          {user?.lastName}
+                          {user?.firstName} {user?.lastName}
                         </option>
                       ))}
                     </select>
@@ -285,7 +288,7 @@ const Tables = () => {
                     {activeRow === index && selectedUser && (
                       <button
                         ref={dropdownRef}
-                        disabled ={!selectedUser}
+                        disabled={!selectedUser}
                         className="assign py-1.5 px-7 mx-3 rounded-md"
                         onClick={() => getAssigned(selectedUser, tabb.id)}
                       >
