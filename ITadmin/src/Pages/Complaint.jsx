@@ -55,7 +55,7 @@ const Complaint = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          status: "closed" || "resolved", // Set ticket to pending
+          status: "closed" || "resolved", // Set ticket to closed
         }),
       });
 

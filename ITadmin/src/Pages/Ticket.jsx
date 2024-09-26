@@ -1,24 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 // import Table from "../Components/Table";
 import UserTable from "../Components/userTable";
 import NextPage from "../Components/nextPage";
+import { useAuth } from "../auth/AuthContext";
 
-export default function Ticket({
-  users,
-  setUsers,
-  isLoading,
-  search,
- 
-}) {
+export default function Ticket({users, setUsers, isLoading, search }) {
   const [activeTab, setActiveTab] = useState("All Issues");
   const handleChangeTab = (tab) => {
     setActiveTab(tab);
   };
   const date = new Date();
 
-  const filteredUsers = users?.data?.filter((ticket) => {
+  const { auth } = useAuth();
+  const token = auth?.sessionID;
+
+  const [ticketStatus, setTicketStatus] = useState([]);
+
+  const getTicketStatus = async () => {
+    const url =
+      "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10&status=new";
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      const statusData = await response.json();
+      console.log("API Response:", statusData);
+
+      if (statusData?.data?.data && Array.isArray(statusData.data.data)) {
+        setTicketStatus(statusData.data.data);
+      } else {
+        console.error("Unexpected data format, expected array", statusData);
+      }
+      console.log(statusData);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    if (token){
+    getTicketStatus();
+    }
+  }, [token]);
+
+  const filteredTickets = ticketStatus.filter((ticket) => {
     if (activeTab === "All Issues") {
       return true;
     }
@@ -34,9 +66,9 @@ export default function Ticket({
     return false;
   });
 
-  const searchedUsers = filteredUsers?.filter((ticket) => {
-    `${ticket.issue}`.toLowerCase().includes(search.toLowerCase());
-  });
+  // const searchedUsers = filteredUsers?.filter((ticket) => {
+  //   `${ticket.issue}`.toLowerCase().includes(search.toLowerCase());
+  // });
 
   return (
     <div className="ticket">
@@ -81,28 +113,25 @@ export default function Ticket({
           <hr />
         </div>
         <div className="content">
-          {activeTab && (
-            <>
-              {searchedUsers?.length === 0 ? (
-                <div>
-                  {activeTab === "Pending Issues" && (
-                    <h1>No Pending Tickets</h1>
-                  )}
-                  {activeTab === "New Issues" && <h1>No new tickets.</h1>}
-                  {activeTab === "Closed Issues" && <h1>No closed tickets.</h1>}
-                  {activeTab === "All Issues" && <h1>No tickets available.</h1>}
-                </div>
-              ) : (
-                <UserTable
-                  searchedUsers={searchedUsers}
-                  users={users}
-                  setUsers={setUsers}
-                  isLoading={isLoading}
-                  search={search}
-                />
-              )}
-            </>
+        
+          {filteredTickets.length === 0 ? (
+            <div>
+              {activeTab === "Pending Issues" && <h1>No Pending Tickets</h1>}
+              {activeTab === "New Issues" && <h1>No new tickets.</h1>}
+              {activeTab === "Closed Issues" && <h1>No closed tickets.</h1>}
+              {activeTab === "All Issues" && <h1>No tickets available.</h1>}
+            </div>
+          ) : (
+            <UserTable
+              // searchedUsers={searchedUsers}
+              tickets= {filteredTickets}
+              users={users}
+              setUsers={setUsers}
+              isLoading={isLoading}
+              search={search}
+            />
           )}
+        
         </div>
       </section>
       <NextPage />

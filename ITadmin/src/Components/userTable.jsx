@@ -25,7 +25,7 @@ const Tables = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setOpen(false);
+        setActiveRow(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
