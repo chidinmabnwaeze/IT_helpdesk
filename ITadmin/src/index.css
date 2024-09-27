@@ -323,6 +323,26 @@ background-color: white;
 border: 1px solid #32844b;
 color: #32844b;
 }
+.wrapper{
+ background-color: #32844b;
+ height: 100vh;
+ padding: 2rem;
+}
+.form-body{
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100vh;
+  height: 60vh;
+  margin: 0 auto;
+  display: flex;
+ flex-direction: column;
+justify-content: space-between;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#errors{
+  color: red;
+}
 
 /* dark mode theme */
 :root {
