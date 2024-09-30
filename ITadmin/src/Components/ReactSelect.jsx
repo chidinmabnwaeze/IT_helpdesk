@@ -31,8 +31,7 @@ const ReactSelect = () => {
 
   return (
     <div>
-      <Select options={options} 
-      styles={customStyles}/>
+      <Select options={options} styles={customStyles} />
     </div>
   );
 };
