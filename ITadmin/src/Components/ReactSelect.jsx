@@ -1,7 +1,8 @@
-import React from "react";
+import React , {useState} from "react";
 import Select from "react-select";
 
 const ReactSelect = () => {
+    const [optionPicked, setOptionPicked] = useState("")
   const options = [
     {
       value: "user1",
@@ -35,7 +36,8 @@ const ReactSelect = () => {
 
   return (
     <div>
-      <Select options={options} styles={customStyles} />
+      <Select options={options} styles={customStyles} onChange={(options)=>setOptionPicked(options)} />
+    <p> picked : {optionPicked?.label}</p> 
     </div>
   );
 };
