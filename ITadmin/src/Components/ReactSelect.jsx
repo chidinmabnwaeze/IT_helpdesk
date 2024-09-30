@@ -23,7 +23,9 @@ const ReactSelect = () => {
 
   return (
     <div>
-      <Select options={options} />
+      <Select 
+      options={options} 
+      />
     </div>
   );
 };
