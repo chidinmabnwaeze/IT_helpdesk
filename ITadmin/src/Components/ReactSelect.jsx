@@ -20,13 +20,17 @@ const ReactSelect = () => {
       label: "User4",
     },
   ];
-  const customStyles = () => {
+  const customStyles =  {
     control: (provided) => ({
       ...provided,
-      width: "200px",
+      width: "120px",
+      borderColor:"green",
       borderRadius: "8px",
       textAlign: "left",
-    });
+      color: "green",
+      text: "Assign"
+    })
+   
   };
 
   return (
