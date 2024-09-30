@@ -20,15 +20,18 @@ const ReactSelect = () => {
       label: "User4",
     },
   ];
-  const customStyles = ()=>{
-    control:((provided)=>({...provided , width:"200px", borderRadius :"8px", textAlign: "left"}))
-  }
+  const customStyles = () => {
+    control: (provided) => ({
+      ...provided,
+      width: "200px",
+      borderRadius: "8px",
+      textAlign: "left",
+    });
+  };
 
   return (
     <div>
-      <Select 
-      options={options} 
-      />
+      <Select options={options} />
     </div>
   );
 };
