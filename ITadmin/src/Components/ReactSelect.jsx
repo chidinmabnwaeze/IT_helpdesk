@@ -1,19 +1,33 @@
-import React from 'react'
-import Select from "react-select"
+import React from "react";
+import Select from "react-select";
 
 const ReactSelect = () => {
-
-    const options =[
-        {
-            value:"user1" , label: "user1", 
-        }
-    ]
+  const options = [
+    {
+      value: "user1",
+      label: "User1",
+    },
+    {
+      value: "user2",
+      label: "User2",
+    },
+    {
+      value: "user3",
+      label: "User3",
+    },
+    {
+      value: "user4",
+      label: "User4",
+    },
+  ];
 
   return (
     <div>
-        
+      <Select 
+      
+      options={options} />
     </div>
-  )
-}
+  );
+};
 
-export default ReactSelect
+export default ReactSelect;
