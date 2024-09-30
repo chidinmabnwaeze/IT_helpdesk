@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
-import Select from "react-select";
 import DropdownMenu from "./DropdownMenu";
 import DropdownContent from "./DropdownContent";
 import DropdownItems from "./DropdownItems";
