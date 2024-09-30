@@ -40,7 +40,7 @@ const ReactSelect = () => {
         styles={customStyles}
         onChange={(options) => setOptionPicked(options)}
       />
-      <p> picked : {optionPicked?.label}</p>
+      
     </div>
   );
 };
