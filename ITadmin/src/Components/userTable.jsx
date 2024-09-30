@@ -6,7 +6,7 @@ import DropdownMenu from "./DropdownMenu";
 import DropdownContent from "./DropdownContent";
 import DropdownItems from "./DropdownItems";
 
-const Tables = ({status}) => {
+const Tables = ({ status }) => {
   const { auth } = useAuth();
   const token = auth?.sessionID;
 
@@ -275,7 +275,6 @@ const Tables = ({status}) => {
                         );
                         setSelectedUser(selected);
                         setActiveRow(index);
-                       
                       }}
                       defaultValue="default"
                     >
@@ -299,7 +298,7 @@ const Tables = ({status}) => {
                     )}
                   </td>
                   <td className="react-select">
-<ReactSelect/>
+                    <ReactSelect />
                   </td>
                 </tr>
               ))}
