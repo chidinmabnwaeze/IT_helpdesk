@@ -1,8 +1,8 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 
 const ReactSelect = () => {
-    const [optionPicked, setOptionPicked] = useState("")
+  const [optionPicked, setOptionPicked] = useState("");
   const options = [
     {
       value: "user1",
@@ -21,23 +21,26 @@ const ReactSelect = () => {
       label: "User4",
     },
   ];
-  const customStyles =  {
+  const customStyles = {
     control: (provided) => ({
       ...provided,
       width: "120px",
-      borderColor:"green",
+      borderColor: "green",
       borderRadius: "8px",
       textAlign: "left",
       color: "green",
-      text: "Assign"
-    })
-   
+      text: "Assign",
+    }),
   };
 
   return (
     <div>
-      <Select options={options} styles={customStyles} onChange={(options)=>setOptionPicked(options)} />
-    <p> picked : {optionPicked?.label}</p> 
+      <Select
+        options={options}
+        styles={customStyles}
+        onChange={(options) => setOptionPicked(options)}
+      />
+      <p> picked : {optionPicked?.label}</p>
     </div>
   );
 };
