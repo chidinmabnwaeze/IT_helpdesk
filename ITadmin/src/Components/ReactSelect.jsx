@@ -20,6 +20,9 @@ const ReactSelect = () => {
       label: "User4",
     },
   ];
+  const customStyles = ()=>{
+    control:((provided)=>({...provided , width:"200px", borderRadius :"8px", textAlign: "left"}))
+  }
 
   return (
     <div>
