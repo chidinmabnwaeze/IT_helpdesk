@@ -19,7 +19,7 @@ function App() {
       <Route index element ={<CompliantForm/>}/>
       <Route path ='/form' element ={<CompliantForm/>}></Route>
       <Route path='/mytickets' element={<MyTickets/>}/>
-      <Route path='/viewticket' element={<View/>}/>
+      <Route path='/viewticket/:id' element={<View/>}/>
       <Route path='/login' element ={<Login/>}/>
       
      </Routes>

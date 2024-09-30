@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
+import { useAuth } from "../auth/AuthContext";
 
 const CompliantForm = () => {
   // const [Inputvalue, setInputValue] = useState("");
@@ -33,7 +34,9 @@ const CompliantForm = () => {
     setAttachment(e.target.files[0]);
   };
 
-  const token = "7a7bcd359fd747f6b1831c11cf476b58";
+  // const token = "7a7bcd359fd747f6b1831c11cf476b58";
+  const{ auth} = useAuth();
+  const token = auth?.sessionID;
 
   const myHeaders = new Headers({
     Authorization: `${token}`, // Assuming Bearer token; adjust if needed

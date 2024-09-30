@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import Select from "react-select";
 import DropdownMenu from "./DropdownMenu";
 import DropdownContent from "./DropdownContent";
+import DropdownItems from "./DropdownItems";
 
-const Tables = () => {
+const Tables = ({status}) => {
   const { auth } = useAuth();
   const token = auth?.sessionID;
 
@@ -66,7 +68,7 @@ const Tables = () => {
 
   useEffect(() => {
     getData(); //you removed void
-  }, []);
+  }, [status]);
 
   // const [handler, setHandler] = useState({});
 
@@ -150,7 +152,7 @@ const Tables = () => {
             </thead>
             <tbody>
               {users?.data.map((tabb, index) => (
-                <tr className="rows" key={index}>
+                <tr className="rows" key={tabb.id}>
                   <td className="staff-name" id="check">
                     {/* <div className=""> */}
                     <input type="checkbox" className="mr-3" id="check" />
@@ -273,7 +275,7 @@ const Tables = () => {
                         );
                         setSelectedUser(selected);
                         setActiveRow(index);
-                        // setDisplay(true);
+                       
                       }}
                       defaultValue="default"
                     >
@@ -295,6 +297,9 @@ const Tables = () => {
                         Save
                       </button>
                     )}
+                  </td>
+                  <td className="react-select">
+
                   </td>
                 </tr>
               ))}

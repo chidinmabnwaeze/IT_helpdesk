@@ -54,7 +54,7 @@ const View = () => {
             <p className="text-gray-400">maryjohn@gmail.com</p>
           </div>
           <div>
-            <p>{viewUserTicket.priority}</p>
+            <p>{viewUserTicket?.priority}</p>
           </div>
           <div>
             <div>
