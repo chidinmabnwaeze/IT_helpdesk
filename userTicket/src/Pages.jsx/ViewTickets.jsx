@@ -54,6 +54,9 @@ const View = () => {
             <p className="text-gray-400">maryjohn@gmail.com</p>
           </div>
           <div>
+            <div>
+              <p>Priority</p>
+            </div>
             <p>{viewUserTicket?.priority}</p>
           </div>
           <div>
@@ -70,17 +73,7 @@ const View = () => {
           </div>
           <div className="complain p-6 h-80" id="complain">
             {viewUserTicket?.issue}
-            My printer stooped working , I can’t print out documents, lorem
-            ipsum dolor sit amet consectetur. Sagittis sed dui nisl viverra
-            ultricies blandit magna sapien interdum. Convallis tincidunt sed
-            integer sagittis faucibus. Cursus ut ut urna felis. Nam pellentesque
-            dolor id massa vitae in nibh enim elementum. Amet sit mauris turpis
-            rhoncus scelerisque odio risus. Lorem ipsum dolor sit amet
-            consectetur. Sagittis sed dui nisl viverra ultricies blandit magna
-            sapien interdum. Convallis tincidunt sed integer sagittis faucibus.
-            Cursus ut ut urna felis. Nam pellentesque dolor id massa vitae in
-            nibh enim elementum. Amet sit mauris turpis rhoncus scelerisque odio
-            risus.
+         
           </div>
         </div>
 

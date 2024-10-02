@@ -23,7 +23,7 @@ export default function Ticket({ users, setUsers, isLoading, setIsLoading, searc
     let url = "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10";
 
     if (status !== "All Issues") {
-      url += `&status=${status.toLowerCase()}`;
+      url += `&status=${status.split(" ")[0].toLowerCase()}`;
     }
 
     try {

@@ -21,7 +21,6 @@ const Tables = ({ status }) => {
   const [display, setDisplay] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [activeRow, setActiveRow] = useState(null);
-  const [open, setOpen] = useState(false);
   const dropdownRef = useRef();
 
   useEffect(() => {
@@ -52,9 +51,6 @@ const Tables = ({ status }) => {
         },
         // credentials: "include"
       });
-      // .then(response => response.json())
-      // .then(data => console.log(data))
-      // .catch(error => console.error('Error:', error));;
 
       const userData = await response.json();
       setUsers(userData.data);
@@ -70,7 +66,6 @@ const Tables = ({ status }) => {
     getData(); //you removed void
   }, [status]);
 
-  // const [handler, setHandler] = useState({});
 
   const location = useLocation();
   const assignedTicketId = location.pathname.split("/").pop();
@@ -191,29 +186,7 @@ const Tables = ({ status }) => {
                     </Link>
                   </td>
 
-                  {/* <td>
-                  <button className="assign flex justify-center items-center py-1.5 p-6  rounded-md">
-                    Assign <img className="down h-4 ml-3 " src={down} alt="" />
-                  </button>
-                  <DropdownMenu
-                    buttonText="Assign To"
-                    content={
-                      <>
-                        {users?.data.map((item) => (
-                          <DropdownContent key={item}>
-                            {users?.data
-                              .filter((user) => tabb.id != user.id)
-                              .map((user, index) => (
-                                <option value={user.id} key={index}>
-                                  {user.priority} {user.issue}
-                                </option>
-                              ))}
-                          </DropdownContent>
-                        ))}
-                      </>
-                    }
-                  />
-                </td> */}
+      
 
                   {/* <td>
                   <div role="button" tabIndex={0} className="dropdown-content">
@@ -264,7 +237,9 @@ const Tables = ({ status }) => {
                       ))}
                   </select>
                 </td> */}
-                  <td className="flex ">
+
+                {/* creating assign buttton without a library */}
+                 {/* <td className="flex ">
                     <select
                       name="assignTo"
                       id=""
@@ -285,7 +260,7 @@ const Tables = ({ status }) => {
                         </option>
                       ))}
                     </select>
-                    {/* button to display options for selected users */}
+                     button to display options for selected users 
                     {activeRow === index && selectedUser && (
                       <button
                         ref={dropdownRef}
@@ -296,7 +271,7 @@ const Tables = ({ status }) => {
                         Save
                       </button>
                     )}
-                  </td>
+                  </td> */}
                   <td className="react-select">
                     <ReactSelect />
                   </td>
