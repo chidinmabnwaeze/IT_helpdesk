@@ -35,7 +35,7 @@ const CompliantForm = () => {
   };
 
   // const token = "7a7bcd359fd747f6b1831c11cf476b58";
-  const{ auth} = useAuth();
+  const { auth } = useAuth();
   const token = auth?.sessionID;
 
   const myHeaders = new Headers({
@@ -72,12 +72,14 @@ const CompliantForm = () => {
       console.log("Response Status:", response.status);
 
       if (!response.ok) {
-      //   throw new Error(`Response status: ${response.status}`);
-      // } else {
-      //   alert("Form submitted successfully!");
-      const errorData = await response.json();  // Parse the response body
-      console.error("Server Response Error:", errorData);
-      throw new Error(`Error ${response.status}: ${errorData.message || 'Bad Request'}`);
+        //   throw new Error(`Response status: ${response.status}`);
+        // } else {
+        //   alert("Form submitted successfully!");
+        const errorData = await response.json(); // Parse the response body
+        console.error("Server Response Error:", errorData);
+        throw new Error(
+          `Error ${response.status}: ${errorData.message || "Bad Request"}`
+        );
       }
 
       const json = await response.json();
@@ -87,7 +89,7 @@ const CompliantForm = () => {
       console.error("Error occurred during ticket creation:", error.message);
       alert(`Ticket creation failed: ${error.message}`);
     }
-      console.log(formData);
+    console.log(formData);
   };
 
   const handleSubmit = (e) => {
@@ -118,7 +120,7 @@ const CompliantForm = () => {
           onSubmit={handleSubmit}
         >
           <div>
-            <div className="name-container flex w-full">
+            {/* <div className="name-container flex w-full">
               <div className="w-full">
                 <div className="m-2">
                   <label htmlFor="firstname">First Name</label>
@@ -149,8 +151,8 @@ const CompliantForm = () => {
                   onChange={handleChangeMultiple}
                 />
               </div>
-            </div>
-            {/* <div className="email w-full">
+            </div> 
+            <div className="email w-full">
               <div className="m-2">
                 <label htmlFor="email">Email Address</label>
               </div>
@@ -164,7 +166,7 @@ const CompliantForm = () => {
                 value={formData.email}
                 onChange={handleChangeMultiple}
               />
-            </div> */}
+            </div>
             <div className="staffId w-full">
               <div className="m-2">
                 <label htmlFor="staffId">Staff ID</label>
@@ -178,7 +180,25 @@ const CompliantForm = () => {
                 value={formData.staffId}
                 onChange={handleChangeMultiple}
               />
+            </div>*/}
+
+            <div>
+             
+              <h1>Create a Support Ticket</h1>
             </div>
+            <div className="issue w-3/5">
+              <div className="m-2 compliant-area">
+                <label htmlFor="issue">Complaint</label>
+              </div>
+              <textarea
+                name="issue"
+                placeholder="State your issue here"
+                className="border w-full p-6 h-60"
+                value={formData.issue}
+                onChange={handleChangeMultiple}
+              ></textarea>
+            </div>
+
             <div className="prority">
               <div className="m-2 priority">
                 <label htmlFor="issue">Priority</label>
@@ -195,19 +215,6 @@ const CompliantForm = () => {
                 <option value="medium">Medium</option>
                 <option value="low">Low</option>
               </select>
-            </div>
-
-            <div className="issue w-3/5">
-              <div className="m-2 compliant-area">
-                <label htmlFor="issue">Complaint</label>
-              </div>
-              <textarea
-                name="issue"
-                placeholder="State your issue here"
-                className="border w-full p-6 h-60"
-                value={formData.issue}
-                onChange={handleChangeMultiple}
-              ></textarea>
             </div>
 
             <div className="attachment w-full">
