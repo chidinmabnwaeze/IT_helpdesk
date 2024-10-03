@@ -113,10 +113,10 @@ const CompliantForm = () => {
       <Topbar />
       <Sidebar />
 
-      <div className="form-body m-5 p-4 bg-white">
+      <div className="form-body m-5 p-2 bg-white">
         <form
           action="submit"
-          className="m-5 mx-auto p-5"
+          className=" mx-auto p-5"
           onSubmit={handleSubmit}
         >
           <div>
@@ -182,13 +182,12 @@ const CompliantForm = () => {
               />
             </div>*/}
 
-            <div>
-             
-              <h1>Create a Support Ticket</h1>
+            <div > 
+              <h1 className="mb-8 text-gray-800 font-semibold">Create a Support Ticket</h1>
             </div>
             <div className="issue w-3/5">
               <div className="m-2 compliant-area">
-                <label htmlFor="issue">Complaint</label>
+                <label htmlFor="issue">New Issue</label>
               </div>
               <textarea
                 name="issue"

@@ -50,7 +50,7 @@ function App({ search }) {
     <>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Dashboard />} />
+          <Route index element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route
             path="/tickets"

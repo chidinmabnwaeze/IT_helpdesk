@@ -2,23 +2,28 @@ import React, { useState, useEffect } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 // import Table from "../Components/Table";
-import UserTable from "../Components/userTable";
+import TicketTable from "../Components/TicketTable";
 import NextPage from "../Components/nextPage";
 import { useAuth } from "../auth/AuthContext";
 
-export default function Ticket({ users, setUsers, isLoading, setIsLoading, search }) {
+export default function Ticket({
+  tickets,
+  setTickets,
+  isLoading,
+  setIsLoading,
+  search,
+}) {
   const [activeTab, setActiveTab] = useState("All Issues");
   const date = new Date();
-  
+
   const { auth } = useAuth();
   const token = auth?.sessionID;
-  
+
   const [ticketStatus, setTicketStatus] = useState([]);
   const [statusType, setStatusType] = useState("All Issues");
   // const [isLoading, setIsLoading] = useState(false);
-  
 
-  const getTicketStatus = async (status) => {
+  const getStatus = async (status) => {
     // setIsLoading(true);
     let url = "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10";
 
@@ -53,12 +58,12 @@ export default function Ticket({ users, setUsers, isLoading, setIsLoading, searc
   };
 
   useEffect(() => {
-    getTicketStatus(statusType);
+    getStatus(statusType);
   }, [statusType]);
 
   const handleChangeTab = (tab) => {
     setActiveTab(tab);
-    setStatusType(tab)
+    setStatusType(tab);
   };
 
   const filteredTickets = ticketStatus.filter((ticket) => {
@@ -96,21 +101,18 @@ export default function Ticket({ users, setUsers, isLoading, setIsLoading, searc
                 <li
                   className={`${activeTab === "All Issues" ? "activeTab" : "tab-list"}`}
                   onClick={() => handleChangeTab("All Issues")}
-                 
                 >
                   All Issues
                 </li>
                 <li
                   className={`${activeTab === "New Issues" ? "activeTab" : "tab-list"}`}
                   onClick={() => handleChangeTab("New Issues")}
-                 
                 >
                   New Issues
                 </li>
                 <li
                   className={`${activeTab === "Pending Issues" ? "activeTab" : "tab-list"}`}
                   onClick={() => handleChangeTab("Pending Issues")}
-                 
                 >
                   Pending Issues
                 </li>
@@ -135,13 +137,12 @@ export default function Ticket({ users, setUsers, isLoading, setIsLoading, searc
               {activeTab === "All Issues" && <h1>No tickets available.</h1>}
             </div>
           ) : (
-            
-            <UserTable
+            <TicketTable
               // searchedUsers={searchedUsers}
               status={activeTab}
-              tickets={filteredTickets}
-              users={users}
-              setUsers={setUsers}
+              filteredTickets={filteredTickets}
+              tickets={tickets}
+              setTickets={setTickets}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
               search={search}

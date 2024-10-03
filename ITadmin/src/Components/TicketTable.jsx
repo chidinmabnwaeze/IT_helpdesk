@@ -13,7 +13,7 @@ const Tables = ({ status }) => {
   // const [priority, setPriority] = useState("high");
   const [priorityCircle, setPriorityCircle] = useState("");
 
-  const [users, setUsers] = useState(null);
+  const [tickets, setTickets] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   // For assigned tickets
   const [assigned, setAssigned] = useState({});
@@ -53,7 +53,7 @@ const Tables = ({ status }) => {
       });
 
       const userData = await response.json();
-      setUsers(userData.data);
+      setTickets(userData.data);
       setIsLoading(false);
       console.log(userData);
     } catch (error) {
@@ -65,7 +65,6 @@ const Tables = ({ status }) => {
   useEffect(() => {
     getData(); //you removed void
   }, [status]);
-
 
   const location = useLocation();
   const assignedTicketId = location.pathname.split("/").pop();
@@ -133,9 +132,9 @@ const Tables = ({ status }) => {
       {isLoading && (
         <h1 className="font-bold text-center m-auto">Loading...</h1>
       )}
-      {!isLoading && users && (
+      {!isLoading && tickets && (
         <div className="content">
-          <div className="ticket-count font-medium m-3">{`${users?.total || 0} ${users?.total === 1 ? "Ticket" : "Tickets"}`}</div>
+          <div className="ticket-count font-medium m-3">{`${tickets?.total || 0} ${tickets?.total === 1 ? "Ticket" : "Tickets"}`}</div>
           <table className="staffTable">
             <thead>
               <tr className="table-head">
@@ -146,7 +145,7 @@ const Tables = ({ status }) => {
               </tr>
             </thead>
             <tbody>
-              {users?.data.map((tabb, index) => (
+              {tickets?.data.map((tabb, index) => (
                 <tr className="rows" key={tabb.id}>
                   <td className="staff-name" id="check">
                     {/* <div className=""> */}
@@ -177,7 +176,7 @@ const Tables = ({ status }) => {
                     </div>
                   </td>
                   <td>{tabb.status}</td>
-                  <td>{tabb.attachment}</td>
+                  {/* <td>{tabb.attachment}</td> */}
                   <td>
                     <Link to={`/complaint/${tabb.id} `}>
                       <button className="accept py-1.5 px-7 rounded-md">
@@ -185,8 +184,6 @@ const Tables = ({ status }) => {
                       </button>
                     </Link>
                   </td>
-
-      
 
                   {/* <td>
                   <div role="button" tabIndex={0} className="dropdown-content">
@@ -197,9 +194,9 @@ const Tables = ({ status }) => {
                     buttonText="Assign To"
                     content={
                       <>
-                        {users?.data.map((item) => (
+                        {tickets?.data.map((item) => (
                           <DropdownContent key={item}>
-                            {users?.data
+                            {tickets?.data
                               .filter((user) => tabb.id != user.id)
                               .map((user, index) => (
                                 <option value={user.id} key={index}>
@@ -221,14 +218,14 @@ const Tables = ({ status }) => {
                     id=""
                     className="select rounded-lg p-2"
                     onChange={(e) => {
-                      users?.data.find((user) => user.id === e.target.value);
+                      tickets?.data.find((user) => user.id === e.target.value);
                       //  console.log(u)
                     }}
                     defaultValue="default"
                     onSelect={()=>{}}
                   >
                     <option value="default">Assign To</option>
-                    {users?.data
+                    {tickets?.data
                       // .filter((user) => tabb.id != user.id)
                       .map((user, index) => (
                         <option value={user?.id} key={index}>
@@ -238,14 +235,14 @@ const Tables = ({ status }) => {
                   </select>
                 </td> */}
 
-                {/* creating assign buttton without a library */}
-                 {/* <td className="flex ">
+                  {/* creating assign buttton without a library */}
+                  {/* <td className="flex ">
                     <select
                       name="assignTo"
                       id=""
                       className="select rounded-lg p-2"
                       onChange={(e) => {
-                        const selected = users?.data.find(
+                        const selected = tickets?.data.find(
                           (user) => user.id === e.target.value
                         );
                         setSelectedUser(selected);
@@ -254,13 +251,13 @@ const Tables = ({ status }) => {
                       defaultValue="default"
                     >
                       <option value="default">Assign To</option>
-                      {users?.data.map((user, index) => (
+                      {tickets?.data.map((user, index) => (
                         <option value={user.id} key={index}>
                           {user?.firstName} {user?.lastName}
                         </option>
                       ))}
                     </select>
-                     button to display options for selected users 
+                     button to display options for selected tickets 
                     {activeRow === index && selectedUser && (
                       <button
                         ref={dropdownRef}

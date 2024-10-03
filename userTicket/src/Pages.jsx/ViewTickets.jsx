@@ -50,8 +50,8 @@ const View = () => {
       <div className="comp-body m-8 p-4 bg-white">
         <div className="clientName m-4 flex justify-between items-center">
           <div>
-            <p>{viewUserTicket?.requester?.firstName}</p>
-            <p className="text-gray-400">maryjohn@gmail.com</p>
+            <p>{viewUserTicket?.requester?.firstName} {viewUserTicket?.requester?.lastName}</p>
+            {/* <p className="text-gray-400">maryjohn@gmail.com</p> */}
           </div>
           <div>
             <div>
