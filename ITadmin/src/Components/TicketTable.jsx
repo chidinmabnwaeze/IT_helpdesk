@@ -36,10 +36,7 @@ const Tables = ({ status }) => {
     };
   }, [dropdownRef]);
 
-  const handleDisplay = () => {
-    setDisplay(true);
-  };
-  const getData = async () => {
+  const getTickets = async () => {
     try {
       setIsLoading(true);
       const url = "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10";
@@ -52,10 +49,10 @@ const Tables = ({ status }) => {
         // credentials: "include"
       });
 
-      const userData = await response.json();
-      setTickets(userData.data);
+      const TicketData = await response.json();
+      setTickets(TicketData.data);
       setIsLoading(false);
-      console.log(userData);
+      console.log(TicketData);
     } catch (error) {
       setIsLoading(false);
       console.error(error.message);
@@ -63,7 +60,7 @@ const Tables = ({ status }) => {
   };
 
   useEffect(() => {
-    getData(); //you removed void
+    getTickets(); //you removed void
   }, [status]);
 
   const location = useLocation();
@@ -148,9 +145,8 @@ const Tables = ({ status }) => {
               {tickets?.data.map((tabb, index) => (
                 <tr className="rows" key={tabb.id}>
                   <td className="staff-name" id="check">
-                    {/* <div className=""> */}
                     <input type="checkbox" className="mr-3" id="check" />
-                    {/* </div> */}
+
                     <span className="tt">
                       <label htmlFor="check" className="text-black ">
                         {tabb.requester?.firstName} {tabb.requester?.lastName}
@@ -270,7 +266,8 @@ const Tables = ({ status }) => {
                     )}
                   </td> */}
                   <td className="react-select">
-                    <ReactSelect />
+                    <ReactSelect
+                    ticket={tabb} />
                   </td>
                 </tr>
               ))}

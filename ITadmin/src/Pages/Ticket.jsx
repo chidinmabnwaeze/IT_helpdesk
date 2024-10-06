@@ -12,6 +12,7 @@ export default function Ticket({
   isLoading,
   setIsLoading,
   search,
+
 }) {
   const [activeTab, setActiveTab] = useState("All Issues");
   const date = new Date();

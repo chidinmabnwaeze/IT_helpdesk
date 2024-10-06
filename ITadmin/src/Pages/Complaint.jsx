@@ -11,9 +11,11 @@ const Complaint = () => {
   const [buttonText, setbuttonText] = useState("Close case");
   const [message, setMessage] = useState({});
   const [pending, setPending] = useState("")
+  const [buttonHide , setButtonHide] = useState(false)
 
-  // const token = "c93ac70d76804599b78dfcc3f0d46ba8";
-
+//  buttonHide ={
+//   display: "none"
+//  }
   const {auth} = useAuth();
   const token = auth?.sessionID;
 
@@ -99,7 +101,7 @@ const Complaint = () => {
     } catch (error) {
       console.error("Failed to update ticket status", error.message);
     }
-
+setButtonHide(buttonHide === true)
     //   setPending(updatedTicket.data.status);  // Assuming status is returned
     //   console.log(updatedTicket);
     // } catch (error) {
@@ -144,6 +146,7 @@ const Complaint = () => {
               <button
                 className="accept py-1.5 px-5 mr-6 rounded-md"
                 onClick={handlePendingClick}
+                
               >
                 Pending
               </button>

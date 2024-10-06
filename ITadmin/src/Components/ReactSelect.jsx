@@ -3,7 +3,7 @@ import Select from "react-select";
 import { useAuth } from "../auth/AuthContext";
 import { useLocation } from "react-router-dom";
 
-const ReactSelect = () => {
+const ReactSelect = ({ticket}) => {
   const [users, setUsers] = useState([]); // Stored the users here
   const [selectedUser, setSelectedUser] = useState(null); // For the selected user
   const [assigned, setAssigned] = useState({});
@@ -29,7 +29,7 @@ const ReactSelect = () => {
   // Fetch all users when the component mounts
   useEffect(() => {
     const fetchUsers = async () => {
-      const url = `http://142.4.9.152:3000/search-user?u=&page=1&limit=100`; // Adjust limit as needed
+      const url = `http://142.4.9.152:3000/search-user?u=&page=1&limit=10`; // Adjust limit as needed
       try {
         const response = await fetch(url, {
           method: "GET",
@@ -85,7 +85,7 @@ const ReactSelect = () => {
   };
 
   const location = useLocation();
-  const assignedTicketId = location.pathname.split("/").pop();
+//   const assignedTicketId = location.pathname.split("/").pop();
 
   const myHeaders = new Headers({
     Authorization: `${token}`,
@@ -93,7 +93,7 @@ const ReactSelect = () => {
   });
 
   const getAssigned = async (selectedUser) => {
-    const url = `http://142.4.9.152:3000/v1/support-tickets/assign/${assignedTicketId}`;
+    const url = `http://142.4.9.152:3000/v1/support-tickets/assign/${ticket.id}`;
 
     console.log(selectedUser);
     try {
@@ -143,7 +143,9 @@ const ReactSelect = () => {
       
       />
       {activeRow && selectedUser && (
+       
         <button
+        
           ref={dropdownRef}
           disabled={!selectedUser}
           className="assign py-1.5 px-7 mx-3 rounded-md"

@@ -5,27 +5,9 @@ import View from "../Pages.jsx/ViewTickets";
 import TicketTab from "./TicketTab";
 
 const TicketRecord = () => {
-  // const records = [
-  //   {
-  //     title: "Hardware",
-  //     message: "My laptop battery is bad",
-  //     requestDate: "20/8/24",
-  //     solvedDate: "30/8/24",
-  //     status: "Solved",
-  //   },
-  //   {
-  //     title: "Hardware",
-  //     message: "My laptop battery is bad",
-  //     requestDate: "20/8/24",
-  //     solvedDate: "30/8/24",
-  //     status: "Pending",
-  //   },
-  // ];
-
   const [ticketRecord, setTicketRecord] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // const token = "7a7bcd359fd747f6b1831c11cf476b58";
   const {auth} = useAuth();
   const token = auth?.sessionID
 
