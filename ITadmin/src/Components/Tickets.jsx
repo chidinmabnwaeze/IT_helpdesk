@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../auth/AuthContext";
+import Topbar from "./Topbar";
+import Sidebar from "./Sidebar";
+import { Link } from "react-router-dom";
+import ReactSelect from "./ReactSelect";
 
-const Tickets = () => {
+const Tickets = ({ search }) => {
   const [tickets, setTickets] = useState(null);
   const [activeTab, setActiveTab] = useState("All Issues");
-  const [status, setStatus] = useState(null)
+  const [status, setStatus] = useState("Pending");
+  const [isLoading, setIsLoading] = useState(false);
   const date = new Date();
 
   const { auth } = useAuth();
   const token = auth?.sessionID;
+  const url = "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10";
 
   useEffect(() => {
-    const getTickets = async (status) => {
-      const url = "http://142.4.9.152:3000/v1/support-tickets?page=1&limit=10";
+    const getTickets = async () => {
       try {
         setIsLoading(true);
         const response = await fetch(url, {
@@ -33,12 +38,17 @@ const Tickets = () => {
         console.error(error.message);
       }
     };
+    getTickets();
   }, [status]);
+
+  const handleChangeTab = (tab) => {
+    setActiveTab(tab);
+  };
 
   return (
     <main className="ticket">
       <Topbar search={search} />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <section className="ticket-body m-8 p-4 bg-white">
         <div className="top-sect">
           <div>
@@ -143,13 +153,6 @@ const Tickets = () => {
                 ))}
               </tbody>
             </table>
-            {assigned.firstName && (
-              <div className="assigned-handler">
-                <p>
-                  Assigned to: {assigned.firstName} {assigned.lastName}
-                </p>
-              </div>
-            )}
           </div>
         )}
       </div>

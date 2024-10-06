@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
 import Tickets from "./Pages/Ticket";
 import Complaint from "./Pages/Complaint";
+import MyTickets from "./Components/Tickets"
 import Feedbacks from "./Pages/Feedbacks";
 import Chatbot from "./Pages/Chatbot";
 import Api from "./Pages/Api";
@@ -66,6 +67,7 @@ function App({ search }) {
           />
           <Route path="/complaint/:id" element={<Complaint />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/mytickets" element={<MyTickets />} />
           <Route path="/feedbacks" element={<Feedbacks />} />
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
