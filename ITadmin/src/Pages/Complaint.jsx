@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
 import back from "../assets/icons/back-arrow.svg";
-import { Link ,useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Popup from "../Components/Popup";
 import { useAuth } from "../auth/AuthContext";
 
@@ -10,41 +10,38 @@ const Complaint = () => {
   const [buttonPopup, setButtonPopup] = useState(false);
   const [buttonText, setbuttonText] = useState("Close case");
   const [message, setMessage] = useState({});
-  const [pending, setPending] = useState("")
-  const [buttonHide , setButtonHide] = useState(false)
+  const [pending, setPending] = useState("");
+  const [buttonHide, setButtonHide] = useState(false);
 
-//  buttonHide ={
-//   display: "none"
-//  }
-  const {auth} = useAuth();
+  //  buttonHide ={
+  //   display: "none"
+  //  }
+  const { auth } = useAuth();
   const token = auth?.sessionID;
 
   const location = useLocation();
-  const ticketId = location.pathname.split("/").pop()
+  const ticketId = location.pathname.split("/").pop();
 
   const getMessage = async () => {
     try {
-      const url =
-        `http://142.4.9.152:3000/v1/support-tickets/${ticketId}`;
+      const url = `http://142.4.9.152:3000/v1/support-tickets/${ticketId}`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
           Authorization: `${token}`,
           "Content-Type": "application/json",
         },
-        credentials: "include"
+        credentials: "include",
       });
-
 
       const userTicket = await response.json();
       setMessage(userTicket.data);
-      console.log(userTicket);
     } catch (error) {
       console.error(error.message);
     }
   };
   useEffect(() => {
-     getMessage();
+    getMessage();
   }, []);
 
   const handleClick = async () => {
@@ -64,7 +61,7 @@ const Complaint = () => {
       const updatedTicket = await response.json();
       if (updatedTicket && updatedTicket.data && updatedTicket.data.status) {
         setPending(updatedTicket.data.status);
-        alert("Ticket updated succesfully. New status: Closed")
+        alert("Ticket updated succesfully. New status: Closed");
         console.log("Ticket updated:", updatedTicket.data);
       } else {
         console.error("Invalid response format", updatedTicket);
@@ -73,10 +70,9 @@ const Complaint = () => {
       console.error("Failed to update ticket status", error.message);
     }
     setbuttonText(buttonText === "Close case" ? "Case Closed !" : "Close case");
-
   };
 
-   const handlePendingClick = async () => {
+  const handlePendingClick = async () => {
     try {
       const url = `http://142.4.9.152:3000/v1/support-tickets/${ticketId}`;
       const response = await fetch(url, {
@@ -93,7 +89,7 @@ const Complaint = () => {
       const updatedTicket = await response.json();
       if (updatedTicket && updatedTicket.data && updatedTicket.data.status) {
         setPending(updatedTicket.data.status);
-        alert("Ticket updated succesfully. New status: Pending")
+        alert("Ticket updated succesfully. New status: Pending");
         console.log("Ticket updated:", updatedTicket.data);
       } else {
         console.error("Invalid response format", updatedTicket);
@@ -101,12 +97,8 @@ const Complaint = () => {
     } catch (error) {
       console.error("Failed to update ticket status", error.message);
     }
-setButtonHide(buttonHide === true)
-    //   setPending(updatedTicket.data.status);  // Assuming status is returned
-    //   console.log(updatedTicket);
-    // } catch (error) {
-    //   console.error(error.message);
-    // }
+    // setButtonHide(true);
+    // setButtonPopup(true)
   };
 
   return (
@@ -122,43 +114,43 @@ setButtonHide(buttonHide === true)
       <div className="comp-body m-8 p-4 bg-white">
         <Popup trigger={buttonPopup} setTrigger={() => setButtonPopup(false)} />
 
-      
-          <div >
-            <div className="clientName m-4 flex justify-between items-center">
-              <div>
-                <p>{message.requester?.firstName} {message.requester?.lastName}</p>
-                <p className="text-gray-400">{message.id}</p>
-              </div>
-              <div><p>{message.priority}</p></div>
+        <div>
+          <div className="clientName m-4 flex justify-between items-center">
+            <div>
+              <p>
+                {message.requester?.firstName} {message.requester?.lastName}
+              </p>
+              <p className="text-gray-400">{message.id}</p>
             </div>
-            <hr />
-            <div className="textarea m-4">
-              <div>
-                <p className="font-semibold">Issue</p>
-              </div>
-              <div className="complain border p-6 h-80" id="complain">
-                {message.issue}
-             
-              </div>
-            </div>
-
-            <div className="flex justify-end m-4">
-              <button
-                className="accept py-1.5 px-5 mr-6 rounded-md"
-                onClick={handlePendingClick}
-                
-              >
-                Pending
-              </button>
-              <button
-                className={`assign py-1.5 px-5 ml-6 rounded-md ${buttonText === "Case Closed !" ? "clickedButton" : null}`}
-                onClick={handleClick}
-              >
-                {buttonText}
-              </button>
+            <div>
+              <p>{message.priority}</p>
             </div>
           </div>
-      
+          <hr />
+          <div className="textarea m-4">
+            <div>
+              <p className="font-semibold">Issue</p>
+            </div>
+            <div className="complain border p-6 h-80" id="complain">
+              {message.issue}
+            </div>
+          </div>
+
+          <div className="flex justify-end m-4">
+            <button
+              className="accept py-1.5 px-5 mr-6 rounded-md"
+              onClick={handlePendingClick}
+            >
+              Pending
+            </button>
+            <button
+              className={`assign py-1.5 px-5 ml-6 rounded-md ${buttonText === "Case Closed !" ? "clickedButton" : null}`}
+              onClick={handleClick}
+            >
+              {buttonText}
+            </button>
+          </div>
+        </div>
       </div>
       ;
     </div>

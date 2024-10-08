@@ -19,9 +19,9 @@ const data = [
     rv: 35000,
     sv: 45000,
     uvLga: "Abaji",
-    pvLga: "Bwari",
+    pvLga: "Closed",
     rvLga: "Gwagwalada",
-    svLga: "Kuje",
+    svLga: "Pending",
   },
   {
     name: "Tue",
@@ -30,9 +30,9 @@ const data = [
     rv: 30000,
     sv: 42000,
     uvLga: "Abaji",
-    pvLga: "Bwari",
+    pvLga: "Closed",
     rvLga: "Gwagwalada",
-    svLga: "Kuje",
+    svLga: "Pending",
   },
   {
     name: "Wed",
@@ -41,9 +41,9 @@ const data = [
     rv: 20000,
     sv: 38000,
     uvLga: "Abaji",
-    pvLga: "Bwari",
+    pvLga: "Closed",
     rvLga: "Gwagwalada",
-    svLga: "Kuje",
+    svLga: "Pending",
   },
   {
     name: "Thur",
@@ -52,9 +52,9 @@ const data = [
     rv: 33000,
     sv: 47000,
     uvLga: "Abaji",
-    pvLga: "Bwari",
+    pvLga: "Closed",
     rvLga: "Gwagwalada",
-    svLga: "Kuje",
+    svLga: "Pending",
   },
   {
     name: "Fri",
@@ -63,9 +63,9 @@ const data = [
     rv: 28000,
     sv: 36000,
     uvLga: "Abaji",
-    pvLga: "Bwari",
+    pvLga: "Closed",
     rvLga: "Gwagwalada",
-    svLga: "Kuje",
+    svLga: "Pending",
   },
   //   {
   //     name: "Sat",
@@ -108,11 +108,12 @@ const LgaBreakdown = () => {
         return (
           <div className="custom-tooltip bg-white px-10 py-3 -ml-14 -mt-18 z-40 relative rounded-lg shadow-lg font-Urbanist cursor-pointer w-72">
             <p className="label text-h11 font-medium">{label}</p>
-            <p className="text-h12 my-3">Revenue</p>
+            <p className="text-h12 my-3">Tickets</p>
             {payload.map((entry, index) => (
               <div key={`item-${index}`} className="uv font-semibold text-h11 flex justify-between">
                 <p>{entry.payload[`${entry.dataKey}Lga`]}</p>
-                <span>{`₦${entry.value}`}</span>
+                {/* <span>{`₦${entry.value}`}</span> */}
+                <span>{entry.value}</span>
               </div>
             ))}
           </div>

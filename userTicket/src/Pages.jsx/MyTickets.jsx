@@ -1,6 +1,4 @@
 import React from 'react'
-import Tables from '../Components/TicketTable'
-import TicketRecord from '../Components/TicketRecord'
 import Topbar from '../Components/Topbar'
 import Sidebar from '../Components/Sidebar'
 import TicketTab from '../Components/TicketTab'
@@ -11,8 +9,6 @@ const MyTickets = () => {
         <Topbar/>
         <Sidebar/>
         <TicketTab/>
-        {/* <TicketRecord/> */}
-       {/* <Tables/>  */}
 
     </div>
   )

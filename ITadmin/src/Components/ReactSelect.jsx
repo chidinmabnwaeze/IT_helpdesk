@@ -3,13 +3,13 @@ import Select from "react-select";
 import { useAuth } from "../auth/AuthContext";
 import { useLocation } from "react-router-dom";
 
-const ReactSelect = ({ticket}) => {
+const ReactSelect = ({ ticket }) => {
   const [users, setUsers] = useState([]); // Stored the users here
   const [selectedUser, setSelectedUser] = useState(null); // For the selected user
   const [assigned, setAssigned] = useState({});
   const [activeRow, setActiveRow] = useState(null);
-  const { auth } = useAuth();
-  const token = auth?.sessionID;
+  //   const { auth } = useAuth();
+  //   const token = auth?.sessionID;
 
   const dropdownRef = useRef();
 
@@ -26,45 +26,54 @@ const ReactSelect = ({ticket}) => {
     };
   }, [dropdownRef]);
 
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setToken(token);
+    }
+  }, []);
+
   // Fetch all users when the component mounts
   useEffect(() => {
-    const fetchUsers = async () => {
-      const url = `http://142.4.9.152:3000/search-user?u=&page=1&limit=10`; // Adjust limit as needed
-      try {
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            Authorization: `${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+    if (token) {
+      const fetchUsers = async () => {
+        const url = `http://142.4.9.152:3000/search-user?u=&page=1&limit=10`;
+        try {
+          const response = await fetch(url, {
+            method: "GET",
+            headers: {
+              Authorization: `${token}`,
+              "Content-Type": "application/json",
+            },
+          });
 
-        if (!response.ok) {
-          console.error(
-            "Error fetching users:",
-            response.status,
-            response.statusText
-          );
-          return;
+          if (!response.ok) {
+            console.error(
+              "Error fetching users:",
+              response.status,
+              response.statusText
+            );
+            return;
+          }
+
+          const userSearch = await response.json();
+
+          const userOptions = userSearch.data.map((user) => ({
+            value: user.id,
+            label: `${user.firstName} ${user.lastName}`,
+          }));
+
+          setUsers(userOptions);
+        } catch (error) {
+          console.error("Error fetching users:", error.message);
         }
+      };
 
-        const userSearch = await response.json();
-        console.log("Fetched users:", userSearch.data);
-
-        // Map the user data into the format expected by react-select
-        const userOptions = userSearch.data.map((user) => ({
-          value: user.id,
-          label: `${user.firstName} ${user.lastName}`,
-        }));
-
-        setUsers(userOptions); // Set users in state
-      } catch (error) {
-        console.error("Error fetching users:", error.message);
-      }
-    };
-
-    fetchUsers(); // Call the function to fetch users on component mount
-  }, [token]);
+      fetchUsers();
+    }
+  }, [token]); // Only fetch if token exists
 
   // Handle when an option is selected
   const handleSelectChange = (selectedOption) => {
@@ -85,7 +94,7 @@ const ReactSelect = ({ticket}) => {
   };
 
   const location = useLocation();
-//   const assignedTicketId = location.pathname.split("/").pop();
+  //   const assignedTicketId = location.pathname.split("/").pop();
 
   const myHeaders = new Headers({
     Authorization: `${token}`,
@@ -100,7 +109,7 @@ const ReactSelect = ({ticket}) => {
       const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify({
-         handlerId: selectedUser.value,
+          handlerId: selectedUser.value,
           firstName: selectedUser.label.split(" ")[0],
           lastName: selectedUser.label.split(" ")[1],
         }),
@@ -109,25 +118,25 @@ const ReactSelect = ({ticket}) => {
       });
       const assignedUser = await response.json();
       console.log("Sucess response:", assignedUser);
- 
-      // Check if response data and handler exist before accessing
-  if (assignedUser.data && assignedUser.data.handler) {
-    setAssigned({
-      firstName: assignedUser.data.handler.firstName,
-      lastName: assignedUser.data.handler.lastName,
-    });
 
-    alert(
-      `Ticket assigned successfully to ${assignedUser.data.handler?.firstName} ${assignedUser.data.handler.lastName}`
-    );
-  } else {
-    console.error("Error: Invalid response structure", assignedUser);
-    alert("Error assigning the ticket. Please try again.");
-  }
+      // Check if response data and handler exist before accessing
+      if (assignedUser.data && assignedUser.data.handler) {
+        setAssigned({
+          firstName: assignedUser.data.handler.firstName,
+          lastName: assignedUser.data.handler.lastName,
+        });
+
+        alert(
+          `Ticket assigned successfully to ${assignedUser.data.handler?.firstName} ${assignedUser.data.handler.lastName}`
+        );
+      } else {
+        console.error("Error: Invalid response structure", assignedUser);
+        alert("Error assigning the ticket. Please try again.");
+      }
       console.log(assignedUser.data);
     } catch (error) {
       console.error("Error occurred during ticket assignment:", error.message);
-    //   alert(`Ticket assignment failed: ${error.message}`);
+      //   alert(`Ticket assignment failed: ${error.message}`);
     }
   };
 
@@ -140,12 +149,9 @@ const ReactSelect = ({ticket}) => {
         placeholder="Assign"
         isSearchable // Allow searching through the options
         value={selectedUser} // The currently selected option
-      
       />
       {activeRow && selectedUser && (
-       
         <button
-        
           ref={dropdownRef}
           disabled={!selectedUser}
           className="assign py-1.5 px-7 mx-3 rounded-md"
@@ -154,11 +160,6 @@ const ReactSelect = ({ticket}) => {
           Save
         </button>
       )}
-      {/* {selectedUser && (
-        <div>
-          <p>Selected User: {selectedUser.label}</p>
-        </div>
-      )} */}
     </div>
   );
 };

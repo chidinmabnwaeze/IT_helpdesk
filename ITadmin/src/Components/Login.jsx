@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../auth/AuthContext";
 import { useAuth } from "../auth/AuthContext";
-import crater from "../assets/images/crater-logo.svg"
+import crater from "../assets/images/crater-logo.svg";
 
 const Login = () => {
   const { login } = useAuth(); // My login function from the AuthContext
@@ -57,9 +57,8 @@ const Login = () => {
         body: JSON.stringify({
           email: formData.email,
           password: formData.password,
-          
         }),
-        credentials: "include"
+        credentials: "include",
       });
 
       if (!response.ok) {
@@ -76,10 +75,8 @@ const Login = () => {
       };
       login(userData); // Update global session state
 
-      alert("Login Successful");
-
       // Redirect to the dashboard on another port
-      navigate ("/dashboard")
+      navigate("/dashboard");
       // window.location.href = "http://localhost:5178/dashboard";
     } catch (error) {
       setErrors({ form: "Login failed. Please try again." });
@@ -87,13 +84,15 @@ const Login = () => {
     }
   };
 
-
   return (
     <div className="wrapper">
-        <div className="logo">
-            <img src={crater} alt="" />
-        </div>
-        <h1 className="text-center font-semibold m-6 text-2xl text-white"> Admin Login </h1>
+      <div className="logo">
+        <img src={crater} alt="" />
+      </div>
+      <h1 className="text-center font-semibold m-6 text-2xl text-white">
+        {" "}
+        Admin Login{" "}
+      </h1>
       <main className=" form-body">
         <form onSubmit={handleSubmit} className="loginForm w-full">
           <div className="email w-full">
@@ -109,7 +108,9 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
             />
-            {errors.email && <span className="text-red-600">{errors.email}</span>}
+            {errors.email && (
+              <span className="text-red-600">{errors.email}</span>
+            )}
           </div>
           <div className="password w-full">
             <div className="m-2">
@@ -123,7 +124,9 @@ const Login = () => {
               value={formData.password}
               onChange={handleChange}
             />
-            {errors.password && <span className="text-red-600">{errors.password}</span>}
+            {errors.password && (
+              <span className="text-red-600">{errors.password}</span>
+            )}
           </div>
           {/* <div className="password w-full">
             <div className="m-2">
@@ -139,12 +142,15 @@ const Login = () => {
             />
             {errors.confirmPassword && <span>{errors.confirmPassword}</span>}
           </div> */}
-          {errors.form && <div className="error-message text-red-600">{errors.form}</div>}
+          {errors.form && (
+            <div className="error-message text-red-600">{errors.form}</div>
+          )}
           <button
             type="Submit"
             className="submit border p-3 w-full mt-8 bg-green-700 text-white rounded"
-           
-          >Login</button>
+          >
+            Login
+          </button>
         </form>
       </main>
     </div>

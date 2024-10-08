@@ -12,8 +12,9 @@ const Popup = (props) => {
          <button onClick={()=>props.setTrigger(false)} ><img src={close} alt="" /></button>
         </div>
         <div className="message m-8">
-          <p>You have been assigned a new ticket </p>
-          <div className="popupButtons flex justify-center mt-8">
+          <p>Ticket Updated successfully. </p>
+          <p>New status: Pending. </p>
+          {/* <div className="popupButtons flex justify-center mt-8">
             <Link to="/chatbot">
             <button className="accept py-1.5 px-5 mr-6 rounded-md">
               Accept
@@ -22,7 +23,7 @@ const Popup = (props) => {
             <button className="assign py-1.5 px-5 ml-6 rounded-md">
               Reject
             </button>
-          </div>
+          </div> */}
         </div>
         {props.children}
       </div>

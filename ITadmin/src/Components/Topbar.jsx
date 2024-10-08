@@ -5,7 +5,7 @@ import avatar from "../assets/icons/Ellipse 15.png";
 import Popup from "./Popup";
 import Search from "./Search";
 
-export default function Topbar({ handleChange, isChecked ,searchedUsers }) {
+export default function Topbar({ handleChange, isChecked ,searchedUsers, tabb}) {
   const [isDark, setIsDark] = useState(false);
   const [notification, setNotification] = useState(false);
  const [search, setSearch] = useState("")
@@ -29,20 +29,20 @@ export default function Topbar({ handleChange, isChecked ,searchedUsers }) {
          />
         </div>
         <div
-          className="mode pl-5  rounded-lg"
+          className="mode pl-5 rounded-lg cursor-pointer"
           id="check"
           onChange={handleChange}
           checked={isChecked}
         >
           <img
-            className="night bg-gray-100 rounded-full p-0.5"
+            className="night bg-gray-100 rounded-full p-0.5 cursor-pointer"
             src={darkmode}
             alt=""
           />
         </div>
         <div className="notify pl-5" onClick={() => setNotification(true)}>
           <img
-            className="bell  bg-gray-100 rounded-full p-1"
+            className="bell  bg-gray-100 rounded-full p-1 cursor-pointer"
             src={bell}
             alt=""
           />

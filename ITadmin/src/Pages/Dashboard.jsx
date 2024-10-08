@@ -7,7 +7,6 @@ import LineCharts from "../Components/Linecharts";
 import { useAuth } from "../auth/AuthContext";
 
 export default function Dashboard() {
- 
   const feedback = [
     {
       name: "Mary John",
@@ -30,28 +29,7 @@ export default function Dashboard() {
       message: "Thanks for coming to my aid",
     },
   ];
-  const agents = [
-    {
-      name: "James",
-      chatCount: "40 live chats",
-    },
-    {
-      name: "James",
-      chatCount: "40 live chats",
-    },
-    {
-      name: "James",
-      chatCount: "40 live chats",
-    },
-    {
-      name: "Amina",
-      chatCount: "40 live chats",
-    },
-    {
-      name: "James",
-      chatCount: "40 live chats",
-    },
-  ];
+
   const { auth } = useAuth();
   const token = auth?.sessionID;
 
@@ -69,7 +47,6 @@ export default function Dashboard() {
       });
       const dashStats = await response.json();
       setStats(dashStats.data);
-      console.log(dashStats);
     } catch (error) {
       console.error(error.message);
     }

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
-import Tickets from "./Pages/Ticket";
+import Tickets from "./Pages/Tickets";
 import Complaint from "./Pages/Complaint";
-import MyTickets from "./Components/Tickets"
+import MyTickets from "./Pages/Tickets"
 import Feedbacks from "./Pages/Feedbacks";
 import Chatbot from "./Pages/Chatbot";
 import Api from "./Pages/Api";

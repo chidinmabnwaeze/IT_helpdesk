@@ -114,76 +114,12 @@ const CompliantForm = () => {
       <Sidebar />
 
       <div className="form-body m-5 p-2 bg-white">
-        <form
-          action="submit"
-          className=" mx-auto p-5"
-          onSubmit={handleSubmit}
-        >
+        <form action="submit" className=" mx-auto p-5" onSubmit={handleSubmit}>
           <div>
-            {/* <div className="name-container flex w-full">
-              <div className="w-full">
-                <div className="m-2">
-                  <label htmlFor="firstname">First Name</label>
-                </div>
-                <input
-                  id="firstname"
-                  name="firstname"
-                  type="text"
-                  placeholder="Input your first name"
-                  className="p-4 w-full mr-4 border"
-                  required
-                  value={formData.firstname}
-                  onChange={handleChangeMultiple}
-                />
-              </div>
-              <div className="w-full">
-                <div className="m-2">
-                  <label htmlFor="lastname">Last Name</label>
-                </div>
-                <input
-                  id="lastname"
-                  name="lastname"
-                  type="text"
-                  placeholder="Input your last name"
-                  className="p-4 w-full ml-4 border"
-                  required
-                  value={formData.lastname}
-                  onChange={handleChangeMultiple}
-                />
-              </div>
-            </div> 
-            <div className="email w-full">
-              <div className="m-2">
-                <label htmlFor="email">Email Address</label>
-              </div>
-              <input
-                id="email"
-                name="email"
-                type="text"
-                placeholder="Input your email address"
-                className="p-4 w-3/5 border"
-                required
-                value={formData.email}
-                onChange={handleChangeMultiple}
-              />
-            </div>
-            <div className="staffId w-full">
-              <div className="m-2">
-                <label htmlFor="staffId">Staff ID</label>
-              </div>
-              <input
-                name="staffId"
-                type="text"
-                placeholder="Input your staff id"
-                className="p-4 w-3/5 border"
-                required
-                value={formData.staffId}
-                onChange={handleChangeMultiple}
-              />
-            </div>*/}
-
-            <div > 
-              <h1 className="mb-8 text-gray-800 font-semibold">Create a Support Ticket</h1>
+            <div>
+              <h1 className="mb-8 text-gray-800 font-semibold">
+                Create a Support Ticket
+              </h1>
             </div>
             <div className="issue w-3/5">
               <div className="m-2 compliant-area">

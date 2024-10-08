@@ -55,14 +55,14 @@ const [isDark , setIsDark] = useState(false)
         <input type="text" placeholder="Search here..." className="rounded p-1"/>
         </div>
         <div 
-        className="mode pl-5 rounded-lg" 
+        className="mode pl-5 rounded-lg cursor-pointer" 
         id="check"
         onChange={handleChange}
         checked ={isChecked}
         >
           <img className="night bg-gray-100 rounded-full p-0.5"  src={darkmode} alt="" />
         </div>
-        <div className="notify pl-5">
+        <div className="notify pl-5 cursor-pointer">
           <img className="bell  bg-gray-100 rounded-full p-1" src={bell} alt="" />
         </div>
         <div className="flex items-center pl-5">

@@ -30,7 +30,6 @@ body {
   flex-direction: column;
   width: 15%;
   height: 100%;
-
   position: fixed;
   left: 0;
   top: 0;
@@ -46,7 +45,7 @@ body {
   flex-direction: column;
   align-items: left;
   margin-left: 20px;
-  transition: 1s;
+  
 }
 
 .menu li {
@@ -59,15 +58,21 @@ body {
   color: rgb(67, 67, 67);
   font-weight: 450;
   display: flex;
+  transition: 0.5s ease-in-out;
+}
+.menu a:hover{
+  transition: 0.5s ease-out;
 }
 .menu ul :hover {
   background-color: #ebebeb;
   color: #32844b;
+  transition: 0.5s ease-out;
 }
 .menu ul .active {
   background-color: #ebebeb;
   color: #32844b;
   border-left: 3px solid #32844b;
+  transition: 0.5s ease-in-out;
 }
 
 /* .menu ul :active{
@@ -113,6 +118,7 @@ input::placeholder {
 .comp-body,
 .back {
   margin-left: 17%;
+  transition: 0.5s ease-out;
 }
 .tab-list {
   margin: 20px ;
@@ -213,6 +219,7 @@ th {
  .assign:hover {
   background-color: #32844b;
   color: white;
+  transition: 0.3s ease-out;
 }
 .accept{
   background-color: #32844b;
@@ -222,10 +229,12 @@ th {
   background-color: white;
   color: #32844b;
   border: 1px solid #32844b;
+  transition: 0.3s ease-out;
 }
 .assign{
   border: 1px solid #32844b;
   color: #32844b;
+  
 }
 .down {
   border-color: #32844b;
@@ -236,20 +245,28 @@ th {
 .redline{
   background-color: #cd000c;
   height: 0.25rem;
-  width: 60%;
+ width: 0;
+  transition:0.5s width linear ;
 }
 .yellowline{
   background-color: rgb(208, 223, 4);
   height: 0.25rem;
-  width: 40%;
+  width: 0;
+  transition:0.5s width linear ;
 }
 .greenline {
   background-color: #32844b;
   height: 0.25rem;
-  width: 50%;
+  width: 0;
+  transition:0.5s width linear ;
 }
 .page-no {
-  border: 1px solid #434343;
+  border: 1px solid #a7a4a4;
+}
+.page-no:hover, .page:hover{
+  transition:  0.5s ease-out ;
+  color: rgb(160, 159, 159);
+  
 }
 .box1 {
   background-color: #6c60ff;
@@ -317,11 +334,14 @@ cursor: pointer;
   color: #32844b;
   padding: 0 2rem;
   font-weight: 500;
+  transition: 0.3s ease-in border;
 }
 .submit:hover{
 background-color: white;
 border: 1px solid #32844b;
 color: #32844b;
+transition: 0.3s ease-out;
+
 }
 .wrapper{
  background-color: #32844b;
@@ -340,8 +360,28 @@ justify-content: space-between;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-#errors{
-  color: red;
+.tabButtons{
+  margin-right: 24px;
+ 
+}
+
+
+.loader {
+  width: 80px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(farthest-side,#2c2b2b 90%,#0000);
+  background: 
+    var(--_g) 0    50%,
+    var(--_g) 50%  50%,
+    var(--_g) 50%  50%,
+    var(--_g) 100% 50%;
+  background-size: 25% 50%;
+  animation: l12 1s infinite linear;
+}
+@keyframes l12 {
+    33%  {background-position:0   0  ,50% 100%,50%  100%,100% 0}
+    66%  {background-position:50% 0  ,0   100%,100% 100%,50%  0}
+    100% {background-position:50% 50%,0   50% ,100% 50% ,50%  50%}
 }
 
 /* dark mode theme */
