@@ -8,8 +8,8 @@ const TicketRecord = () => {
   const [ticketRecord, setTicketRecord] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const {auth} = useAuth();
-  const token = auth?.sessionID
+  const { auth } = useAuth();
+  const token = auth?.sessionID;
 
   const records = async () => {
     setIsLoading(true);
@@ -27,7 +27,6 @@ const TicketRecord = () => {
       const recordData = await response.json();
       setTicketRecord(recordData.data);
       setIsLoading(false);
-      console.log(recordData);
     } catch (error) {
       setIsLoading(false);
       console.error(error.message);
