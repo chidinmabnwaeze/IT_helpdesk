@@ -72,9 +72,7 @@ const CompliantForm = () => {
       console.log("Response Status:", response.status);
 
       if (!response.ok) {
-        //   throw new Error(`Response status: ${response.status}`);
-        // } else {
-        //   alert("Form submitted successfully!");
+       
         const errorData = await response.json(); // Parse the response body
         console.error("Server Response Error:", errorData);
         throw new Error(

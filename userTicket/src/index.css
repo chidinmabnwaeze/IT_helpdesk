@@ -110,9 +110,9 @@ input::placeholder {
 .dash-body,
 .feed-body,
 .comp-body,
-.back ,
+.back,
 .form-body,
-.tabs{
+.tabs {
   margin-left: 17%;
 }
 .tab-list {
@@ -213,7 +213,7 @@ th {
   background-color: #32844b;
   color: white;
 }
-.accept:hover{
+.accept:hover {
   background-color: white;
   color: #32844b;
 }
@@ -227,13 +227,14 @@ th {
 .greyline {
   background-color: #d9d9d9;
 }
-.greenline, .submit, .log-button{
+.greenline,
+.submit,
+.log-button {
   background-color: #32844b;
 }
-.log-button:hover{
-  background-color: #139939;
- font-size: 0.9rem;
- transition: 0.2s;
+.log-button:hover {
+  transition: 0.3s ease-out;
+  opacity: 0.8;
 }
 .page-no {
   border: 1px solid #434343;
@@ -241,7 +242,7 @@ th {
 .box1 {
   background-color: #6c60ff;
 }
-.activeTab{
+.activeTab {
   margin: 1rem;
   border-bottom: 3px solid #32844b;
   border-radius: 3px;
@@ -249,15 +250,13 @@ th {
   padding: 0 2rem;
   font-weight: 500;
 }
-.submit:hover{
-color:#32844b ;
-transition: 0.5s;
+.submit:hover {
+  color: #32844b;
+  transition: 0.5s;
 }
-.wrapper{
-
- 
+.wrapper {
 }
-.loginForm{
+.loginForm {
   margin: 0 auto;
   height: 100vh;
 }
@@ -282,14 +281,15 @@ transition: 0.5s;
 }
 
 /* mobile-responsive styles */
-@media only screen and (max-width: 900px){
-  .form-body{
+@media only screen and (max-width: 900px) {
+  .form-body {
     display: flex;
-    flex-direction:column;
-    
+    flex-direction: column;
   }
-  .topbar{
+  .topbar {
     display: none;
-
+  }
+  .menu-list p {
+    display: none;
   }
 }
