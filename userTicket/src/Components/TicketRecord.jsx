@@ -7,6 +7,7 @@ import TicketTab from "./TicketTab";
 const TicketRecord = () => {
   const [ticketRecord, setTicketRecord] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState("")
 
   const { auth } = useAuth();
   const token = auth?.sessionID;
@@ -15,7 +16,7 @@ const TicketRecord = () => {
     setIsLoading(true);
     try {
       const url =
-        "http://142.4.9.152:3000/v1/support-tickets/own?page=1&limit=10 ";
+        `http://142.4.9.152:3000/v1/support-tickets/own?page=1&limit=10&status=${status}`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -35,13 +36,11 @@ const TicketRecord = () => {
 
   useEffect(() => {
     void records();
-  }, []);
+  }, [status]);
 
   return (
     <div className="records ">
-      {isLoading && (
-        <h1 className="font-bold text-center m-auto">Loading...</h1>
-      )}
+      {isLoading && <div className="loader m-auto"></div>}
       {!isLoading && (
         <div className="content">
           <div className="list">

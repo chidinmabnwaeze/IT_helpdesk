@@ -5,10 +5,15 @@ import avatar from "../assets/icons/Ellipse 15.png";
 import Popup from "./Popup";
 import Search from "./Search";
 
-export default function Topbar({ handleChange, isChecked ,searchedUsers, tabb}) {
+export default function Topbar({
+  handleChange,
+  isChecked,
+  searchedUsers,
+  avatar,
+}) {
   const [isDark, setIsDark] = useState(false);
   const [notification, setNotification] = useState(false);
- const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
 
   return (
     <div
@@ -22,11 +27,11 @@ export default function Topbar({ handleChange, isChecked ,searchedUsers, tabb}) 
       <Popup trigger={notification} setTrigger={() => setNotification(false)} />
       <div className="rightTopSection flex items-center">
         <div className="searchbar">
-         <Search
-         search ={search}
-         setSearch ={setSearch}
-         searchedUsers ={searchedUsers}
-         />
+          <Search
+            search={search}
+            setSearch={setSearch}
+            searchedUsers={searchedUsers}
+          />
         </div>
         <div
           className="mode pl-5 rounded-lg cursor-pointer"
@@ -42,14 +47,14 @@ export default function Topbar({ handleChange, isChecked ,searchedUsers, tabb}) 
         </div>
         <div className="notify pl-5" onClick={() => setNotification(true)}>
           <img
-            className="bell  bg-gray-100 rounded-full p-1 cursor-pointer"
+            className="bell bg-gray-100 rounded-full p-1 cursor-pointer"
             src={bell}
             alt=""
           />
         </div>
         <div className="flex items-center pl-5">
-          <p>Micheal Offiong</p>
-          <img src={avatar} alt="" />
+          <p>{avatar}</p>
+          <img src={avatar?.avatar} alt="" />
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ import ReactSelect from "../Components/ReactSelect";
 import StatusForm from "../Components/StatusForm";
 import NextPage from "../Components/nextPage";
 
-const Tickets = ({ search }) => {
+const Tickets = ({ search ,tabb}) => {
   const [tickets, setTickets] = useState(null);
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -56,7 +56,9 @@ const Tickets = ({ search }) => {
 
   return (
     <main className="ticket">
-      <Topbar search={search} />
+      <Topbar 
+      search={search}
+      avatar ={tabb} />
       <Sidebar />
       <section className="ticket-body m-8 p-4 bg-white">
         <div className="top-sect">
