@@ -263,23 +263,43 @@ th {
   margin: 0 auto;
   height: 100vh;
 }
+.wrapper {
+  background-color: #32844b;
+  height: 100vh;
+  padding: 2rem;
+}
+.form-body {
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100vh;
+  height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
 .loader {
   width: 80px;
   aspect-ratio: 2;
-  --_g: no-repeat radial-gradient(farthest-side,#2c2b2b 90%,#0000);
-  background: 
-    var(--_g) 0    50%,
-    var(--_g) 50%  50%,
-    var(--_g) 50%  50%,
+  --_g: no-repeat radial-gradient(farthest-side, #2c2b2b 90%, #0000);
+  background: var(--_g) 0 50%, var(--_g) 50% 50%, var(--_g) 50% 50%,
     var(--_g) 100% 50%;
   background-size: 25% 50%;
   animation: l12 1s infinite linear;
 }
 @keyframes l12 {
-    33%  {background-position:0   0  ,50% 100%,50%  100%,100% 0}
-    66%  {background-position:50% 0  ,0   100%,100% 100%,50%  0}
-    100% {background-position:50% 50%,0   50% ,100% 50% ,50%  50%}
+  33% {
+    background-position: 0 0, 50% 100%, 50% 100%, 100% 0;
+  }
+  66% {
+    background-position: 50% 0, 0 100%, 100% 100%, 50% 0;
+  }
+  100% {
+    background-position: 50% 50%, 0 50%, 100% 50%, 50% 50%;
+  }
 }
 
 /* dark mode theme */

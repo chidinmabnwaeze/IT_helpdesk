@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../auth/AuthContext";
 import { useAuth } from "../auth/AuthContext";
+import crater from "../../../ITadmin/src/assets/images/crater-logo.svg";
 
 const Login = () => {
   const { login } = useAuth(); // My login function from the AuthContext
@@ -51,9 +52,8 @@ const Login = () => {
         body: JSON.stringify({
           email: formData.email,
           password: formData.password,
-          
         }),
-        credentials: "include"
+        credentials: "include",
       });
 
       if (!response.ok) {
@@ -72,17 +72,22 @@ const Login = () => {
 
       alert("Login Successful");
 
-      navigate("/form")
+      navigate("/form");
     } catch (error) {
       setErrors({ form: "Login failed. Please try again." });
       console.error("Login Error:", error);
     }
   };
 
-
   return (
     <div className="wrapper mt-10 ">
-      <main className="flex justify-center w-3/5">
+      <div className="logo">
+        <img src={crater} alt="" />
+      </div>
+      <h1 className="text-center font-semibold m-6 text-2xl text-white">
+        User Login
+      </h1>
+      <main className=" form-body flex justify-center w-3/5">
         <form onSubmit={handleSubmit} className="loginForm w-full ">
           <div className="email w-full">
             <div className="m-2">
@@ -97,7 +102,9 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
             />
-            {errors.email && <span>{errors.email}</span>}
+            {errors.email && (
+              <span className="text-red-600">{errors.email}</span>
+            )}
           </div>
           <div className="password w-full">
             <div className="m-2">
@@ -111,12 +118,16 @@ const Login = () => {
               value={formData.password}
               onChange={handleChange}
             />
-            {errors.password && <span>{errors.password}</span>}
+            {errors.password && (
+              <span className="text-red-600">{errors.password}</span>
+            )}
           </div>
-          {errors.form && <div className="error-message">{errors.form}</div>}
+          {errors.form && (
+            <div className="error-message text-red-600">{errors.form}</div>
+          )}
           <input
             type="submit"
-            className="submit border p-2 w-32 mt-4 bg-green-700 text-white rounded hover:bg-white border-green-700"
+            className="submit border p-2 w-full mt-4 bg-green-700 text-white rounded hover:bg-white border-green-700"
           />
         </form>
       </main>
