@@ -162,9 +162,9 @@ th {
   flex-direction: row;
   align-items: center;
 }
-.clockedstatus {
-  /* background-color: rgba(255, 205, 205, 0.33); */
-}
+/* .clockedstatus {
+  background-color: rgba(255, 205, 205, 0.33);
+} */
 .stat {
   color: #cd000c;
   display: flex;

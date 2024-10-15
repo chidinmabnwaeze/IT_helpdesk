@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Topbar from "../Components/Topbar";
 import Sidebar from "../Components/Sidebar";
-import back from "../../../ITadmin/src/assets/icons/back-arrow.svg";
+import back from "../assets/back-arrow.svg";
 import { Link, json, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 
